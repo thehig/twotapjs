@@ -1,15 +1,24 @@
 {
-  "name": "twotap-client",
+  "name": "twotapJS",
   "version": "0.0.0",
-  "description": "",
+  "description": "JS Client for building HTML UI based on TwoTap cart data",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "David Higgins <david@vonbismark.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thehig/twotapjs.git"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
+    "coffee-script": "^1.10.0",
     "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "node-winjs": "0.0.3",
+    "w3c-xmlhttprequest": "^2.1.0"
   }
 }
