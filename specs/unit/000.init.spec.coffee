@@ -36,8 +36,18 @@ describe "Sample.getProduct", ->
 
 	it "should have returned data", -> expect(data).to.not.be.undefined
 	it "should be instance of ProductModel", -> expect(data).to.be.instanceOf(Twotapjs.Models.ProductModel)
-	it "should have a name property", -> expect(data).to.have.property('name')
-	it "should have the name 'Property'", -> expect(data).to.have.property('name', 'Product')
+	it "should have a title property", -> expect(data).to.have.property('title')
+	it "title should contain 'Blue & Red Gnome'", -> expect(data.title).to.contain('Blue & Red Gnome')
+	it "status should be done", -> expect(data).to.have.property('status', 'done')
+
+	describe 'images', ->
+		it "image should contain 'shopify.com'", -> expect(data.image).to.contain('shopify.com')
+		it "has 3 alt-images", -> expect(data.alt_images).to.have.length(3)
+		
+	describe 'urls', ->
+		it "url should contain 'afreakaclothing.com'", -> expect(data.url).to.contain('afreakaclothing.com')
+		it "original_url should contain 'afreakaclothing.com'", -> expect(data.original_url).to.contain('afreakaclothing.com')
+		it "clean_url should contain 'afreakaclothing.com'", -> expect(data.clean_url).to.contain('afreakaclothing.com')
 
 
 
