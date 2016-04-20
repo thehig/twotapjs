@@ -24,5 +24,22 @@ describe "DataProvider service", ->
 	it "should have a Sample property", -> expect(service).to.have.property('Sample')
 	it "with a getProduct property", -> expect(service.Sample).to.have.property('getProduct')
 
+describe "Sample.getProduct", ->
+	data = undefined
+	service = undefined
+	beforeEach (done)->
+		service = new dp.DataProvider()
+		service.Sample.getProduct()
+			.then (product)->
+				data = product[0]
+				done()
+
+	it "should have returned data", -> expect(data).to.not.be.undefined
+	it "should be instance of ProductModel", -> expect(data).to.be.instanceOf(Twotapjs.Models.ProductModel)
+	it "should have a name property", -> expect(data).to.have.property('name')
+	it "should have the name 'Property'", -> expect(data).to.have.property('name', 'Product')
+
+
+
 
 	
