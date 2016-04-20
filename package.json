@@ -27,6 +27,7 @@
     "jshint-stylish": "^2.1.0"
   },
   "dependencies": {
-    "node-winjs": "0.0.3"
+    "node-winjs": "0.0.3",
+    "w3c-xmlhttprequest": "^2.1.0"
   }
 }
