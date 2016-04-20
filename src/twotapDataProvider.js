@@ -1,4 +1,5 @@
 require('./lib/Utilities.js');
+require('./models/ProductModel.js');
 
 WinJS.Namespace.define('Twotapjs', {
 	DataProvider: WinJS.Class.derive(XboxJS.Data.DataProvider,
@@ -6,7 +7,11 @@ WinJS.Namespace.define('Twotapjs', {
 			// You must call the base class constructor to instantiate a DataProvider.
 			this._baseDataProviderConstructor();
 		}, {
-
+			Sample: {
+				DataModel: Twotapjs.Models.ProductModel,
+				getProduct: function() {
+				}
+			},
 		}
 	)
 });
