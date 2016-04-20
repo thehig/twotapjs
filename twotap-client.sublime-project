@@ -18,6 +18,11 @@
 		},
 
 		{
+			"path": "gulp",
+			"file_include_patterns": ["*.js"],
+		},
+
+		{
 			"path": "specs/",
 			"name": "specs",
 			"file_include_patterns": [
