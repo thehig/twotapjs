@@ -6,7 +6,7 @@ module.exports = function() {
 			,distro: './dst'
 		}, 
 		unit: {
-			source: './tests/unit'
+			source: './specs/unit'
 		}, 
 		e2e: {
 			source: './tests/e2e',
