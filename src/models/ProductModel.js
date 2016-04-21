@@ -81,7 +81,7 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			var result = {
 				id: item.shopify_id,
 				variants: item.shopify_variants
-			}
+			};
 
 			return result;
 		}

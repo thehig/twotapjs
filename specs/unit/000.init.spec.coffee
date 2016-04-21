@@ -3,6 +3,7 @@ j = JSON.stringify
 
 dp = require('../src/twotapDataProvider.js')
 expect = require('chai').expect
+fixture = require('./fixtures/product_one.js');
 
 describe "Initially Twotapjs", ->
 	it "Namespace should exist with DataProvider property", -> 
@@ -31,10 +32,11 @@ describe "Sample.getProduct", ->
 	service = undefined
 	beforeEach (done)->
 		service = new dp.DataProvider()
-		service.Sample.getProduct()
+		service.Sample.setProduct(fixture).then ->
+			service.Sample.getProduct()
 			.then (product)->
 				data = product[0]
-				done()
+				done()		
 
 	it "should have returned data", -> expect(data).to.not.be.undefined
 	it "should be instance of ProductModel", -> expect(data).to.be.instanceOf(Twotapjs.Models.ProductModel)

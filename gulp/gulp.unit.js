@@ -29,7 +29,16 @@ gulp.task('unit-coffee', ['unit-clean-temp'], function() {
 		.pipe(gulp.dest(config.base.temp + '/unit'));
 });
 
-gulp.task('unit-mocha', ['unit-coffee', 'source'], function() {
+gulp.task('unit-copy-js', ['unit-clean-temp'], function(){
+	var fixtures = [
+		config.unit.source + '/**/*.js'		
+	];
+
+	return gulp.src(fixtures)
+		.pipe(gulp.dest(config.base.temp + '/unit/'));
+});
+
+gulp.task('unit-mocha', ['unit-coffee', 'unit-copy-js', 'source'], function() {
 	var unitTestFiles = [
 		config.base.temp + "/unit/*.js"
 	];
