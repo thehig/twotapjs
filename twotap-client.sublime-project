@@ -27,6 +27,7 @@
 			"name": "specs",
 			"file_include_patterns": [
 				"*.coffee",
+				"*.js",
 				"*fixture*",
 				// "*.disabled"
 			]
