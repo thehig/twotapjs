@@ -59,7 +59,7 @@ describe "Sample.getProduct", ->
 			beforeEach -> field = data.required_fields[0]
 			
 			it "should be defined", -> expect(field).to.not.be.undefined
-			it "should be instanceOf SelectOneDataModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
+			it "should be instanceOf SelectOneModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
 			it "should have name 'quantity'", -> expect(field).to.have.property('name', 'quantity')
 
 		describe "[1]", ->
@@ -67,10 +67,27 @@ describe "Sample.getProduct", ->
 			beforeEach -> field = data.required_fields[1]
 			
 			it "should be defined", -> expect(field).to.not.be.undefined
-			it "should be instanceOf SelectOneDataModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
+			it "should be instanceOf SelectOneModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
 			it "should have name 'size'", -> expect(field).to.have.property('name', 'size')
+			it "should have 9 size values", -> expect(field.values).to.have.length(9)
 
-			# expect(data.required_fields[1]).to.be.instanceOf(Twotapjs.Models.SelectOneDataModel)
+			describe "value [0]", ->
+				value = undefined
+				beforeEach -> value = field.values[0];
+				it "should be defined", -> expect(value).to.not.be.undefined
+				it "should be instanceOf SelectOneModelOption", -> expect(value).to.be.instanceOf(Twotapjs.Models.SelectOneModelOption)
+
+				it "price '$450.00'", -> expect(value).to.have.property('price', '$450.00')
+				it "image containing 'shopify.com'", -> expect(value.image).to.contain('shopify.com')
+				it "3 alt_images", -> expect(value.alt_images).to.have.length(3)
+				it "value '5-6 years'", -> expect(value).to.have.property('value', '5-6 years')
+				it "text '5-6 years'", -> expect(value).to.have.property('text', '5-6 years')
+				it "empty extra_info", -> expect(value.extra_info).to.have.length(0)
+
+
+
+
+			# expect(data.required_fields[1]).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
 		# it "should have [0] name 'size'", -> expect(data.required_fields[0]).to.have.property('name', 'size')
 		# it "should have [1] name 'quantity'", -> expect(data.required_fields[1]).to.have.property('name', 'quantity')
 
