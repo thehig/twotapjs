@@ -6,7 +6,7 @@ gulp.task('unit', ['unit-mocha']);
 
 gulp.task('unit-clean-temp', function() {
 	var tempUnitFiles = [
-		config.base.temp + "/unit"
+		config.base.temp + "/specs/unit"
 	];
 
 	return require('del')(tempUnitFiles).then(function(paths) {
@@ -26,7 +26,7 @@ gulp.task('unit-coffee', ['unit-clean-temp'], function() {
 		.pipe(sourcemaps.init())
 		.pipe(require('gulp-coffee')().on('error', gutil.log))
 		.pipe(sourcemaps.write('maps'))
-		.pipe(gulp.dest(config.base.temp + '/unit'));
+		.pipe(gulp.dest(config.base.temp + '/specs/unit'));
 });
 
 gulp.task('unit-copy-js', ['unit-clean-temp'], function(){
@@ -35,12 +35,12 @@ gulp.task('unit-copy-js', ['unit-clean-temp'], function(){
 	];
 
 	return gulp.src(fixtures)
-		.pipe(gulp.dest(config.base.temp + '/unit/'));
+		.pipe(gulp.dest(config.base.temp + '/specs/unit/'));
 });
 
 gulp.task('unit-mocha', ['unit-coffee', 'unit-copy-js', 'source'], function() {
 	var unitTestFiles = [
-		config.base.temp + "/unit/*.js"
+		config.base.temp + "/specs/unit/*.js"
 	];
 	
 	return gulp.src(unitTestFiles)
