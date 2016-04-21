@@ -45,6 +45,7 @@ gulp.task('unit-mocha', ['unit-coffee', 'unit-copy-js', 'source'], function() {
 	
 	return gulp.src(unitTestFiles)
 		.pipe(require('gulp-mocha')({
-			bail: true
+			bail: true,
+			timeout: 30 * 1000
 		}));
 });

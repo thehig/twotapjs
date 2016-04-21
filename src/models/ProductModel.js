@@ -62,14 +62,25 @@ WinJS.Namespace.define("Twotapjs.Models", {
 				if(input.input_type && input.input_type === "select-one" && 
 					input.input_name && input.input_name === "SELECT"){
 					// Now we know we have a select-one data type, we know what type of model to create
-					var datamodel = new Twotapjs.Models.SelectOneModel();
-					datamodel.initialize({
+					var inputmodel = new Twotapjs.Models.SelectOneModel();
+					inputmodel.initialize({
 						"name": name,
 						"required_field_values": required_field_values
 					});
-					results.push(datamodel);
-				} else {
-					throw new Error("Unrecognised item type");
+					results.push(inputmodel);
+				} 
+				else if(input.input_type && input.input_type === "text" && 
+					input.input_name && input.input_name === "INPUT"){
+					var textmodel = new Twotapjs.Models.TextModel();
+					textmodel.initialize({
+						"name": name,
+						"required_field_values": required_field_values
+					});
+					results.push(textmodel);
+
+					// console.log("[-] text/INPUT NOT YET SUPPORTED");
+				}else {
+					throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
 				}
 			}
 			

@@ -25,7 +25,7 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			return item.image ? item.image : "";	
 		},
 		alt_images: function(item){
-			return item.alt_images;
+			return item.alt_images ? item.alt_images : [];
 		},
 		value: function(item){
 			return item.value ? item.value : "";
@@ -36,5 +36,8 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		extra_info: function(item){
 			return item.extra_info ? item.extra_info : "";
 		}
+	}),
+	TextModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+
 	})
 });
