@@ -9,6 +9,9 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		image: function(item) {
 			return item.image ? item.image : undefined;
 		},
+		price: function(item) {
+			return item.price ? item.price : "";
+		},
 		alt_images: function(item) {
 			return item.alt_images ? item.alt_images : undefined;
 		},
@@ -23,6 +26,12 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		},
 		status: function(item) {
 			return item.status ? item.status : undefined;
+		},
+		returns: function(item) {
+			return item.returns ? item.returns : undefined;
+		},
+		description: function(item) {
+			return item.description ? item.description : "";
 		},
 		required_fields: function(item){
 			if(!item || !item.required_fields || !item.required_field_names) return [];
@@ -65,6 +74,16 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			}
 			
 			return results;
+		},
+		shopify: function(item){
+			if(!item || !item.shopify_id) return undefined;
+
+			var result = {
+				id: item.shopify_id,
+				variants: item.shopify_variants
+			}
+
+			return result;
 		}
 	})
 });

@@ -41,6 +41,9 @@ describe "Sample.getProduct", ->
 	it "should have a title property", -> expect(data).to.have.property('title')
 	it "title should contain 'Blue & Red Gnome'", -> expect(data.title).to.contain('Blue & Red Gnome')
 	it "status should be done", -> expect(data).to.have.property('status', 'done')
+	it "should have a returns property", -> expect(data).to.have.property('returns')
+	it "description should contain 'comfortable'", -> expect(data.description).to.contain('comfortable')
+	it "price of '$450.00'", -> expect(data).to.have.property('price', '$450.00')
 
 	describe 'images', ->
 		it "image should contain 'shopify.com'", -> expect(data.image).to.contain('shopify.com')
@@ -84,14 +87,17 @@ describe "Sample.getProduct", ->
 				it "text '5-6 years'", -> expect(value).to.have.property('text', '5-6 years')
 				it "empty extra_info", -> expect(value.extra_info).to.have.length(0)
 
+	describe 'shopify ** NO DATAMODEL APPLIED **', ->
+		shopify = undefined
+		beforeEach -> shopify = data.shopify
+		it "should be defined", -> expect(shopify).to.not.be.undefined
+		it "should have id '4618293893'", -> expect(shopify).to.have.property('id', '4618293893')
+		it "should have 9 variants", -> expect(shopify.variants).to.have.length(9)
 
+		describe "variant [0]", ->
+			variant = undefined
+			beforeEach -> variant = shopify.variants[0]
 
+			it "should have variant_id '4618293893'", -> expect(variant).to.have.property('variant_id', '4618293893')
+			it "should have options-size of '5-6 years'", -> expect(variant.options).to.have.property('size', '5-6 years')
 
-			# expect(data.required_fields[1]).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
-		# it "should have [0] name 'size'", -> expect(data.required_fields[0]).to.have.property('name', 'size')
-		# it "should have [1] name 'quantity'", -> expect(data.required_fields[1]).to.have.property('name', 'quantity')
-
-
-
-
-	
