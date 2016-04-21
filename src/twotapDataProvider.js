@@ -1,5 +1,6 @@
 require('./lib/Utilities.js');
 require('./models/ProductModel.js');
+require('./models/SelectOneModel.js');
 
 // Note to self: This should not be here!
 var productOneFixture = require('./fixtures/product_one.js');

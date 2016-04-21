@@ -1,4 +1,6 @@
 l = console.log
+j = JSON.stringify
+
 dp = require('../src/twotapDataProvider.js')
 expect = require('chai').expect
 
@@ -43,11 +45,34 @@ describe "Sample.getProduct", ->
 	describe 'images', ->
 		it "image should contain 'shopify.com'", -> expect(data.image).to.contain('shopify.com')
 		it "has 3 alt-images", -> expect(data.alt_images).to.have.length(3)
-		
+
 	describe 'urls', ->
 		it "url should contain 'afreakaclothing.com'", -> expect(data.url).to.contain('afreakaclothing.com')
 		it "original_url should contain 'afreakaclothing.com'", -> expect(data.original_url).to.contain('afreakaclothing.com')
 		it "clean_url should contain 'afreakaclothing.com'", -> expect(data.clean_url).to.contain('afreakaclothing.com')
+
+	describe 'required fields', ->
+		it "should have length 2", -> expect(data.required_fields).to.have.length(2)
+
+		describe "[0]", ->
+			field = undefined
+			beforeEach -> field = data.required_fields[0]
+			
+			it "should be defined", -> expect(field).to.not.be.undefined
+			it "should be instanceOf SelectOneDataModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
+			it "should have name 'quantity'", -> expect(field).to.have.property('name', 'quantity')
+
+		describe "[1]", ->
+			field = undefined
+			beforeEach -> field = data.required_fields[1]
+			
+			it "should be defined", -> expect(field).to.not.be.undefined
+			it "should be instanceOf SelectOneDataModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
+			it "should have name 'size'", -> expect(field).to.have.property('name', 'size')
+
+			# expect(data.required_fields[1]).to.be.instanceOf(Twotapjs.Models.SelectOneDataModel)
+		# it "should have [0] name 'size'", -> expect(data.required_fields[0]).to.have.property('name', 'size')
+		# it "should have [1] name 'quantity'", -> expect(data.required_fields[1]).to.have.property('name', 'quantity')
 
 
 
