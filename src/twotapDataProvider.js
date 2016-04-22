@@ -3,7 +3,7 @@ require('./models/ProductModel.js');
 require('./models/SelectOneModel.js');
 
 // Note to self: This should not be here!
-var sampleFixture;
+var singleFixture, multipleFixtures;
 
 
 WinJS.Namespace.define('Twotapjs', {
@@ -16,10 +16,17 @@ WinJS.Namespace.define('Twotapjs', {
 				DataModel: Twotapjs.Models.ProductModel,
 				getProduct: function() {
 					// Note: Must return an array
-					return [sampleFixture];
+					return [singleFixture];
 				},
 				setProduct: function(product){
-					sampleFixture = product;
+					singleFixture = product;
+				},
+				getProducts: function() {
+					// Note: Must return an array
+					return multipleFixtures;
+				},
+				setProducts: function(products){
+					multipleFixtures = products;
 				}
 			},
 		}

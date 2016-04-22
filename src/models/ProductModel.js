@@ -79,7 +79,8 @@ WinJS.Namespace.define("Twotapjs.Models", {
 					results.push(textmodel);
 
 					// console.log("[-] text/INPUT NOT YET SUPPORTED");
-				}else {
+				}
+				else {
 					throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
 				}
 			}
