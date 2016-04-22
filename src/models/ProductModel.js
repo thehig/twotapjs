@@ -4,19 +4,23 @@ require('./SelectOneModel.js');
 WinJS.Namespace.define("Twotapjs.Models", {
 	ProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 		title: function(item) {
-			return item.title ? item.title : "";
+			if(!item || !item.title) throw new Error("ProductModel: All products must have 'title'");
+			return item.title;
 		},
-		image: function(item) {
-			return item.image ? item.image : undefined;
+		image: function(item) {			
+			if(!item || !item.image) throw new Error("ProductModel: All products must have 'image'");
+			return item.image;
 		},
 		price: function(item) {
-			return item.price ? item.price : "";
+			if(!item || !item.price) throw new Error("ProductModel: All products must have 'price'");
+			return item.price;
 		},
 		alt_images: function(item) {
 			return item.alt_images ? item.alt_images : undefined;
 		},
 		url: function(item) {
-			return item.url ? item.url : undefined;
+			if(!item || !item.url) throw new Error("ProductModel: All products must have 'url'");
+			return item.url;
 		},
 		original_url: function(item) {
 			return item.original_url ? item.original_url : undefined;
@@ -25,13 +29,16 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			return item.clean_url ? item.clean_url : undefined;
 		},
 		status: function(item) {
-			return item.status ? item.status : undefined;
+			if(!item || !item.status) throw new Error("ProductModel: All products must have 'status'");
+			if(item.status !== 'done') throw new Error("ProductModel: Product status is not 'done'")
+			return item.status;
 		},
 		returns: function(item) {
 			return item.returns ? item.returns : undefined;
 		},
 		description: function(item) {
-			return item.description ? item.description : "";
+			if(!item || !item.description) throw new Error("ProductModel: All products must have 'description'");
+			return item.description;
 		},
 		required_fields: function(item){
 			if(!item || !item.required_fields || !item.required_field_names) return [];
