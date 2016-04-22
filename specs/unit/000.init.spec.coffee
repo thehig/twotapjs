@@ -33,12 +33,13 @@ describe "Sample.getProduct", ->
 	service = undefined
 	beforeEach (done)->
 		service = new dp.DataProvider()
-		service.Sample.setProduct(deepcopy(fixture)).then ->
-			service.Sample.getProduct()
-			.then (product)->
-				data = product[0]
-				done()		
-
+		service.Sample.setProduct(deepcopy(fixture))
+			.then service.Sample.getProduct
+			.then (product)-> data = product[0]
+			.then(
+				() -> done()
+				(err)-> done(err)
+			)
 	it "should have returned data", -> expect(data).to.not.be.undefined
 	it "should be instance of ProductModel", -> expect(data).to.be.instanceOf(Twotapjs.Models.ProductModel)
 	it "should have a title property", -> expect(data).to.have.property('title')

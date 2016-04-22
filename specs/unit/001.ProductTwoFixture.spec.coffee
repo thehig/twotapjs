@@ -7,19 +7,18 @@ expect = require('chai').expect
 deepcopy = require('deepcopy')
 fixture = require('./fixtures/product_two.fixture.js');
 
-describe "Product Two Fixture", ->
+describe "001. Product Two Fixture", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
 		service = new dp.DataProvider()
-		service.Sample.setProduct(deepcopy(fixture)).then(->
-			service.Sample.getProduct()
-			.then (product)->
-				data = product[0]
-				done()
-		).then null, (err)->
-			l(err.stack)
-			done()
+		service.Sample.setProduct(deepcopy(fixture))
+			.then service.Sample.getProduct
+			.then (product)-> data = product[0]
+			.then(
+				() -> done()
+				(err)-> done(err)
+			)
 
 	
 	it "title should contain 'Tis But A Scratch'", -> expect(data.title).to.contain('Tis But A Scratch')
