@@ -37,7 +37,7 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			return item.returns ? item.returns : undefined;
 		},
 		description: function(item) {
-			if(!item || !item.description) throw new Error("ProductModel: All products must have 'description'");
+			if(!item || !item.description) return "";
 			return item.description;
 		},
 		required_fields: function(item){
