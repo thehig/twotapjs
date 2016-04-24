@@ -30,7 +30,7 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		},
 		status: function(item) {
 			if(!item || !item.status) throw new Error("ProductModel: All products must have 'status'");
-			if(item.status !== 'done') throw new Error("ProductModel: Product status is not 'done'")
+			if(item.status !== 'done') throw new Error("ProductModel: Product status is not 'done'");
 			return item.status;
 		},
 		returns: function(item) {

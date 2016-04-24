@@ -41,7 +41,7 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		},
 		text: function(item){
 			if(!item || !item.text) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'text'");
-			return item.text
+			return item.text;
 		},
 		extra_info: function(item){
 			if(!item || item.extra_info === undefined) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'extra_info'");
