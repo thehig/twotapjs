@@ -4,7 +4,8 @@
 		{
 			"path": ".",
 			"file_exclude_patterns": [],
-			"folder_exclude_patterns": ["*"],
+			// "folder_exclude_patterns": ["*"],
+			"folder_include_patterns": ["gulp", "scripts"],
 		}, 
 
 		{
@@ -12,15 +13,15 @@
 			"file_include_patterns": ["*.js"],
 		},
 
-		{
-			"path": "scripts",
-			"file_include_patterns": ["*.js", "*.coffee"],
-		},
+		// {
+		// 	"path": "scripts",
+		// 	"file_include_patterns": ["*.js", "*.coffee"],
+		// },
 
-		{
-			"path": "gulp",
-			"file_include_patterns": ["*.js"],
-		},
+		// {
+		// 	"path": "gulp",
+		// 	"file_include_patterns": ["*.js"],
+		// },
 
 		{
 			"path": "specs/",
