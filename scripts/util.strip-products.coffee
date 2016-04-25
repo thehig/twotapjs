@@ -40,7 +40,7 @@ try
 	output = process.cwd() + '\\' + process.argv[3]
 
 	# Write the result to file
-	fs.writeFile output, j(products), (e) ->		
+	fs.writeFile output, "module.exports=" + j(products), (e) ->		
 		if e					
 			l "[-] Error writing file: " + e
 			process.exit 1
