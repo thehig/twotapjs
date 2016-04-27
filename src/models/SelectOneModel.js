@@ -21,6 +21,23 @@ WinJS.Namespace.define("Twotapjs.Models", {
 				results.push(optionmodel);
 			}
 			return results;
+		},
+		unrecognised: function(item){
+			var originalKeys = Object.keys(item);
+			var recognisedKeys = Object.keys(this);
+			
+			// Add a whitelist of things we don't really care about
+			recognisedKeys = recognisedKeys.concat([
+				'required_field_values'
+			]);
+
+			// Give us the 
+			var unrecognisedKeys = originalKeys.filter(function(n) {
+			    return recognisedKeys.indexOf(n) == -1;
+			});
+
+			if(unrecognisedKeys.length !== 0) throw new Error("SelectOneModel: unrecognised keys in model: " + unrecognisedKeys);
+			return unrecognisedKeys;
 		}
 	}),
 	SelectOneModelOption: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -66,6 +83,11 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			});
 
 			return deps;
+		},
+		unrecognised: function(item){
+			return Twotapjs.Utilities.unrecognised(item, this, "SelectOneModelOption: unrecognised keys in model: ", [
+				'required_field_values'
+				]);
 		}
 	}),
 	TextModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -73,6 +95,11 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			if(!item || !item.name) throw new Error("TextModel: All SelectOneModels must have 'name'");
 
 			return item.name;
+		},
+		unrecognised: function(item){
+			return Twotapjs.Utilities.unrecognised(item, this, "TextModel: unrecognised keys in model: ", [
+				'required_field_values'
+				]);
 		}
 	})
 });
