@@ -107,11 +107,7 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			return result;
 		},
 		unrecognised: function(item){
-			var originalKeys = Object.keys(item);
-			var recognisedKeys = Object.keys(this);
-			
-			// Add a whitelist of things we don't really care about
-			recognisedKeys = recognisedKeys.concat([
+			return Twotapjs.Utilities.unrecognised(item, this, "ProductModel: unrecognised keys in product: ", [
 				'shopify_id',
 				'shopify_variants',
 				'required_field_values',
@@ -121,14 +117,6 @@ WinJS.Namespace.define("Twotapjs.Models", {
 				'pickup_support',
 				'extra_info'
 			]);
-
-			// Give us the 
-			var unrecognisedKeys = originalKeys.filter(function(n) {
-			    return recognisedKeys.indexOf(n) == -1;
-			});
-
-			if(unrecognisedKeys.length !== 0) throw new Error("ProductModel: unrecognised keys in product: " + unrecognisedKeys);
-			return unrecognisedKeys;
 		}
 	})
 });

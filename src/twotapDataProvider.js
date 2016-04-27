@@ -33,5 +33,27 @@ WinJS.Namespace.define('Twotapjs', {
 	)
 });
 
+
+
+WinJS.Namespace.define('Twotapjs.Utilities', {
+	unrecognised: function(source, target, errormessage, whitelist){
+		whitelist = whitelist || [];
+
+		var originalKeys = Object.keys(source);
+		var recognisedKeys = Object.keys(target);
+		
+		// Add a whitelist of things we don't really care about
+		recognisedKeys = recognisedKeys.concat(whitelist);
+
+		// Give us the 
+		var unrecognisedKeys = originalKeys.filter(function(n) {
+		    return recognisedKeys.indexOf(n) == -1;
+		});
+
+		if(unrecognisedKeys.length !== 0) throw new Error(errormessage + unrecognisedKeys);
+		return unrecognisedKeys;
+	}
+});
+
 if (module && module.exports)
 	module.exports = Twotapjs;
