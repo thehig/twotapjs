@@ -8,4 +8,12 @@ module.exports = {
 			return output.concat(all[key]);
 		}, []);
 	}()
+	,'all_products_array': function(){
+		var all = require('require-dir')();
+		return Object.keys(all).reduce(function(output, key){
+			if(key.indexOf('product') > -1)
+				return output.concat(all[key]);
+			return output;
+		}, []);
+	}()
 }

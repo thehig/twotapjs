@@ -12,7 +12,7 @@ describe "005. All Fixtures", ->
 	service = undefined
 	beforeEach (done)->
 		service = new dp.DataProvider()
-		service.Sample.setProducts(deepcopy(fixtures.all_array))
+		service.Sample.setProducts(deepcopy(fixtures.all_products_array))
 			.then service.Sample.getProducts
 			.then (products)-> data = products
 			.then(
@@ -20,5 +20,5 @@ describe "005. All Fixtures", ->
 				(err)-> done(err)
 			)
 
-	it "should have the same number of models as fixtures (" + fixtures.all_array.length + ")", ->
+	it "should have the same number of items after DataProvider (" + fixtures.all_array.length + ")", ->
 		expect(data.length).to.equal(fixtures.all_array.length)
