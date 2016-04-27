@@ -69,6 +69,10 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		}
 	}),
 	TextModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+		name: function(item){
+			if(!item || !item.name) throw new Error("TextModel: All SelectOneModels must have 'name'");
 
+			return item.name;
+		}
 	})
 });

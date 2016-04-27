@@ -1,4 +1,4 @@
-module.exports = [{
+module.exports = {
 	"original_url": "http://6dollarshirts.com/t-shirts/Tis-But-A-Scratch-p-11398.html",
 	"clean_url": "http://6dollarshirts.com/t-shirts/Tis-But-A-Scratch-p-11398.html",
 	"status": "done",
@@ -499,4 +499,4 @@ module.exports = [{
 	"image": "http://6dollarshirts.com/images/P/Tis_But_A_Scratch_NEW_T_SHIRT_white.jpg",
 	"price": "$6.00",
 	"title": "Tis But A Scratch! T-Shirt"
-}]
+}
