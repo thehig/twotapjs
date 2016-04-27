@@ -119,7 +119,8 @@ WinJS.Namespace.define("Twotapjs.Models", {
 				'original_price',
 				'discounted_price',
 				'pickup_support',
-				'extra_info'
+				'extra_info',
+				'_id'
 			]);
 
 			// Give us the 
@@ -129,6 +130,9 @@ WinJS.Namespace.define("Twotapjs.Models", {
 
 			if(unrecognisedKeys.length !== 0) throw new Error("ProductModel: unrecognised keys in product: " + unrecognisedKeys);
 			return unrecognisedKeys;
+		},
+		id: function(item){
+			return item._id;
 		}
 	})
 });
