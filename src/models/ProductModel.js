@@ -23,10 +23,12 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			return item.url;
 		},
 		original_url: function(item) {
-			return item.original_url ? item.original_url : undefined;
+			if(!item || !item.original_url) throw new Error("ProductModel: All products must have 'original_url'");
+			return item.original_url;
 		},
 		clean_url: function(item) {
-			return item.clean_url ? item.clean_url : undefined;
+			if(!item || !item.clean_url) throw new Error("ProductModel: All products must have 'clean_url'");
+			return item.clean_url;
 		},
 		status: function(item) {
 			if(!item || !item.status) throw new Error("ProductModel: All products must have 'status'");
@@ -116,7 +118,8 @@ WinJS.Namespace.define("Twotapjs.Models", {
 				'required_field_names',
 				'original_price',
 				'discounted_price',
-				'pickup_support'
+				'pickup_support',
+				'extra_info'
 			]);
 
 			// Give us the 
