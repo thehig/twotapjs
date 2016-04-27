@@ -20,5 +20,5 @@ describe "005. All Fixtures", ->
 				(err)-> done(err)
 			)
 
-	it "should have the same number of items after DataProvider (" + fixtures.all_array.length + ")", ->
-		expect(data.length).to.equal(fixtures.all_array.length)
+	it "should have the same number of items after DataProvider (" + fixtures.all_products_array.length + ")", ->
+		expect(data.length).to.equal(fixtures.all_products_array.length)
