@@ -46,6 +46,26 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		extra_info: function(item){
 			if(!item || item.extra_info === undefined) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'extra_info'");
 			return item.extra_info;
+		},
+		dep: function(item){
+			if(!item || !item.dep) return undefined;
+			var keys = Object.keys(item.dep);
+			if(!keys || keys.length === 0) return undefined;
+			var deps = [];
+
+			keys.forEach(function(key){
+				var value = item.dep[key];
+				if(!value) throw new Error("SelectOneModelOption: Invalid value for dep: " + key);
+				var inputmodel = new Twotapjs.Models.SelectOneModel();
+
+				inputmodel.initialize({
+						"name": key,
+						"required_field_values": value
+					});
+				deps.push(inputmodel);
+			});
+
+			return deps;
 		}
 	}),
 	TextModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
