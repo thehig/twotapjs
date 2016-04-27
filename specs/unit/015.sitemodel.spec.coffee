@@ -7,13 +7,13 @@ expect = require('chai').expect
 deepcopy = require('deepcopy')
 fixture = require('./fixtures/hugecart.fixture.js');
 
-describe "001. Product Two Fixture", ->
+describe "015. Sites Fixture", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
-		service = new dp.DataProvider()
-		service.Sample.setSite(deepcopy(fixture))
-			.then service.Sample.getSite
+		service = new dp.SampleDataProvider()
+		service.Site.setSites(deepcopy(fixture))
+			.then service.Site.getSites
 			.then (sites)-> data = sites[0]
 			.then(
 				() -> done()
@@ -21,3 +21,5 @@ describe "001. Product Two Fixture", ->
 			)
 
 	
+	it "should have returned data", -> expect(data).to.not.be.undefined
+	it "should be instance of SiteModel", -> expect(data).to.be.instanceOf(Twotapjs.Models.SiteModel)
