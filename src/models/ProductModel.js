@@ -122,5 +122,5 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		id: function(item){
 			return item._id;
 		}
-	}
+	})
 });

@@ -7,7 +7,7 @@ expect = require('chai').expect
 deepcopy = require('deepcopy')
 fixture = require('./fixtures/hugecart.fixture.js');
 
-describe.only "015. Sites Fixture", ->
+describe "015. Sites Fixture", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
