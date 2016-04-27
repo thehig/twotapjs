@@ -11,9 +11,9 @@ describe "005. All Fixtures", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
-		service = new dp.DataProvider()
-		service.Sample.setProducts(deepcopy(fixtures.all_products_array))
-			.then service.Sample.getProducts
+		service = new dp.SampleDataProvider()
+		service.Product.setProducts(deepcopy(fixtures.all_products_array))
+			.then service.Product.getProducts
 			.then (products)-> data = products
 			.then(
 				() -> done()

@@ -10,11 +10,11 @@ describe "Initially Twotapjs", ->
 	it "Namespace should exist with DataProvider property", -> 
 		expect(Twotapjs).to.exist
 		expect(Twotapjs).to.not.be.null
-		expect(Twotapjs).to.have.property('DataProvider')
+		expect(Twotapjs).to.have.property('SampleDataProvider')
 	it "module should exist with DataProvider property", -> 
 		expect(dp).to.exist
 		expect(dp).to.not.be.null
-		expect(dp).to.have.property('DataProvider')
+		expect(dp).to.have.property('SampleDataProvider')
 
 	it ".Models Namespace should exist", -> expect(Twotapjs.Models).to.exist
 	it ".Models.ProductModel should exist", -> expect(Twotapjs.Models.ProductModel).to.exist
@@ -22,19 +22,19 @@ describe "Initially Twotapjs", ->
 describe "DataProvider service", ->
 	service = undefined
 	beforeEach ->
-		service = new dp.DataProvider()
+		service = new dp.SampleDataProvider()
 
 	it "should have initialized", -> expect(service).to.not.be.undefined
-	it "should have a Sample property", -> expect(service).to.have.property('Sample')
-	it "with a getProduct property", -> expect(service.Sample).to.have.property('getProduct')
+	# it "should have a Sample property", -> expect(service).to.have.property('Sample') **No longer needed**
+	it "with a getProduct property", -> expect(service.Product).to.have.property('getProduct')
 
 describe "Sample.getProduct", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
-		service = new dp.DataProvider()
-		service.Sample.setProduct(deepcopy(fixture))
-			.then service.Sample.getProduct
+		service = new dp.SampleDataProvider()
+		service.Product.setProduct(deepcopy(fixture))
+			.then service.Product.getProduct
 			.then (product)-> data = product[0]
 			.then(
 				() -> done()

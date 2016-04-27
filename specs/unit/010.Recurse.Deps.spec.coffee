@@ -11,9 +11,9 @@ describe "010. Recurse Deps", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
-		service = new dp.DataProvider()
-		service.Sample.setProduct(deepcopy(fixture))
-			.then service.Sample.getProduct
+		service = new dp.SampleDataProvider()
+		service.Product.setProduct(deepcopy(fixture))
+			.then service.Product.getProduct
 			.then (products)-> data = products[0]
 			.then(
 				() -> done()
