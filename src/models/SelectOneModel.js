@@ -23,21 +23,9 @@ WinJS.Namespace.define("Twotapjs.Models", {
 			return results;
 		},
 		unrecognised: function(item){
-			var originalKeys = Object.keys(item);
-			var recognisedKeys = Object.keys(this);
-			
-			// Add a whitelist of things we don't really care about
-			recognisedKeys = recognisedKeys.concat([
+			return Twotapjs.Utilities.unrecognised(item, this, "SelectOneModel: unrecognised keys in model: ", [
 				'required_field_values'
-			]);
-
-			// Give us the 
-			var unrecognisedKeys = originalKeys.filter(function(n) {
-			    return recognisedKeys.indexOf(n) == -1;
-			});
-
-			if(unrecognisedKeys.length !== 0) throw new Error("SelectOneModel: unrecognised keys in model: " + unrecognisedKeys);
-			return unrecognisedKeys;
+				]);
 		}
 	}),
 	SelectOneModelOption: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
