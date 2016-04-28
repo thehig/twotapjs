@@ -22,6 +22,7 @@ describe "015. Sites Fixture", ->
 
 	
 	it "should have returned data", -> expect(data).to.not.be.undefined
+	it "should have 23 items", -> expect(data).to.have.length(23)
 	
 	describe "Site[0]", ->
 		site = undefined

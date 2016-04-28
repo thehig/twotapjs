@@ -2,9 +2,9 @@ require('./lib/Utilities.js');
 require('./models/ProductModel.js');
 require('./models/SelectOneModel.js');
 require('./models/SiteModel.js');
-
+require('./models/CartModel.js');
 // Note to self: This should not be here!
-var singleProductFixture, multipleProductFixtures, multipleSiteFixtures;
+var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
 
 WinJS.Namespace.define('Twotapjs', {
@@ -40,6 +40,16 @@ WinJS.Namespace.define('Twotapjs', {
 				},
 				setSites: function(sites) {
 					multipleSiteFixtures = sites;
+				}
+			},
+			Cart:{
+				DataModel: Twotapjs.Models.CartModel,
+				getCart: function() {
+					// Note: Must return an array
+					return [singleCartFixture];
+				},
+				setCart: function(cart) {
+					singleCartFixture = cart;
 				}
 			}
 
