@@ -83,7 +83,8 @@ WinJS.Namespace.define("Twotapjs.Models", {
 		
 		unrecognised: function(item){
 			return Twotapjs.Utilities.unrecognised(item, this, "SiteModel: unrecognised keys in site: ", [
-				'info'
+				'info',
+				'_id'
 			]);
 		}
 	})
