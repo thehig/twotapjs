@@ -68,7 +68,9 @@ WinJS.Namespace.define('Twotapjs', {
 					var tempID = cartID;
 					var baseUrl = "http://callbackcatcher.meteorapp.com/search/body.cart_id=";
 					var requestUrl = baseUrl + (tempID || "");
-					return Twotapjs.Utilities._requestWrapper(requestUrl);
+					return Twotapjs.Utilities._requestWrapper(requestUrl).then(function(results){
+						return results;
+					});
 				}
 			}
 
@@ -107,13 +109,29 @@ WinJS.Namespace.define('Twotapjs.Utilities', {
 			})
 		).then(
 			function httpSuccess(httpResult) {
-
-				if (httpResult.status == 200) {
-					var parsedresponse = JSON.parse(httpResult.responseText);
-					var responseObject = parsedresponse.body;
-
-					return [responseObject];
+				
+				if (httpResult.status != 200) {
+					var err = new Error("Invalid http status");
+					err.httpResult = httpResult;
+					throw err;
 				}
+
+				try{
+					var parsedresponse = JSON.parse(httpResult.responseText);
+				}
+				catch(excp){
+					var err = new Error("Unable to parse responseText");
+					err.httpResult = httpResult;
+					throw err;
+				}
+
+				if (!parsedresponse.body) {
+					var err = new Error("Body not found on parsed repsonse");
+					err.httpResult = httpResult;
+					throw err;
+				}
+
+				return [parsedresponse.body];
 			});
 	}
 });
