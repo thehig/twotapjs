@@ -116,7 +116,8 @@ WinJS.Namespace.define("Twotapjs.Models", {
 				'discounted_price',
 				'pickup_support',
 				'extra_info',
-				'_id'
+				'_id',
+				'source'
 			]);
 		},
 		id: function(item){

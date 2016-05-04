@@ -59,6 +59,7 @@ WinJS.Namespace.define('Twotapjs', {
 		function dataprovider_ctor(baseUrl) {
 			// You must call the base class constructor to instantiate a DataProvider.
 			this._baseDataProviderConstructor();
+			this.Cart.getCart.items = null;
 		}, {
 			Cart: {
 				DataModel: Twotapjs.Models.CartModel,
