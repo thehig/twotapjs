@@ -60,45 +60,12 @@ WinJS.Namespace.define('Twotapjs', {
 			// You must call the base class constructor to instantiate a DataProvider.
 			this._baseDataProviderConstructor();
 		}, {
-			Product: {
-				// 	DataModel: Twotapjs.Models.ProductModel,
-				// 	getProduct: function() {
-				// 		// Note: Must return an array
-				// 		return [singleProductFixture];
-				// 	},
-				// 	setProduct: function(product) {
-				// 		singleProductFixture = product;
-				// 	},
-				// 	getProducts: function() {
-				// 		// Note: Must return an array
-				// 		return multipleProductFixtures;
-				// 	},
-				// 	setProducts: function(products) {
-				// 		multipleProductFixtures = products;
-				// 	}
-				// },
-				// Site: {
-				// 	DataModel: Twotapjs.Models.SiteModel,
-				// 	getSites: function() {
-				// 		// Note: Must return an array
-				// 		return Object.keys(multipleSiteFixtures.sites).map(function(key) {
-				// 			return multipleSiteFixtures.sites[key];
-				// 		});
-				// 	},
-				// 	setSites: function(sites) {
-				// 		multipleSiteFixtures = sites;
-				// 	}
-			},
 			Cart: {
 				DataModel: Twotapjs.Models.CartModel,
-				// getCart: function() {
-				// 	// Note: Must return an array
-				// 	return [singleCartFixture];
-				// },
 
 				getCart: function(cartID) {
 					var tempID = cartID;
-					var baseUrl = "http://callbackcatcher.meteorapp.com/gethit/";
+					var baseUrl = "http://callbackcatcher.meteorapp.com/search/body.cart_id=";
 					var requestUrl = baseUrl + (tempID || "");
 					return Twotapjs.Utilities._requestWrapper(requestUrl);
 				}

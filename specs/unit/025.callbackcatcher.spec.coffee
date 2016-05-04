@@ -5,26 +5,28 @@ p = (item) -> l(j(item, null, 4))
 dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
 deepcopy = require('deepcopy')
-fixture = require('./fixtures/hugecart.fixture.js');
 
-describe.only "025. CallbackCatcher Passthrough", ->
+describe "025. CallbackCatcher Passthrough", ->
+	source = undefined
 	data = undefined
 	service = undefined
-	beforeEach (done)->
+
+	before (done)->
 		service = new dp.CallBackCatcherDataProvider()
-		service.Cart.getCart("6nkxSkBNjhTP2EQfg")
-			.then (cart)->
-				# console.log(JSON.stringify(cart))
-				data = cart[0]
+		service.Cart.getCart("570cd91ff9ffdedc6ccbac10")
+			.then (cart)-> source = cart[0]
 			.then(
 				() -> done()
 				(err)-> done(err)
 			)
+
+	beforeEach ()-> data = deepcopy(source)
+
 	it "should have returned data", -> expect(data).to.not.be.undefined
 	it "should be instance of CartModel", -> expect(data).to.be.instanceOf(Twotapjs.Models.CartModel)
 	
 	it "user_id of 'undefined'", -> expect(data).to.have.property("user_id", undefined)
-	it "cart_id of '570ce8fcad50615523c511d2'", -> expect(data).to.have.property("cart_id", "570ce8fcad50615523c511d2")
+	it "cart_id of '570cd91ff9ffdedc6ccbac10'", -> expect(data).to.have.property("cart_id", "570cd91ff9ffdedc6ccbac10")
 	it "country of 'us'", -> expect(data).to.have.property("country", "us")
 	it "message of 'done'", -> expect(data).to.have.property("message", "done")
 	it "description containing 'AddToCart has been completed'", -> expect(data.description).to.contain("AddToCart has been completed")
