@@ -7,7 +7,7 @@ expect = require('chai').expect
 deepcopy = require('deepcopy')
 fixture = require('./fixtures/hugecart.fixture.js');
 
-describe.only "025. CallbackCatcher Passthrough", ->
+describe "025. CallbackCatcher Passthrough", ->
 	source = undefined
 	service = new dp.CallBackCatcherDataProvider()
 

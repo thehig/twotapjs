@@ -111,24 +111,24 @@ WinJS.Namespace.define('Twotapjs.Utilities', {
 			function httpSuccess(httpResult) {
 				
 				if (httpResult.status != 200) {
-					var err = new Error("Invalid http status");
-					err.httpResult = httpResult;
-					throw err;
+					var statuserr = new Error("Invalid http status");
+					statuserr.httpResult = httpResult;
+					throw statuserr;
 				}
-
+				var parsedresponse;
 				try{
-					var parsedresponse = JSON.parse(httpResult.responseText);
+					 parsedresponse = JSON.parse(httpResult.responseText);
 				}
 				catch(excp){
-					var err = new Error("Unable to parse responseText");
-					err.httpResult = httpResult;
-					throw err;
+					var parseerr = new Error("Unable to parse responseText");
+					parseerr.httpResult = httpResult;
+					throw parseerr;
 				}
 
 				if (!parsedresponse.body) {
-					var err = new Error("Body not found on parsed repsonse");
-					err.httpResult = httpResult;
-					throw err;
+					var bodyerr = new Error("Body not found on parsed repsonse");
+					bodyerr.httpResult = httpResult;
+					throw bodyerr;
 				}
 
 				return [parsedresponse.body];
