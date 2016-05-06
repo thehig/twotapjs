@@ -1,5 +1,7 @@
-require('../lib/Utilities.js');
-require('./SelectOneModel.js');
+if (typeof module != 'undefined' && module.exports) {
+	require('../lib/Utilities.js');
+	require('./SelectOneModel.js');
+}
 
 WinJS.Namespace.define("Twotapjs.Models", {
 	ProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {

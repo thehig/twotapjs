@@ -1,8 +1,11 @@
-require('./lib/Utilities.js');
-require('./models/ProductModel.js');
-require('./models/SelectOneModel.js');
-require('./models/SiteModel.js');
-require('./models/CartModel.js');
+if (typeof module != 'undefined' && module.exports) {
+	require('./lib/Utilities.js');
+	require('./models/ProductModel.js');
+	require('./models/SelectOneModel.js');
+	require('./models/SiteModel.js');
+	require('./models/CartModel.js');
+}
+
 // Note to self: This should not be here!
 var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -136,5 +139,6 @@ WinJS.Namespace.define('Twotapjs.Utilities', {
 	}
 });
 
-if (module && module.exports)
+if (typeof module != 'undefined' && module.exports) {
 	module.exports = Twotapjs;
+}

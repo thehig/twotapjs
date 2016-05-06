@@ -1,4 +1,6 @@
-require('../lib/Utilities.js');
+if (typeof module != 'undefined' && module.exports) {
+	require('../lib/Utilities.js');
+}
 
 WinJS.Namespace.define("Twotapjs.Models", {
 	CartModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
