@@ -3,228 +3,230 @@ if (typeof module != 'undefined' && module.exports) {
 	require('./SelectOneModel.js');
 }
 
-WinJS.Namespace.define("Twotapjs.Models", {
-	ProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
-		title: function(item) {
-			if(!item || !item.title) throw new Error("ProductModel: All products must have 'title'");
-			return item.title;
-		},
-		image: function(item) {			
-			if(!item || !item.image) throw new Error("ProductModel: All products must have 'image'");
-			return item.image;
-		},
-		price: function(item) {
-			if(!item || !item.price) throw new Error("ProductModel: All products must have 'price'");
-			return item.price;
-		},
-		alt_images: function(item) {
-			return item.alt_images ? item.alt_images : undefined;
-		},
-		url: function(item) {
-			if(!item || !item.url) throw new Error("ProductModel: All products must have 'url'");
-			return item.url;
-		},
-		original_url: function(item) {
-			if(!item || !item.original_url) throw new Error("ProductModel: All products must have 'original_url'");
-			return item.original_url;
-		},
-		clean_url: function(item) {
-			if(!item || !item.clean_url) throw new Error("ProductModel: All products must have 'clean_url'");
-			return item.clean_url;
-		},
-		status: function(item) {
-			if(!item || !item.status) throw new Error("ProductModel: All products must have 'status'");
-			if(item.status !== 'done') throw new Error("ProductModel: Product status is not 'done'");
-			return item.status;
-		},
-		returns: function(item) {
-			return item.returns ? item.returns : undefined;
-		},
-		description: function(item) {
-			if(!item || !item.description) return "";
-			return item.description;
-		},
-		required_fields: function(item){
-			if(!item || !item.required_fields || !item.required_field_names) return [];
 
-			var results = [];
+(function productModelInit() {
+	console.log('[+] Twotap Product Model 0.0.0');
 
-			// Separate the required fields object
-			for(var i = 0; i < item.required_field_names.length; i++){
-				var name = item.required_field_names[i];
-				if(!name) break;
-				var required_field = item.required_fields[name];
-				if(!required_field || !required_field.data) break;
+	WinJS.Namespace.define("Twotapjs.Models", {
+		ProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+			title: function(item) {
+				if (!item || !item.title) throw new Error("ProductModel: All products must have 'title'");
+				return item.title;
+			},
+			image: function(item) {
+				if (!item || !item.image) throw new Error("ProductModel: All products must have 'image'");
+				return item.image;
+			},
+			price: function(item) {
+				if (!item || !item.price) throw new Error("ProductModel: All products must have 'price'");
+				return item.price;
+			},
+			alt_images: function(item) {
+				return item.alt_images ? item.alt_images : undefined;
+			},
+			url: function(item) {
+				if (!item || !item.url) throw new Error("ProductModel: All products must have 'url'");
+				return item.url;
+			},
+			original_url: function(item) {
+				if (!item || !item.original_url) throw new Error("ProductModel: All products must have 'original_url'");
+				return item.original_url;
+			},
+			clean_url: function(item) {
+				if (!item || !item.clean_url) throw new Error("ProductModel: All products must have 'clean_url'");
+				return item.clean_url;
+			},
+			status: function(item) {
+				if (!item || !item.status) throw new Error("ProductModel: All products must have 'status'");
+				if (item.status !== 'done') throw new Error("ProductModel: Product status is not 'done'");
+				return item.status;
+			},
+			returns: function(item) {
+				return item.returns ? item.returns : undefined;
+			},
+			description: function(item) {
+				if (!item || !item.description) return "";
+				return item.description;
+			},
+			required_fields: function(item) {
+				if (!item || !item.required_fields || !item.required_field_names) return [];
 
-				// required field is now 
-				// {
-				// 	"data": [{
-				// 		"input_type": "select-one",
-				// 		"input_name": "SELECT"
-				// 	}]
-				// }
+				var results = [];
 
-				// Note: In the case of quantity, this will be undefined
-				var required_field_values = item.required_field_values[name];
+				// Separate the required fields object
+				for (var i = 0; i < item.required_field_names.length; i++) {
+					var name = item.required_field_names[i];
+					if (!name) break;
+					var required_field = item.required_fields[name];
+					if (!required_field || !required_field.data) break;
 
-				var input = required_field.data[0];
-				if(!input) break;
+					// required field is now 
+					// {
+					// 	"data": [{
+					// 		"input_type": "select-one",
+					// 		"input_name": "SELECT"
+					// 	}]
+					// }
 
-				if(input.input_type && input.input_type === "select-one" && 
-					input.input_name && input.input_name === "SELECT"){
-					// Now we know we have a select-one data type, we know what type of model to create
-					var inputmodel = new Twotapjs.Models.SelectOneModel();
-					inputmodel.initialize({
-						"name": name,
-						"required_field_values": required_field_values
-					});
-					results.push(inputmodel);
-				} 
-				else if(input.input_type && input.input_type === "text" && 
-					input.input_name && input.input_name === "INPUT"){
-					var textmodel = new Twotapjs.Models.TextModel();
-					textmodel.initialize({
-						"name": name,
-						"required_field_values": required_field_values
-					});
-					results.push(textmodel);
+					// Note: In the case of quantity, this will be undefined
+					var required_field_values = item.required_field_values[name];
 
-					// console.log("[-] text/INPUT NOT YET SUPPORTED");
+					var input = required_field.data[0];
+					if (!input) break;
+
+					if (input.input_type && input.input_type === "select-one" &&
+						input.input_name && input.input_name === "SELECT") {
+						// Now we know we have a select-one data type, we know what type of model to create
+						var inputmodel = new Twotapjs.Models.SelectOneModel();
+						inputmodel.initialize({
+							"name": name,
+							"required_field_values": required_field_values
+						});
+						results.push(inputmodel);
+					} else if (input.input_type && input.input_type === "text" &&
+						input.input_name && input.input_name === "INPUT") {
+						var textmodel = new Twotapjs.Models.TextModel();
+						textmodel.initialize({
+							"name": name,
+							"required_field_values": required_field_values
+						});
+						results.push(textmodel);
+
+						// console.log("[-] text/INPUT NOT YET SUPPORTED");
+					} else {
+						throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
+					}
 				}
-				else {
-					throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
-				}
+
+				return results;
+			},
+			shopify: function(item) {
+				if (!item || !item.shopify_id) return undefined;
+
+				var result = {
+					id: item.shopify_id,
+					variants: item.shopify_variants
+				};
+
+				return result;
+			},
+			unrecognised: function(item) {
+				return Twotapjs.Utilities.unrecognised(item, this, "ProductModel: unrecognised keys in product: ", [
+					'shopify_id',
+					'shopify_variants',
+					'required_field_values',
+					'required_field_names',
+					'original_price',
+					'discounted_price',
+					'pickup_support',
+					'extra_info',
+					'_id',
+					'source'
+				]);
+			},
+			id: function(item) {
+				return item._id;
 			}
-			
-			return results;
-		},
-		shopify: function(item){
-			if(!item || !item.shopify_id) return undefined;
+		}),
+		FailedProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+			title: function(item) {
+				return item.title ? item.title : "";
+			},
+			price: function(item) {
+				return item.price ? item.price : undefined;
+			},
+			url: function(item) {
+				if (!item || !item.url) throw new Error("FailedProductModel: All failed products must have 'url'");
+				return item.url;
+			},
+			original_url: function(item) {
+				if (!item || !item.original_url) throw new Error("FailedProductModel: All failed products must have 'original_url'");
+				return item.original_url;
+			},
+			clean_url: function(item) {
+				if (!item || !item.clean_url) throw new Error("FailedProductModel: All failed products must have 'clean_url'");
+				return item.clean_url;
+			},
+			status: function(item) {
+				if (!item || !item.status) throw new Error("FailedProductModel: All failed products must have 'status'");
+				return item.status;
+			},
+			description: function(item) {
+				if (!item || !item.description) return "";
+				return item.description;
+			},
+			image: function(item) {
+				return item.image ? item.image : undefined;
+			},
+			id: function(item) {
+				return item._id;
+			},
 
-			var result = {
-				id: item.shopify_id,
-				variants: item.shopify_variants
-			};
+			required_fields: function(item) {
+				if (!item || !item.required_fields || !item.required_field_names) return [];
 
-			return result;
-		},
-		unrecognised: function(item){
-			return Twotapjs.Utilities.unrecognised(item, this, "ProductModel: unrecognised keys in product: ", [
-				'shopify_id',
-				'shopify_variants',
-				'required_field_values',
-				'required_field_names',
-				'original_price',
-				'discounted_price',
-				'pickup_support',
-				'extra_info',
-				'_id',
-				'source'
-			]);
-		},
-		id: function(item){
-			return item._id;
-		}
-	}),
-	FailedProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
-		title: function(item){
-			return item.title ? item.title : "";
-		},
-		price: function(item){
-			return item.price ? item.price : undefined;	
-		},
-		url: function(item) {
-			if(!item || !item.url) throw new Error("FailedProductModel: All failed products must have 'url'");
-			return item.url;
-		},
-		original_url: function(item) {
-			if(!item || !item.original_url) throw new Error("FailedProductModel: All failed products must have 'original_url'");
-			return item.original_url;
-		},
-		clean_url: function(item) {
-			if(!item || !item.clean_url) throw new Error("FailedProductModel: All failed products must have 'clean_url'");
-			return item.clean_url;
-		},
-		status: function(item) {
-			if(!item || !item.status) throw new Error("FailedProductModel: All failed products must have 'status'");
-			return item.status;
-		},
-		description: function(item) {
-			if(!item || !item.description) return "";
-			return item.description;
-		},
-		image: function(item) {
-			return item.image ? item.image : undefined;
-		},
-		id: function(item){
-			return item._id;
-		},
+				var results = [];
 
-		required_fields: function(item){
-			if(!item || !item.required_fields || !item.required_field_names) return [];
+				// Separate the required fields object
+				for (var i = 0; i < item.required_field_names.length; i++) {
+					var name = item.required_field_names[i];
+					if (!name) break;
+					var required_field = item.required_fields[name];
+					if (!required_field || !required_field.data) break;
 
-			var results = [];
+					// required field is now 
+					// {
+					// 	"data": [{
+					// 		"input_type": "select-one",
+					// 		"input_name": "SELECT"
+					// 	}]
+					// }
 
-			// Separate the required fields object
-			for(var i = 0; i < item.required_field_names.length; i++){
-				var name = item.required_field_names[i];
-				if(!name) break;
-				var required_field = item.required_fields[name];
-				if(!required_field || !required_field.data) break;
+					// Note: In the case of quantity, this will be undefined
+					var required_field_values = item.required_field_values[name];
 
-				// required field is now 
-				// {
-				// 	"data": [{
-				// 		"input_type": "select-one",
-				// 		"input_name": "SELECT"
-				// 	}]
-				// }
+					var input = required_field.data[0];
+					if (!input) break;
 
-				// Note: In the case of quantity, this will be undefined
-				var required_field_values = item.required_field_values[name];
+					if (input.input_type && input.input_type === "select-one" &&
+						input.input_name && input.input_name === "SELECT") {
+						// Now we know we have a select-one data type, we know what type of model to create
+						var inputmodel = new Twotapjs.Models.SelectOneModel();
+						inputmodel.initialize({
+							"name": name,
+							"required_field_values": required_field_values
+						});
+						results.push(inputmodel);
+					} else if (input.input_type && input.input_type === "text" &&
+						input.input_name && input.input_name === "INPUT") {
+						var textmodel = new Twotapjs.Models.TextModel();
+						textmodel.initialize({
+							"name": name,
+							"required_field_values": required_field_values
+						});
+						results.push(textmodel);
 
-				var input = required_field.data[0];
-				if(!input) break;
-
-				if(input.input_type && input.input_type === "select-one" && 
-					input.input_name && input.input_name === "SELECT"){
-					// Now we know we have a select-one data type, we know what type of model to create
-					var inputmodel = new Twotapjs.Models.SelectOneModel();
-					inputmodel.initialize({
-						"name": name,
-						"required_field_values": required_field_values
-					});
-					results.push(inputmodel);
-				} 
-				else if(input.input_type && input.input_type === "text" && 
-					input.input_name && input.input_name === "INPUT"){
-					var textmodel = new Twotapjs.Models.TextModel();
-					textmodel.initialize({
-						"name": name,
-						"required_field_values": required_field_values
-					});
-					results.push(textmodel);
-
-					// console.log("[-] text/INPUT NOT YET SUPPORTED");
+						// console.log("[-] text/INPUT NOT YET SUPPORTED");
+					} else {
+						throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
+					}
 				}
-				else {
-					throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
-				}
+
+				return results;
+			},
+			unrecognised: function(item) {
+				// required_fields,discounted_price,original_price,pickup_support,required_field_values,required_field_names
+				return Twotapjs.Utilities.unrecognised(item, this, "FailedProductModel: unrecognised keys in product: ", [
+					'_id',
+					'required_field_names',
+					'required_field_values',
+					'original_price',
+					'discounted_price',
+					'pickup_support',
+					'alt_images'
+				]);
 			}
-			
-			return results;
-		},
-		unrecognised: function(item){
-			// required_fields,discounted_price,original_price,pickup_support,required_field_values,required_field_names
-			return Twotapjs.Utilities.unrecognised(item, this, "FailedProductModel: unrecognised keys in product: ", [
-				'_id',
-				'required_field_names',
-				'required_field_values',
-				'original_price',
-				'discounted_price',
-				'pickup_support',
-				'alt_images'
-			]);
-		}
-	})
-});
+		})
+	});
+
+})();
