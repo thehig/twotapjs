@@ -4,7 +4,8 @@
 		{
 			"path": ".",
 			"file_exclude_patterns": [],
-			"folder_exclude_patterns": ["*"],
+			// "folder_exclude_patterns": ["*"],
+			"folder_include_patterns": ["gulp","scripts"],
 		}, 
 
 		{
@@ -17,11 +18,17 @@
 			"file_include_patterns": ["*.js", "*.coffee"],
 		},
 
+		// {
+		// 	"path": "gulp",
+		// 	"file_include_patterns": ["*.js"],
+		// },
+
 		{
 			"path": "specs/",
 			"name": "specs",
 			"file_include_patterns": [
 				"*.coffee",
+				"*.js",
 				"*fixture*",
 				// "*.disabled"
 			]
