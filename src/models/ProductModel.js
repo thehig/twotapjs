@@ -121,7 +121,9 @@ if (typeof module != 'undefined' && module.exports) {
 					'pickup_support',
 					'extra_info',
 					'_id',
-					'source'
+					'source',
+                    'weight',
+                    'categories'
 				]);
 			},
 			id: function(item) {
@@ -223,7 +225,8 @@ if (typeof module != 'undefined' && module.exports) {
 					'original_price',
 					'discounted_price',
 					'pickup_support',
-					'alt_images'
+					'alt_images',
+                    'raw'
 				]);
 			}
 		})

@@ -80,7 +80,7 @@ if (typeof module != 'undefined' && module.exports) {
 			},
 			unrecognised: function(item) {
 				return Twotapjs.Utilities.unrecognised(item, this, "SelectOneModelOption: unrecognised keys in model: ", [
-					'required_field_values'
+					'required_field_values', 'weight'
 				]);
 			}
 		}),
