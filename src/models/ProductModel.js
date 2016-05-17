@@ -226,7 +226,8 @@ if (typeof module != 'undefined' && module.exports) {
 					'discounted_price',
 					'pickup_support',
 					'alt_images',
-                    'raw'
+                    'raw',
+                    'categories'
 				]);
 			}
 		})
