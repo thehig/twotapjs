@@ -73,14 +73,9 @@ if (typeof module != 'undefined' && module.exports) {
 						var tempID = cartID;
 						var baseUrl = "http://callbackcatcher.meteorapp.com/search/body.cart_id=";
 						var requestUrl = baseUrl + (tempID || "");
-						return Twotapjs.Utilities._requestWrapper(requestUrl)
-						.then(Twotapjs.Utilities.processRequiredFields)
-						.then(function(results) {
-							return results;
-						});
+						return Twotapjs.Utilities._requestWrapper(requestUrl);
 					}
 				}
-
 			}
 		)
 	});
@@ -140,8 +135,83 @@ if (typeof module != 'undefined' && module.exports) {
 					return [parsedresponse.body];
 				});
 		},
-		processRequiredFields: function(cart){
-			return cart;
+		processRequiredFields: function(product){
+			var verbose = false;
+			// Bindings will contain the list of populated datas
+			product.bindings = [];
+
+			// Iterate through the current products required fields
+			for(var i = 0; i < product.required_fields.length; i++){
+				var selectOneModel = product.required_fields[i];
+				// If this required_field has values, push it into the bindings list and we're done
+				if(selectOneModel.values && selectOneModel.values.length > 0){
+					product.bindings.push(selectOneModel);
+					continue;					
+				} else if (selectOneModel.name === 'quantity') {
+					// If this required_field has name 'quantity', we don't care about its values, so we push it into the bindings list and we're done
+					product.bindings.push(selectOneModel);
+					continue;
+				}
+
+				// At this point, we know we do not have any values, and the name is not quantity
+				if(verbose) console.log("No values found for " + selectOneModel.name);
+				var deps = [];
+
+				// Go through all the previously processed binding lists
+				for(var j = 0; j < product.bindings.length; j++){
+					var previousModel = product.bindings[j];
+					if(verbose) console.log("\tSearching " + previousModel.name);
+
+					// Iterate through the values of the previous binding item
+					for(var k = 0; k < previousModel.values.length; k++){
+						var value = previousModel.values[k];
+						if(verbose) console.log("\t\tSearching " + value.text);
+
+						// If there are no deps, it's definitely not this one but we're not done searching so we want to continue the for loop
+						if(!value.dep) continue;
+
+						// Iterate through the deps on the value
+						for(var m = 0; m < value.dep.length; m++){
+							var dep = value.dep[m];
+							// If this dep has the same name as the selectOneModel we were looking for, we have successfully found one instance
+							if(dep.name === selectOneModel.name){
+								deps.push(dep);
+							}
+						}						
+					}
+				}
+
+				// We have now iterated through all the previous binding lists and have pulled out all the instances of the selectOneModel
+				if(verbose) console.log("\tOccurences of " + selectOneModel.name + " : " + deps.length);
+
+				// These objects however, are the SelectOneModels and not the SelectOneModelOptions, so we join them all together
+				var allDeps = deps.reduce(function(previous, current){
+					return previous.concat(current.values);
+				}, []);
+
+				if(verbose) console.log("\tAll Deps Length " + allDeps.length);
+
+				var uniqueBy = function(arr, fn) {
+				  var unique = {};
+				  var distinct = [];
+				  arr.forEach(function (x) {
+				    var key = fn(x);
+				    if (!unique[key]) {
+				      distinct.push(x);
+				      unique[key] = true;
+				    }
+				  });
+				  return distinct;
+				};
+
+				// Since we can have many copies of the same name (eg: Size: Medium), we only want to display the unique names to the user in the list
+				var uniqueDeps = uniqueBy(allDeps, function(x){return x.text;});
+				if(verbose) console.log("\tUnique Deps Length " + uniqueDeps.length);
+
+				// Since the selectOneModel we're editing here is a reference to the SelectOneModel DataModel, and is passed by ref, inserting values here actually modifies the SelectOneModel in required_fields as well
+				selectOneModel.values = uniqueDeps;
+				product.bindings.push(selectOneModel);
+			}
 		}
 	});
 
