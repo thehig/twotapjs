@@ -73,7 +73,9 @@ if (typeof module != 'undefined' && module.exports) {
 						var tempID = cartID;
 						var baseUrl = "http://callbackcatcher.meteorapp.com/search/body.cart_id=";
 						var requestUrl = baseUrl + (tempID || "");
-						return Twotapjs.Utilities._requestWrapper(requestUrl).then(function(results) {
+						return Twotapjs.Utilities._requestWrapper(requestUrl)
+						.then(Twotapjs.Utilities.processRequiredFields)
+						.then(function(results) {
 							return results;
 						});
 					}
@@ -137,6 +139,9 @@ if (typeof module != 'undefined' && module.exports) {
 
 					return [parsedresponse.body];
 				});
+		},
+		processRequiredFields: function(cart){
+			return cart;
 		}
 	});
 

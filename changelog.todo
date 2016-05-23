@@ -1,4 +1,9 @@
 
+030 Dropdown Lists
+ ✔ Get a ProductDataModel with at least 2 options @done (16-05-23 14:03)
+ ☐ Get the required_field_names and create new binding lists with the same names
+ ☐ Bind the option 1 list into the option 1 binding list
+ 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ Mapping the nested required fields @done (16-04-28 15:05)
