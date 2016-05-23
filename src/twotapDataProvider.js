@@ -136,7 +136,7 @@ if (typeof module != 'undefined' && module.exports) {
 				});
 		},
 		processRequiredFields: function(product){
-			var verbose = true;
+			var verbose = false;
 			// Keep track of everything we've processed so far in the allList
 			// This will have an array for each dropdown with every possible value in [values]
 			var allList = [];
@@ -179,6 +179,11 @@ if (typeof module != 'undefined' && module.exports) {
 							if(childSelectOneModel.name === selectOneModel.name){
 								// Add this instance to the growing collection of instances of this SelectOneModel with this name
 								if(verbose) console.log("[+]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "'");
+
+								childSelectOneModel.values.forEach(function(innerOption){
+									innerOption.parent = selectOneModelOption;
+								});
+
 								allSelectOneModelInstances.push(childSelectOneModel);
 							}
 						}						
