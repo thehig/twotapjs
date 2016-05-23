@@ -191,27 +191,34 @@ if (typeof module != 'undefined' && module.exports) {
 
 				if(verbose) console.log("\tAll Deps Length " + allDeps.length);
 
-				var uniqueBy = function(arr, fn) {
-				  var unique = {};
-				  var distinct = [];
-				  arr.forEach(function (x) {
-				    var key = fn(x);
-				    if (!unique[key]) {
-				      distinct.push(x);
-				      unique[key] = true;
-				    }
-				  });
-				  return distinct;
-				};
-
 				// Since we can have many copies of the same name (eg: Size: Medium), we only want to display the unique names to the user in the list
-				var uniqueDeps = uniqueBy(allDeps, function(x){return x.text;});
+				var uniqueDeps = Twotapjs.Utilities.uniqueBy(allDeps, function(x){return x.text;});
 				if(verbose) console.log("\tUnique Deps Length " + uniqueDeps.length);
 
 				// Since the selectOneModel we're editing here is a reference to the SelectOneModel DataModel, and is passed by ref, inserting values here actually modifies the SelectOneModel in required_fields as well
 				selectOneModel.values = uniqueDeps;
 				product.bindings.push(selectOneModel);
 			}
+		},
+		uniqueBy: function(arr, fn) {
+			// Create a map object to store the unique keys
+			var unique = {};
+			// Create an array to store the unique objects
+			var distinct = [];
+			// Iterate through the array
+			arr.forEach(function(x) {
+				// Execute the provided function against the current item (x)
+				var key = fn(x);
+				// If this key is not already in the map
+				if (!unique[key]) {
+					// Push the object into the unique items list
+					distinct.push(x);
+					// Add the key to the map with the value 'true'
+					unique[key] = true;
+				}
+			});
+			// Return the list of unique objects
+			return distinct;
 		}
 	});
 
