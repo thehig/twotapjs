@@ -178,7 +178,7 @@ if (typeof module != 'undefined' && module.exports) {
 							// If this childSelectOneModel has the same name as the selectOneModel we were looking for, we have successfully found one instance
 							if(childSelectOneModel.name === selectOneModel.name){
 								// Add this instance to the growing collection of instances of this SelectOneModel with this name
-								if(verbose) console.log("[+]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "'");
+								if(verbose) console.log("[*]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "' with '" + childSelectOneModel.values.length + "' values");
 
 								childSelectOneModel.values.forEach(function(innerOption){
 									innerOption.parent = selectOneModelOption;
@@ -191,14 +191,14 @@ if (typeof module != 'undefined' && module.exports) {
 				}
 
 				// We have now iterated through all the previous binding lists and have pulled out all the instances of the selectOneModel
-				if(verbose) console.log("[+]\tInstances of SelectOneModel: '" + selectOneModel.name + "'' - '" + allSelectOneModelInstances.length + "'");
+				if(verbose) console.log("[+]\tSelectOneModel instances for : '" + selectOneModel.name + "' - '" + allSelectOneModelInstances.length + "'");
 
 				// These objects however, are the SelectOneModels and not the SelectOneModelOptions, so we join them all together
 				var allDeps = allSelectOneModelInstances.reduce(function(previous, current){
 					return previous.concat(current.values);
 				}, []);
 
-				if(verbose) console.log("[+]\tSelectOneModelOption instances for: '" + selectOneModel.name + "'' - '" + allDeps.length + "'");
+				if(verbose) console.log("[+]\tSelectOneModelOption instances for: '" + selectOneModel.name + "' - '" + allDeps.length + "'");
 
 				// Since the selectOneModel we're editing here is a reference to the SelectOneModel DataModel, and is passed by ref, inserting values here actually modifies the SelectOneModel in required_fields as well
 				selectOneModel.values = allDeps;

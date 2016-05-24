@@ -6,7 +6,7 @@ dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
 deepcopy = require('deepcopy')
 
-describe.only "030. Dropdown Lists", ->
+describe "030. Dropdown Lists", ->
 	source = undefined
 	service = new dp.CallBackCatcherDataProvider()
 
