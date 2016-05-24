@@ -69,11 +69,12 @@ describe "030. Dropdown Lists", ->
 					it "[4] 'Sand'", -> expect(selectOneModel.values[4]).to.have.property('text', 'Color: Sand')
 
 
-					describe "[5] 'Snow'", ->
+					describe.only "[5] 'Snow'", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[5]
 						it "text 'Snow'", -> expect(item).to.have.property('text', 'Color: Snow')
 						it "parent 'Style: Girls Tee'", -> expect(item.parent).to.have.property('text', 'Style: Girls Tee')
+						it "parent's parent 'DERP'", -> expect(item.parent).to.have.property('name', 'DERP')
 
 					it "[6] 'Sky Blue'", -> expect(selectOneModel.values[6]).to.have.property('text', 'Color: Sky Blue')
 					it "[7] 'Gray Granite'", -> expect(selectOneModel.values[7]).to.have.property('text', 'Color: Gray Granite')
