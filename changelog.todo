@@ -1,12 +1,16 @@
 
 030 Dropdown Lists
+ ☐ Add reference in select one model to product model
+ ☐ Add empty binding lists to product
+ ☐ Add function to product for selecting opton and updating binding lists
+ ☐ Bind function to click events
+ ☐ Consider "selected" behaviours (ie retaining previous selected options)
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
  ✔ Get a ProductDataModel with at least 2 options @done (16-05-23 14:03)
  ✔ Get the required_field_names and create new binding lists with the same names @done (16-05-23 16:09)
  ✔ Bind the option 1 list into the option 1 binding list @done (16-05-23 16:09)
  ✔ Iterate through the items and create complete data lists @done (16-05-23 16:09)
- 
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
-Archive:
  ✔ Mapping the nested required fields @done (16-04-28 15:05)
  ✔ Add more product fixtures to check a wide variety of products @done (16-04-28 15:05)
  ✔ Add MORE products @done (16-04-28 15:05)
