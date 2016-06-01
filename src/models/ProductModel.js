@@ -184,9 +184,10 @@ if (typeof module != 'undefined' && module.exports) {
 					// 	}]
 					// }
 
+					if(!item.required_field_values) break;
+
 					// Note: In the case of quantity, this will be undefined
 					var required_field_values = item.required_field_values[name];
-
 					var input = required_field.data[0];
 					if (!input) break;
 

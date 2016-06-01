@@ -87,6 +87,9 @@ if (typeof module != 'undefined' && module.exports) {
 				return item.returns;
 			},
 
+			id: function(item){
+				return item._id;
+			},
 			unrecognised: function(item) {
 				return Twotapjs.Utilities.unrecognised(item, this, "SiteModel: unrecognised keys in site: ", [
 					'info',
