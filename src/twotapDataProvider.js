@@ -76,6 +76,9 @@ if (typeof module != 'undefined' && module.exports) {
 						return Twotapjs.Utilities._requestWrapper(requestUrl);
 					}
 				}
+				,GetCart: function(cartId){
+					return this.Cart.getCart(cartId);
+				}
 			}
 		)
 	});
