@@ -77,7 +77,24 @@ if (typeof module != 'undefined' && module.exports) {
 					}
 				}
 				,GetCart: function(cartId){
-					return this.Cart.getCart(cartId);
+					return this.Cart.getCart(cartId).then(function(cartArray){
+						// Take the processed cart out of the array
+						var cart = cartArray[0];
+
+						// Iterate through the sites
+						for(var i = 0; i < cart.sites.length; i++){
+							var site = cart.sites[i];
+							if(!site.add_to_cart || site.add_to_cart.length === 0) continue;
+
+							// Iterate through the products and process them one by one
+							for(var j = 0; j < site.add_to_cart.length; j++){
+								Twotapjs.Utilities.processRequiredFields(site.add_to_cart[j]);
+							}
+						}
+
+						// Return the singular, processed cart object
+						return cart;
+					});
 				}
 			}
 		)

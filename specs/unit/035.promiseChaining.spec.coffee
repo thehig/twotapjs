@@ -11,29 +11,41 @@ describe.only "035. Promise Chaining", ->
 
 	describe "service.GetCart()", ->
 		it "exists", -> expect(service).to.have.property('GetCart')
-		it "returns a promise", -> expect(service.GetCart()).to.have.property('then')
+		
 
-		describe "comparison with Cart.getCart()", ->
-			sourceA = undefined
-			sourceB = undefined
+		describe "returns", ->
+			rawNewCart = undefined
+			newCart = undefined
 
-			cartA = undefined
-			cartB = undefined
-			before (done) ->
-				promiseA = service.Cart.getCart('573defe0a5af06fc49ddd0b8').then (simpleCart) -> sourceA = simpleCart[0]
-				promiseB = service.GetCart('573defe0a5af06fc49ddd0b8').then (chainedCart) -> sourceB = chainedCart[0]
-				WinJS.Promise.join([promiseA, promiseB]).then -> done()
+			before (done) -> service.GetCart('573defe0a5af06fc49ddd0b8').then (chainedCart) -> 
+				rawNewCart = chainedCart
+				done()
 
 			beforeEach ->
-				cartA = deepcopy(sourceA)
-				cartB = deepcopy(sourceB)
+				newCart = deepcopy(rawNewCart)
 
-			it "created both objects", -> 
-				expect(cartA).to.not.be.undefined
-				expect(cartB).to.not.be.undefined
+			it "a promise", -> expect(service.GetCart()).to.have.property('then')
+			it "a CartDataModel object", -> expect(newCart).to.be.instanceOf(Twotapjs.Models.CartModel)
 
-			it "instances of CartModel", ->
-				expect(cartA).to.be.instanceOf(Twotapjs.Models.CartModel)
-				expect(cartB).to.be.instanceOf(Twotapjs.Models.CartModel)
+			describe "compared with Cart.getCart()", ->
+				rawOldCart = undefined
+				oldCart = undefined
 
-			it "has the same id", -> expect(cartA.id).to.equal(cartB.id)
+				before (done) ->
+					service.Cart.getCart('573defe0a5af06fc49ddd0b8').then (simpleCart) -> 
+						rawOldCart = simpleCart[0]
+						done()
+
+				beforeEach ->
+					oldCart = deepcopy(rawOldCart)
+
+				it "instance of CartModel", ->
+					expect(oldCart).to.be.instanceOf(Twotapjs.Models.CartModel)
+					expect(newCart).to.be.instanceOf(Twotapjs.Models.CartModel)
+
+				it "same id", -> expect(oldCart.id).to.equal(newCart.id)
+				it "same sites length", -> expect(oldCart.sites.length).to.equal(newCart.sites.length)
+
+			describe "chained promises that", ->
+				it "return the CartModel directly", -> expect(newCart).to.be.instanceOf(Twotapjs.Models.CartModel)
+				it "process the products required_fields automatically (see 030)", -> expect(newCart.sites[14].add_to_cart[0].required_fields[1].values).to.have.length(10)
