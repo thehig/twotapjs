@@ -6,7 +6,7 @@ dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
 deepcopy = require('deepcopy')
 
-describe.only "035. Promise Chaining", ->
+describe "027. Promise Chaining", ->
 	service = new dp.CallBackCatcherDataProvider()
 
 	describe "service.GetCart()", ->

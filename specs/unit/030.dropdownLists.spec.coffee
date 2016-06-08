@@ -16,10 +16,10 @@ describe "030. Dropdown Lists", ->
 		product = undefined
 		
 		before (done)->
-			service.Cart.getCart("573defe0a5af06fc49ddd0b8")
+			service.GetCart("573defe0a5af06fc49ddd0b8")
 				.then (cart)->
 					# console.log(JSON.stringify(cart))
-					source = cart[0]
+					source = cart
 				.then(
 					() -> done()
 					(err)-> done(err)
@@ -36,7 +36,6 @@ describe "030. Dropdown Lists", ->
 
 		describe "Product [0]", ->
 			selectOneModel = undefined
-			beforeEach -> Twotapjs.Utilities.processRequiredFields(product)
 			afterEach -> selectOneModel = undefined
 
 			it "has 4 required fields", -> expect(product.required_fields).to.have.length(4)
