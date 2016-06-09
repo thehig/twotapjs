@@ -137,6 +137,12 @@ if (typeof module != 'undefined' && module.exports) {
 						statuserr.httpResult = httpResult;
 						throw statuserr;
 					}
+
+					// Sinon seems to not return "responseText", so this is exclusively for Sinon
+					if(httpResult.response != null && typeof httpResult.response === 'object' && httpResult.response.body != null && typeof httpResult.response.body === 'object'){
+						return [httpResult.response.body];
+					}
+					
 					var parsedresponse;
 					try {
 						parsedresponse = JSON.parse(httpResult.responseText);
