@@ -240,29 +240,12 @@ if (typeof module != 'undefined' && module.exports) {
 			product._cart = cart;
 
 			for(var i = 0; i < product.required_fields.length; i++){
-				var selectOneModel = product.required_fields[i];
+				var currentModel = product.required_fields[i];
 
-				// Connect the SelectOneModel to the product, site and cart
-				selectOneModel._product = product;
-				selectOneModel._site = site;
-				selectOneModel._cart = cart;
-
-				if(selectOneModel instanceof Twotapjs.Models.TextModel) continue;
-				
-				if(!selectOneModel.values || selectOneModel.values.length === 0) continue;
-
-				for(var j = 0; j < selectOneModel.values.length; j++){
-					// Connect the SelectOneModelOption to its SelectOneModel, product, site and cart
-					var selectOneOption = selectOneModel.values[j];
-					
-					// Note: Don't ask me why I'm doing it this way as opposed to the ways above
-					//  		I'm running into stupid errors and for some reason this structure works
-					// 			Trying "selectOneOption._selectOneModel = selectOneModel;" doesn't work.
-					// selectOneOption.parent = {
-					// 	_selectOneModel: selectOneModel
-					// }
-					// selectOneOption._parentModel = selectOneModel;
-				}
+				// Connect the currentModel to the product, site and cart
+				currentModel._product = product;
+				currentModel._site = site;
+				currentModel._cart = cart;
 			}
 		},
 		uniqueBy: function(arr, fn) {

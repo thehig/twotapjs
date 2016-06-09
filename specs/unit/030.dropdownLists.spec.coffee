@@ -84,7 +84,7 @@ describe "030. Dropdown Lists", ->
 						beforeEach -> item = selectOneModel.values[5]
 						it "text 'Snow'", -> expect(item).to.have.property('text', 'Color: Snow')
 						it "parentOption 'Style: Girls Tee'", -> expect(item.parentOption).to.have.property('text', 'Style: Girls Tee')
-						it.skip "**prematurely implemented** parent's parent 'DERP'", -> expect(item.parent).to.have.property('name', 'DERP')
+						it "parentOptions parentModel name 'option 1'", -> expect(item.parentOption.parentModel).to.have.property('name', 'option 1')
 
 					it "[6] 'Sky Blue'", -> expect(selectOneModel.values[6]).to.have.property('text', 'Color: Sky Blue')
 					it "[7] 'Gray Granite'", -> expect(selectOneModel.values[7]).to.have.property('text', 'Color: Gray Granite')

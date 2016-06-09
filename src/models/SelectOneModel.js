@@ -24,6 +24,7 @@ if (typeof module != 'undefined' && module.exports) {
 					var field_value = item.required_field_values[i];
 					var optionmodel = new Twotapjs.Models.SelectOneModelOption();
 					optionmodel.initialize(field_value);
+					optionmodel.parentModel = this;
 					results.push(optionmodel);
 				}
 				return results;

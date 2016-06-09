@@ -72,16 +72,20 @@ describe "035. Referential Linking", ->
 
 			it "option text 'Color: White'", -> expect(option).to.have.property('text', 'Color: White')
 			it "option instanceof Twotapjs.Models.SelectOneModelOption", -> expect(option).to.be.instanceof(Twotapjs.Models.SelectOneModelOption)
-			
-			# Model    > Option            > Model    > Option
-			# option 1 > 'Style: Guys Tee' > option 2 > "Color: White"
-			it "option has property 'parentOption'", -> expect(option).to.have.property('parentOption')
-			it "option.parentOption is SelectOneModelOption", -> expect(option.parentOption).to.be.instanceof(Twotapjs.Models.SelectOneModelOption)
-			it "option.parentOption.text 'Style: Guys Tee'", -> expect(option.parentOption).to.have.property('text', 'Style: Guys Tee')
 
-			# it "option has property 'parentModel'", -> expect(option).to.have.property('parentModel')
-			# it "option.parentModel has property 'name'", -> expect(option.parentModel).to.have.property('name')
-			# it "option.parentModel is SelectOneModel", -> expect(option.parentModel).to.be.instanceof(Twotapjs.Models.SelectOneModel)
+			
+			describe "Parent Option", ->			
+				# Model    > Option            > Model    > Option
+				# option 1 > 'Style: Guys Tee' > option 2 > "Color: White"
+				it "option has property 'parentOption'", -> expect(option).to.have.property('parentOption')
+				it "option.parentOption instanceof SelectOneModelOption", -> expect(option.parentOption).to.be.instanceof(Twotapjs.Models.SelectOneModelOption)
+				it "option.parentOption.text 'Style: Guys Tee'", -> expect(option.parentOption).to.have.property('text', 'Style: Guys Tee')
+
+
+			describe "Parent Model", ->	
+				it "option has property 'parentModel'", -> expect(option).to.have.property('parentModel')
+				it "option.parentModel instanceof SelectOneModel", -> expect(option.parentModel).to.be.instanceof(Twotapjs.Models.SelectOneModel)
+				it "option.parentModel has 'name' of 'option 2'", -> expect(option.parentModel).to.have.property('name', 'option 2')
 				
 
 			
