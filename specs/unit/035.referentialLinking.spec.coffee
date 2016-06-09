@@ -8,7 +8,7 @@ deepcopy = require('deepcopy')
 
 
 
-describe "035. Referential Linking", ->
+describe.only "035. Referential Linking", ->
 	source = undefined
 	service = new dp.CallBackCatcherDataProvider()
 
@@ -59,7 +59,7 @@ describe "035. Referential Linking", ->
 			it "._cart deepequals cart", -> expect(field._cart).to.deep.equal(cart)
 			it "has property _site", -> expect(field).to.have.property('_site')
 			it "._site deepequals site", -> expect(field._site).to.deep.equal(site)
-			it "has 10 values", -> expect(field.values).to.have.length(10)
+			it "has 10 values (Complete list for 'option 2')", -> expect(field.values).to.have.length(10)
 		describe "required_fields[1][0] (SelectOneModelOption)", ->
 			field = undefined
 			option = undefined
@@ -69,6 +69,7 @@ describe "035. Referential Linking", ->
 
 			it "field name 'option 2'", -> expect(field).to.have.property('name', 'option 2')
 			it "field instanceof Twotapjs.Models.SelectOneModel", -> expect(field).to.be.instanceof(Twotapjs.Models.SelectOneModel)
+			it "field has 10 values (Complete list for 'option 2')", -> expect(field.values).to.have.length(10)
 
 			it "option text 'Color: White'", -> expect(option).to.have.property('text', 'Color: White')
 			it "option instanceof Twotapjs.Models.SelectOneModelOption", -> expect(option).to.be.instanceof(Twotapjs.Models.SelectOneModelOption)
@@ -87,6 +88,10 @@ describe "035. Referential Linking", ->
 				it "option.parentModel instanceof SelectOneModel", -> expect(option.parentModel).to.be.instanceof(Twotapjs.Models.SelectOneModel)
 				it "option.parentModel has 'name' of 'option 2'", -> expect(option.parentModel).to.have.property('name', 'option 2')
 				
+				# Note: We have 5 values here, but we have 10 above.
+				# 	I think this is because in the case below, we're refering directly to the parent selectOneModel which has only the specific elements
+				# 	But in the cases above where we have 10, we're looking at the merged list that has every possible element
+				it "option.parentModel has 5 values (Specific list for the parent 'option 2')", -> expect(option.parentModel.values).to.have.length(5)
 
 			
 
