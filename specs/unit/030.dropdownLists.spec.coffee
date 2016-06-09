@@ -71,7 +71,7 @@ describe "030. Dropdown Lists", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[0]
 						it "text 'White'", -> expect(item).to.have.property('text', 'Color: White')
-						it "parent 'Style: Guys Tee'", -> expect(item.parent).to.have.property('text', 'Style: Guys Tee')
+						it "parentOption 'Style: Guys Tee'", -> expect(item.parentOption).to.have.property('text', 'Style: Guys Tee')
 
 					it "[1] 'Heather Gray'", -> expect(selectOneModel.values[1]).to.have.property('text', 'Color: Heather Gray')
 					it "[2] 'Light Blue'", -> expect(selectOneModel.values[2]).to.have.property('text', 'Color: Light Blue')
@@ -83,7 +83,7 @@ describe "030. Dropdown Lists", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[5]
 						it "text 'Snow'", -> expect(item).to.have.property('text', 'Color: Snow')
-						it "parent 'Style: Girls Tee'", -> expect(item.parent).to.have.property('text', 'Style: Girls Tee')
+						it "parentOption 'Style: Girls Tee'", -> expect(item.parentOption).to.have.property('text', 'Style: Girls Tee')
 						it.skip "**prematurely implemented** parent's parent 'DERP'", -> expect(item.parent).to.have.property('name', 'DERP')
 
 					it "[6] 'Sky Blue'", -> expect(selectOneModel.values[6]).to.have.property('text', 'Color: Sky Blue')
@@ -102,7 +102,7 @@ describe "030. Dropdown Lists", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[0]
 						it "text 'Small'", -> expect(item).to.have.property('text', 'Size: Small')
-						it "parent 'Color: White'", -> expect(item.parent).to.have.property('text', 'Color: White')
+						it "parentOption 'Color: White'", -> expect(item.parentOption).to.have.property('text', 'Color: White')
 
 					it "[1] 'Medium'", -> expect(selectOneModel.values[1]).to.have.property('text', 'Size: Medium')
 					it "[2] 'Large'", -> expect(selectOneModel.values[2]).to.have.property('text', 'Size: Large')
@@ -115,7 +115,7 @@ describe "030. Dropdown Lists", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[6]
 						it "text 'Small'", -> expect(item).to.have.property('text', 'Size: Small')
-						it "parent 'Color: Heather Gray'", -> expect(item.parent).to.have.property('text', 'Color: Heather Gray')
+						it "parentOption 'Color: Heather Gray'", -> expect(item.parentOption).to.have.property('text', 'Color: Heather Gray')
 
 					
 			describe "Quantity", ->

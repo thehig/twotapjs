@@ -8,7 +8,7 @@ deepcopy = require('deepcopy')
 
 
 
-describe.skip "035. Referential Linking", ->
+describe "035. Referential Linking", ->
 	source = undefined
 	service = new dp.CallBackCatcherDataProvider()
 
@@ -73,14 +73,16 @@ describe.skip "035. Referential Linking", ->
 			it "option text 'Color: White'", -> expect(option).to.have.property('text', 'Color: White')
 			it "option instanceof Twotapjs.Models.SelectOneModelOption", -> expect(option).to.be.instanceof(Twotapjs.Models.SelectOneModelOption)
 			
-			it "has property 'parent'", -> expect(option).to.have.property('parent')
+			# Model    > Option            > Model    > Option
+			# option 1 > 'Style: Guys Tee' > option 2 > "Color: White"
+			it "option has property 'parentOption'", -> expect(option).to.have.property('parentOption')
+			it "option.parentOption is SelectOneModelOption", -> expect(option.parentOption).to.be.instanceof(Twotapjs.Models.SelectOneModelOption)
+			it "option.parentOption.text 'Style: Guys Tee'", -> expect(option.parentOption).to.have.property('text', 'Style: Guys Tee')
 
-			describe 'parent', ->
-				parent = undefined
-				beforeEach -> parent = option.parent
+			# it "option has property 'parentModel'", -> expect(option).to.have.property('parentModel')
+			# it "option.parentModel has property 'name'", -> expect(option.parentModel).to.have.property('name')
+			# it "option.parentModel is SelectOneModel", -> expect(option.parentModel).to.be.instanceof(Twotapjs.Models.SelectOneModel)
+				
 
-				it "has property _selectOneModel", -> expect(parent).to.have.property('_selectOneModel')
-				it "_selectOneModel instanceof Twotapjs.Models.SelectOneModel", -> expect(parent._selectOneModel).to.be.instanceof(Twotapjs.Models.SelectOneModel)
-				it "_selectOneModel deepequals field", -> expect(parent._selectOneModel).to.deep.equal(field)
-
+			
 

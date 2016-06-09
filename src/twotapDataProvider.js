@@ -210,7 +210,7 @@ if (typeof module != 'undefined' && module.exports) {
 								if(verbose) console.log("[*]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "' with '" + childSelectOneModel.values.length + "' values");
 
 								childSelectOneModel.values.forEach(function(innerOption){
-									innerOption.parent = selectOneModelOption;
+									innerOption.parentOption = selectOneModelOption;
 								});
 
 								allSelectOneModelInstances.push(childSelectOneModel);
