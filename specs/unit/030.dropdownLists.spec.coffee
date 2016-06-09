@@ -6,18 +6,17 @@ dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
 deepcopy = require('deepcopy')
 
-sinon = require('sinon')
-fixture = require('./fixtures/573defe0a5af06fc49ddd0b8.js')
-fakeServer = undefined
+
 
 describe.only "030. Dropdown Lists", ->
-	before ->
-		fakeServer = sinon.fakeServer.create()
-		fakeServer.autoRespond = true
-		fakeServer.respondWith("GET", "http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", [200, { "Content-Type": "application/json" }, JSON.stringify(fixture)])
-
 	source = undefined
 	service = new dp.CallBackCatcherDataProvider()
+
+	fakeServer = undefined
+	before -> 
+		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'))
+	after ->
+		fakeServer.restore()
 
 	describe "ID 573defe0a5af06fc49ddd0b8", ->
 		cart = undefined
