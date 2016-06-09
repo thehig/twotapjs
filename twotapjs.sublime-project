@@ -29,6 +29,7 @@
 			"file_include_patterns": [
 				"*.coffee",
 				"*.js",
+				"*.json",
 				"*fixture*",
 				// "*.disabled"
 			]
