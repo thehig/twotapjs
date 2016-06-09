@@ -84,11 +84,14 @@ if (typeof module != 'undefined' && module.exports) {
 						// Iterate through the sites
 						for(var i = 0; i < cart.sites.length; i++){
 							var site = cart.sites[i];
+							site._cart = cart;
 							if(!site.add_to_cart || site.add_to_cart.length === 0) continue;
 
 							// Iterate through the products and process them one by one
 							for(var j = 0; j < site.add_to_cart.length; j++){
-								Twotapjs.Utilities.processRequiredFields(site.add_to_cart[j]);
+								var product = site.add_to_cart[j];
+								Twotapjs.Utilities.processRequiredFields(product);
+								Twotapjs.Utilities.createRelationships(cart, site, product);
 							}
 						}
 
@@ -229,6 +232,37 @@ if (typeof module != 'undefined' && module.exports) {
 				// Since the selectOneModel we're editing here is a reference to the SelectOneModel DataModel, and is passed by ref, inserting values here actually modifies the SelectOneModel in required_fields as well
 				selectOneModel.values = allDeps;
 				allList.push(selectOneModel);
+			}
+		},
+		createRelationships: function(cart, site, product){
+			// Connect the product to the site and cart
+			product._site = site;
+			product._cart = cart;
+
+			for(var i = 0; i < product.required_fields.length; i++){
+				var selectOneModel = product.required_fields[i];
+
+				// Connect the SelectOneModel to the product, site and cart
+				selectOneModel._product = product;
+				selectOneModel._site = site;
+				selectOneModel._cart = cart;
+
+				if(selectOneModel instanceof Twotapjs.Models.TextModel) continue;
+				
+				if(!selectOneModel.values || selectOneModel.values.length === 0) continue;
+
+				for(var j = 0; j < selectOneModel.values.length; j++){
+					// Connect the SelectOneModelOption to its SelectOneModel, product, site and cart
+					var selectOneOption = selectOneModel.values[j];
+					
+					// Note: Don't ask me why I'm doing it this way as opposed to the ways above
+					//  		I'm running into stupid errors and for some reason this structure works
+					// 			Trying "selectOneOption._selectOneModel = selectOneModel;" doesn't work.
+					// selectOneOption.parent = {
+					// 	_selectOneModel: selectOneModel
+					// }
+					// selectOneOption._parentModel = selectOneModel;
+				}
 			}
 		},
 		uniqueBy: function(arr, fn) {
