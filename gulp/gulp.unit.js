@@ -31,7 +31,8 @@ gulp.task('unit-coffee', ['unit-clean-temp'], function() {
 
 gulp.task('unit-copy-js', ['unit-clean-temp'], function(){
 	var fixtures = [
-		config.unit.source + '/**/*.js'		
+		config.unit.source + '/**/*.js',		
+		config.unit.source + '/**/*.json'		
 	];
 
 	return gulp.src(fixtures)
@@ -42,10 +43,11 @@ gulp.task('unit-mocha', ['unit-coffee', 'unit-copy-js', 'source'], function() {
 	var unitTestFiles = [
 		config.base.temp + "/specs/unit/*.js"
 	];
-	
+
 	return gulp.src(unitTestFiles)
-		.pipe(require('gulp-mocha')({
-			bail: true,
-			timeout: 30 * 1000
+		.pipe(require('gulp-spawn-mocha')({
+			bail: true
+			,timeout: 30 * 1000
+			// ,debugBrk: true
 		}));
 });
