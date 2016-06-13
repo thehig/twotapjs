@@ -75,8 +75,8 @@ if (typeof module != 'undefined' && module.exports) {
 						var requestUrl = baseUrl + (tempID || "");
 						return Twotapjs.Utilities._requestWrapper(requestUrl);
 					}
-				}
-				,GetCart: function(cartId){
+				},
+				GetCart: function(cartId){
 					return this.Cart.getCart(cartId).then(function(cartArray){
 						// Take the processed cart out of the array
 						var cart = cartArray[0];
@@ -142,7 +142,7 @@ if (typeof module != 'undefined' && module.exports) {
 					}
 
 					// Sinon seems to not return "responseText", so this is exclusively for Sinon
-					if(httpResult.response != null && typeof httpResult.response === 'object' && httpResult.response.body != null && typeof httpResult.response.body === 'object'){
+					if(httpResult.response !== null && typeof httpResult.response === 'object' && httpResult.response.body !== null && typeof httpResult.response.body === 'object'){
 						return [httpResult.response.body];
 					}
 					
@@ -209,9 +209,9 @@ if (typeof module != 'undefined' && module.exports) {
 								// Add this instance to the growing collection of instances of this SelectOneModel with this name
 								if(verbose) console.log("[*]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "' with '" + childSelectOneModel.values.length + "' values");
 
-								childSelectOneModel.values.forEach(function(innerOption){
-									innerOption.parentOption = selectOneModelOption;
-								});
+								for(var n = 0; n < childSelectOneModel.values.length; n++){
+									childSelectOneModel.values[n].parentOption = selectOneModelOption;
+								}
 
 								allSelectOneModelInstances.push(childSelectOneModel);
 							}
