@@ -8,7 +8,7 @@ deepcopy = require('deepcopy')
 
 
 
-describe.only "035. Referential Linking", ->
+describe "035. Referential Linking", ->
 	source = undefined
 	service = new dp.CallBackCatcherDataProvider()
 
