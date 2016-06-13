@@ -5,7 +5,6 @@ p = (item) -> l(j(item, null, 4))
 dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
 deepcopy = require('deepcopy')
-fixture = require('./fixtures/hugecart.fixture.js');
 
 describe "025. CallbackCatcher Passthrough", ->
 	# Set up a fake server to respond on the given URL with the given object

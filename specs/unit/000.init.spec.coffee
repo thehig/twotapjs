@@ -25,15 +25,16 @@ describe "DataProvider service", ->
 		service = new dp.SampleDataProvider()
 
 	it "should have initialized", -> expect(service).to.not.be.undefined
-	# it "should have a Sample property", -> expect(service).to.have.property('Sample') **No longer needed**
 	it "with a getProduct property", -> expect(service.Product).to.have.property('getProduct')
 
-describe.only "Sample.getProduct", ->
+describe "Sample.getProduct", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
+		fixture = jf.readFileSync('./specs/unit/fixtures/product_one.fixture.json')
+
 		service = new dp.SampleDataProvider()
-		service.Product.setProduct(jf.readFileSync('./specs/unit/fixtures/product_one.fixture.json'))
+		service.Product.setProduct(fixture)
 			.then service.Product.getProduct
 			.then (product)-> data = product[0]
 			.then(
@@ -54,7 +55,6 @@ describe.only "Sample.getProduct", ->
 		it "has alt-images array", -> 
 			expect(data).to.have.property('alt_images')
 			expect(data.alt_images).to.be.instanceof(Array)
-		# it "has alt-images", -> expect(data).to.have.property('alt_images')
 		it "has 3 alt-images", -> expect(data.alt_images).to.have.length(3)
 
 	describe 'urls', ->
