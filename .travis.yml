@@ -1,0 +1,17 @@
+
+language: node_js
+node_js:
+  - "4.4.x"
+
+# whitelist
+# branches:
+#   only:
+#     - master
+
+before_script:
+  - npm install -g gulp
+  - npm install
+script: gulp unit
+
+# before_script:
+#   coffee -c -o specs specs
