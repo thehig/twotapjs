@@ -51,6 +51,10 @@ describe "Sample.getProduct", ->
 
 	describe 'images', ->
 		it "image should contain 'shopify.com'", -> expect(data.image).to.contain('shopify.com')
+		it "has alt-images array", -> 
+			expect(data).to.have.property('alt_images')
+			expect(data.alt_images).to.be.instanceof(Array)
+		# it "has alt-images", -> expect(data).to.have.property('alt_images')
 		it "has 3 alt-images", -> expect(data.alt_images).to.have.length(3)
 
 	describe 'urls', ->
