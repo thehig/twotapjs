@@ -1,6 +1,4 @@
-// See OneNote Tuesday, April 12, 2016 - TwoTap data research
-
-module.exports = {
+{
 	"sites": {
 		"570ce00481fe1d62245836fc": {
 			"info": {

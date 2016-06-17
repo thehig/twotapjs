@@ -4,15 +4,16 @@ p = (item) -> l(j(item, null, 4))
 
 dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
-deepcopy = require('deepcopy')
-fixture = require('./fixtures/hugecart.fixture.js');
+jf = require('jsonfile')
+fixture = undefined
 
 describe "020. Cart Fixture", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
+		fixture = jf.readFileSync('./specs/unit/fixtures/hugecart.fixture.json')
 		service = new dp.SampleDataProvider()
-		service.Cart.setCart(deepcopy(fixture))
+		service.Cart.setCart(fixture)
 			.then service.Cart.getCart
 			.then (cart)-> data = cart[0]
 			.then(

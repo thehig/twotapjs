@@ -75,6 +75,29 @@ if (typeof module != 'undefined' && module.exports) {
 						var requestUrl = baseUrl + (tempID || "");
 						return Twotapjs.Utilities._requestWrapper(requestUrl);
 					}
+				},
+				GetCart: function(cartId){
+					return this.Cart.getCart(cartId).then(function(cartArray){
+						// Take the processed cart out of the array
+						var cart = cartArray[0];
+
+						// Iterate through the sites
+						for(var i = 0; i < cart.sites.length; i++){
+							var site = cart.sites[i];
+							site._cart = cart;
+							if(!site.add_to_cart || site.add_to_cart.length === 0) continue;
+
+							// Iterate through the products and process them one by one
+							for(var j = 0; j < site.add_to_cart.length; j++){
+								var product = site.add_to_cart[j];
+								Twotapjs.Utilities.processRequiredFields(product);
+								Twotapjs.Utilities.createRelationships(cart, site, product);
+							}
+						}
+
+						// Return the singular, processed cart object
+						return cart;
+					});
 				}
 			}
 		)
@@ -117,6 +140,12 @@ if (typeof module != 'undefined' && module.exports) {
 						statuserr.httpResult = httpResult;
 						throw statuserr;
 					}
+
+					// Sinon seems to not return "responseText", so this is exclusively for Sinon
+					if(httpResult.response !== null && typeof httpResult.response === 'object' && httpResult.response.body !== null && typeof httpResult.response.body === 'object'){
+						return [httpResult.response.body];
+					}
+					
 					var parsedresponse;
 					try {
 						parsedresponse = JSON.parse(httpResult.responseText);
@@ -180,9 +209,9 @@ if (typeof module != 'undefined' && module.exports) {
 								// Add this instance to the growing collection of instances of this SelectOneModel with this name
 								if(verbose) console.log("[*]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "' with '" + childSelectOneModel.values.length + "' values");
 
-								childSelectOneModel.values.forEach(function(innerOption){
-									innerOption.parent = selectOneModelOption;
-								});
+								for(var n = 0; n < childSelectOneModel.values.length; n++){
+									childSelectOneModel.values[n].parentOption = selectOneModelOption;
+								}
 
 								allSelectOneModelInstances.push(childSelectOneModel);
 							}
@@ -203,6 +232,20 @@ if (typeof module != 'undefined' && module.exports) {
 				// Since the selectOneModel we're editing here is a reference to the SelectOneModel DataModel, and is passed by ref, inserting values here actually modifies the SelectOneModel in required_fields as well
 				selectOneModel.values = allDeps;
 				allList.push(selectOneModel);
+			}
+		},
+		createRelationships: function(cart, site, product){
+			// Connect the product to the site and cart
+			product._site = site;
+			product._cart = cart;
+
+			for(var i = 0; i < product.required_fields.length; i++){
+				var currentModel = product.required_fields[i];
+
+				// Connect the currentModel to the product, site and cart
+				currentModel._product = product;
+				currentModel._site = site;
+				currentModel._cart = cart;
 			}
 		},
 		uniqueBy: function(arr, fn) {

@@ -4,7 +4,6 @@ p = (item) -> l(j(item, null, 4))
 
 dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
-deepcopy = require('deepcopy')
 fixtures = require('./fixtures/list.js');
 
 describe "005. All Fixtures", ->
@@ -12,7 +11,7 @@ describe "005. All Fixtures", ->
 	service = undefined
 	beforeEach (done)->
 		service = new dp.SampleDataProvider()
-		service.Product.setProducts(deepcopy(fixtures.all_products_array))
+		service.Product.setProducts(fixtures.all_products_array)
 			.then service.Product.getProducts
 			.then (products)-> data = products
 			.then(

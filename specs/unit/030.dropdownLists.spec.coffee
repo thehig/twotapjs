@@ -6,9 +6,20 @@ dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
 deepcopy = require('deepcopy')
 
+
+
 describe "030. Dropdown Lists", ->
 	source = undefined
 	service = new dp.CallBackCatcherDataProvider()
+
+	# Set up a fake server to respond on the given URL with the given object
+	#  Note: Only calls to the provided URL will succeed. Everything else will 404
+	fakeServer = undefined
+	before -> 
+		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'))
+	after ->
+		# Restore the HTTP service afterward so other tests dont break
+		fakeServer.restore()
 
 	describe "ID 573defe0a5af06fc49ddd0b8", ->
 		cart = undefined
@@ -16,10 +27,10 @@ describe "030. Dropdown Lists", ->
 		product = undefined
 		
 		before (done)->
-			service.Cart.getCart("573defe0a5af06fc49ddd0b8")
+			service.GetCart("573defe0a5af06fc49ddd0b8")
 				.then (cart)->
 					# console.log(JSON.stringify(cart))
-					source = cart[0]
+					source = cart
 				.then(
 					() -> done()
 					(err)-> done(err)
@@ -36,7 +47,6 @@ describe "030. Dropdown Lists", ->
 
 		describe "Product [0]", ->
 			selectOneModel = undefined
-			beforeEach -> Twotapjs.Utilities.processRequiredFields(product)
 			afterEach -> selectOneModel = undefined
 
 			it "has 4 required fields", -> expect(product.required_fields).to.have.length(4)
@@ -61,7 +71,7 @@ describe "030. Dropdown Lists", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[0]
 						it "text 'White'", -> expect(item).to.have.property('text', 'Color: White')
-						it "parent 'Style: Guys Tee'", -> expect(item.parent).to.have.property('text', 'Style: Guys Tee')
+						it "parentOption 'Style: Guys Tee'", -> expect(item.parentOption).to.have.property('text', 'Style: Guys Tee')
 
 					it "[1] 'Heather Gray'", -> expect(selectOneModel.values[1]).to.have.property('text', 'Color: Heather Gray')
 					it "[2] 'Light Blue'", -> expect(selectOneModel.values[2]).to.have.property('text', 'Color: Light Blue')
@@ -69,12 +79,12 @@ describe "030. Dropdown Lists", ->
 					it "[4] 'Sand'", -> expect(selectOneModel.values[4]).to.have.property('text', 'Color: Sand')
 
 
-					describe.only "[5] 'Snow'", ->
+					describe "[5] 'Snow'", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[5]
 						it "text 'Snow'", -> expect(item).to.have.property('text', 'Color: Snow')
-						it "parent 'Style: Girls Tee'", -> expect(item.parent).to.have.property('text', 'Style: Girls Tee')
-						it "parent's parent 'DERP'", -> expect(item.parent).to.have.property('name', 'DERP')
+						it "parentOption 'Style: Girls Tee'", -> expect(item.parentOption).to.have.property('text', 'Style: Girls Tee')
+						it "parentOptions parentModel name 'option 1'", -> expect(item.parentOption.parentModel).to.have.property('name', 'option 1')
 
 					it "[6] 'Sky Blue'", -> expect(selectOneModel.values[6]).to.have.property('text', 'Color: Sky Blue')
 					it "[7] 'Gray Granite'", -> expect(selectOneModel.values[7]).to.have.property('text', 'Color: Gray Granite')
@@ -92,7 +102,7 @@ describe "030. Dropdown Lists", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[0]
 						it "text 'Small'", -> expect(item).to.have.property('text', 'Size: Small')
-						it "parent 'Color: White'", -> expect(item.parent).to.have.property('text', 'Color: White')
+						it "parentOption 'Color: White'", -> expect(item.parentOption).to.have.property('text', 'Color: White')
 
 					it "[1] 'Medium'", -> expect(selectOneModel.values[1]).to.have.property('text', 'Size: Medium')
 					it "[2] 'Large'", -> expect(selectOneModel.values[2]).to.have.property('text', 'Size: Large')
@@ -105,7 +115,7 @@ describe "030. Dropdown Lists", ->
 						item = undefined
 						beforeEach -> item = selectOneModel.values[6]
 						it "text 'Small'", -> expect(item).to.have.property('text', 'Size: Small')
-						it "parent 'Color: Heather Gray'", -> expect(item.parent).to.have.property('text', 'Color: Heather Gray')
+						it "parentOption 'Color: Heather Gray'", -> expect(item.parentOption).to.have.property('text', 'Color: Heather Gray')
 
 					
 			describe "Quantity", ->

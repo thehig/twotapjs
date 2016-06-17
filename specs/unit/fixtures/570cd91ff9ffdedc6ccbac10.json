@@ -1,0 +1,91 @@
+{
+	"_id": "z86HKXHySpQraCLJZ",
+	"time": "2016-04-12T11:16:50.507Z",
+	"action": "post",
+	"url": "/hits/twoTap",
+	"headers": {
+		"host": "callbackcatcher.meteorapp.com",
+		"user-agent": "Two Tap",
+		"content-length": "6591",
+		"accept": "application/json",
+		"content-type": "application/json",
+		"x-forwarded-for": "54.85.53.171",
+		"x-forwarded-proto": "http"
+	},
+	"body": {
+		"sites": {
+			"51bf1d1055a0f9e0d0000003": {
+				"info": {
+					"logo": "https://core.twotap.com/system/sites/logos/51bf/1d10/55a0/f9e0/d000/0003/small/51bf1d1055a0f9e0d0000003.png?1460459807634",
+					"name": "NastyGal",
+					"url": "nastygal.com"
+				},
+				"currency_format": "$AMOUNT",
+				"coupon_support": false,
+				"gift_card_support": false,
+				"checkout_support": ["noauthCheckout"],
+				"shipping_countries_support": ["United States of America"],
+				"billing_countries_support": ["United States of America"],
+				"shipping_options": {
+					"fastest": "1-2 business days",
+					"cheapest": "5-9 business days"
+				},
+				"returns": "<p><strong>Exchanges</strong></p>\r\n\r\n<p>We do not accept exchanges at this time.</p>\r\n\r\n<p><strong>Return Policy</strong></p>\r\n\r\n<p>We&#39;re bummed things didn&#39;t work out for you, but here&#39;s the good news: we accept returns within thirty (30) days of purchase (AKA the date listed on your receipt) for most items in new condition.</p>\r\n\r\n<p>Here&#39;s the fine print. You just can&#39;t return anything that&#39;s worn, damaged, washed, or altered in any way. All original tags must be attached, footwear must be in its original shoebox, and swimwear &amp; bodysuits must have the hygiene liners intact. Also, gift cards are non-returnable and non-refundable.</p>\r\n\r\n<p>The following items cannot be returned or exchanged: opened makeup, earrings, ear cuffs, panties, and any other items marked as &quot;Final Sale.&quot;</p>\r\n\r\n<p><strong>U.S. Hassle-Free Returns</strong></p>\r\n\r\n<p>Returns for online store credit will be processed free of charge, while returns for a refund to your original payment method (i.e. credit card, Paypal) will require a handling &amp; processing fee of $5.99, which will be deducted from the amount to be refunded to you. Original shipping charges are non-refundable.</p>\r\n\r\n<p>Start your return on https://www.nastygal.com/returns.<br />\r\nOnce you have found your order, click the &quot;Return This Order&quot; button<br />\r\nSelect the order or item(s) you would like to return and indicate the reason for your return.<br />\r\nChoose a return for online store credit or for a refund. Please note, returns for online store credit will be processed free of charge, while returns for a refund to your original payment method (i.e. credit card, Paypal) will require a handling &amp; processing fee of $5.99, which will be deducted from the amount to be refunded to you. Please note that original shipping charges are non-refundable.<br />\r\nPrint your label and place label on the outside of the package.<br />\r\nDrop off at your nearest UPS location.<br />\r\n<br />\r\n<strong>International Returns</strong></p>\r\n\r\n<p>You must return your items to the address below within 30 days from the day you received your package. Please write your order # on the outside of the package. You will receive your refund in the original form of payment. Unfortunately we cannot refund duties, taxes or shipping charges.</p>\r\n\r\n<p>Nasty Gal Returns<br />\r\nOrder # _________<br />\r\n700 Omega Parkway, Suite 300<br />\r\nShepherdsville, KY 40165<br />\r\n<br />\r\n<strong>Refunds and Processing</strong></p>\r\n\r\n<p>Refunds will be processed within approximately 7 to 10 business days after we receive your return.<br />\r\nOriginal shipping charges are non-refundable.<br />\r\n<br />\r\n<strong>Online Store Credit</strong></p>\r\n\r\n<p>Online Store Credit can only be used online at our website, www.nastygal.com.<br />\r\nOnline Store Credit cannot be transferred to another person or account.<br />\r\nPlease treat Online Store Credit like cash.<br />\r\nOnline Store Credit may not be purchased and is only provided when previously purchased items have been returned and you have selected &quot;Store Credit&quot; as the refund method.<br />\r\nOnline Store Credit may be used to purchase gift cards to our store.<br />\r\nAny purchase amounts that exceed the value of the Online Store Credit will require an additional method of payment for the remaining balance due.<br />\r\nOnline Store credit never expires.<br />\r\nOnline Store credit is provided in U.S. Dollars.<br />\r\nYour use of the Online Store Credit constitutes your agreement to our Terms.<br />\r\nTo view your Online Store Credit Balance, log into your Nasty Gal account. Your Store Credit balance will be displayed on the &ldquo;My Account&rdquo; page.<br />\r\nFor more information about Online Store Credit, please contact Customer Care.</p>\r\n",
+				"add_to_cart": {
+					"b027dbe7bfca00648c6393a9779d1bcf": {
+						"title": "Nasty Gal Knot in Love Cutout Dress",
+						"price": "$35.20",
+						"original_price": "$88.00",
+						"image": "http://i.ngimg.com/resources/nastygal/images/products/processed/53971.0.detail.jpg",
+						"alt_images": ["http://i.ngimg.com/resources/nastygal/images/products/processed/53971.0.detail.jpg", "http://i.ngimg.com/resources/nastygal/images/products/processed/53971.1.detail.jpg", "http://i.ngimg.com/resources/nastygal/images/products/processed/53971.2.detail.jpg", "http://i.ngimg.com/resources/nastygal/images/products/processed/53971.3.detail.jpg"],
+						"description": "<p>We&apos;re knot kidding, you need this dress in your life immediately. It has pleated detailing at front, a cutout at waist, and V at back. Tulle underlay at skirt, full lining. Perfect with heels, a box clutch, and some serious twirling around the dance floor. By Nasty Gal.</p> <p>*Polyester\n<br>*Runs true to size\n<br>*Model is wearing size small\n<br>*Hand wash cold\n<br>*Imported</p>\n<div>\nCalifornia Residents:\n<span>Proposition 65 [http://www.nastygal.com/customer-care/prop65]</span>\n</div>",
+						"required_field_names": ["size", "quantity"],
+						"required_field_values": {
+							"size": [{
+								"dep": {},
+								"extra_info": "",
+								"image": "http://i.ngimg.com/resources/nastygal/images/products/processed/53971.0.detail.jpg",
+								"price": "$35.20",
+								"text": "L",
+								"value": "L"
+							}, {
+								"dep": {},
+								"extra_info": "",
+								"image": "http://i.ngimg.com/resources/nastygal/images/products/processed/53971.0.detail.jpg",
+								"price": "$35.20",
+								"text": "XL",
+								"value": "XL"
+							}]
+						},
+						"url": "http://www.nastygal.com/clothes-dresses/nasty-gal-knot-in-love-cutout-dress",
+						"pickup_support": false,
+						"required_fields": {
+							"size": {
+								"data": [{
+									"input_name": "SELECT",
+									"input_type": "select-one"
+								}]
+							},
+							"quantity": {
+								"data": [{
+									"input_name": "INPUT",
+									"input_type": "text"
+								}]
+							}
+						},
+						"status": "done",
+						"clean_url": "http://www.nastygal.com/clothes-dresses/nasty-gal-knot-in-love-cutout-dress",
+						"original_url": "http://www.nastygal.com/clothes-dresses/nasty-gal-knot-in-love-cutout-dress"
+					}
+				}
+			}
+		},
+		"user_id": null,
+		"unknown_urls": [],
+		"cart_id": "570cd91ff9ffdedc6ccbac10",
+		"country": "us",
+		"stored_field_values": {},
+		"message": "done",
+		"description": "AddToCart has been completed."
+	}
+}

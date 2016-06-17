@@ -3,8 +3,8 @@ j = JSON.stringify
 
 dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
-deepcopy = require('deepcopy')
-fixture = require('./fixtures/product_one.fixture.js');
+jf = require('jsonfile')
+fixture = undefined
 
 describe "Initially Twotapjs", ->
 	it "Namespace should exist with DataProvider property", -> 
@@ -25,15 +25,16 @@ describe "DataProvider service", ->
 		service = new dp.SampleDataProvider()
 
 	it "should have initialized", -> expect(service).to.not.be.undefined
-	# it "should have a Sample property", -> expect(service).to.have.property('Sample') **No longer needed**
 	it "with a getProduct property", -> expect(service.Product).to.have.property('getProduct')
 
 describe "Sample.getProduct", ->
 	data = undefined
 	service = undefined
 	beforeEach (done)->
+		fixture = jf.readFileSync('./specs/unit/fixtures/product_one.fixture.json')
+
 		service = new dp.SampleDataProvider()
-		service.Product.setProduct(deepcopy(fixture))
+		service.Product.setProduct(fixture)
 			.then service.Product.getProduct
 			.then (product)-> data = product[0]
 			.then(
@@ -51,6 +52,9 @@ describe "Sample.getProduct", ->
 
 	describe 'images', ->
 		it "image should contain 'shopify.com'", -> expect(data.image).to.contain('shopify.com')
+		it "has alt-images array", -> 
+			expect(data).to.have.property('alt_images')
+			expect(data.alt_images).to.be.instanceof(Array)
 		it "has 3 alt-images", -> expect(data.alt_images).to.have.length(3)
 
 	describe 'urls', ->
