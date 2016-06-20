@@ -121,7 +121,9 @@ if (typeof module != 'undefined' && module.exports) {
 					if(!option || !(option instanceof Twotapjs.Models.SelectOneModelOption)){
 						throw new Error("ClickOption: Parameter not a SelectOneModelOption");
 					}
-					
+
+					var parent = option.parentModel;
+					parent.selected = option;
 				}
 			}
 		)

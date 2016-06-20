@@ -57,9 +57,9 @@ describe.only "040. Observable Collection", ->
 			beforeEach -> service.clickOption(field.observableValues[1])
 			it "option 1 has selected property", -> expect(field).to.have.property('selected')
 			it "selected is a SelectOneModelOption", -> expect(field.selected).to.be.instanceOf(Twotapjs.Models.SelectOneModelOption)
-			it.skip "option 1 is Style: Girls Tee", -> expect(false).to.be.true
-			it.skip "option 2 has 5 options", -> expect(false).to.be.true
-			it.skip "option 3 has 0 options", -> expect(false).to.be.true
+			it "option 1 has selected.text 'Style: Girls Tee'", -> expect(field.selected).to.have.property('text', 'Style: Girls Tee')
+			it "has 5 observableValues for option 2", -> expect(product.required_fields[1].observableValues).to.have.length(5)
+			it "has 0 observableValues for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(0)
 			
 		describe "clicking on option 2 - Sky Blue", ->
 			it.skip "option 1 has selected property", -> expect(false).to.be.true
