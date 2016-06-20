@@ -116,6 +116,12 @@ if (typeof module != 'undefined' && module.exports) {
 				},
 				observableListType: function(){
 					return [];
+				},
+				clickOption: function(option){
+					if(!option || !(option instanceof Twotapjs.Models.SelectOneModelOption)){
+						throw new Error("ClickOption: Parameter not a SelectOneModelOption");
+					}
+					
 				}
 			}
 		)
@@ -286,9 +292,18 @@ if (typeof module != 'undefined' && module.exports) {
 					var selectOneModel = paramGroup.product.required_fields[i];
 
 					// Create the placeholder observable collection
-					var newList = paramGroup.serviceInstance.observableListType();
-					selectOneModel.observableValues = newList;
+					selectOneModel.observableValues = paramGroup.serviceInstance.observableListType();
 				}
+
+				// Insert all the options from the first option, into the observable collection
+				// 		thus setting up the initial state of the first dropdown
+				var primaryOption = paramGroup.product.required_fields[0];
+				if(primaryOption.values && primaryOption.values.length > 0){
+					for(var j = 0; j < primaryOption.values.length; j++){
+						primaryOption.observableValues.push(primaryOption.values[j]);
+					}					
+				}
+
 				c(paramGroup);	
 			});			
 		},

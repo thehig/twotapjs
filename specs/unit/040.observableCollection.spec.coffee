@@ -1,5 +1,5 @@
 l = console.log
-j = JSON.stringify
+j = require('circular-json').stringify
 p = (item) -> l(j(item, null, 4))
 
 dp = require('../../src/twotapDataProvider.js')
@@ -31,25 +31,32 @@ describe.only "040. Observable Collection", ->
 					cart = result
 					site = cart.sites[14]
 					product = site.add_to_cart[0]
-					field = product.required_fields[1]
+					field = product.required_fields[0]
 				.then(
 					() -> done()
 					(err)-> done(err)
 				)
 
 
-		describe "field 1 (option 2)", ->
+		describe "field 0", ->
 			it "should have observableValues property", -> expect(field).to.have.property('observableValues')
 			it "should be an array", -> expect(field.observableValues).to.be.an('Array')
-			it "should have length 0", -> expect(field.observableValues).to.have.length(0)
+			it "should have length 2", -> expect(field.observableValues).to.have.length(2)
 
 		describe "default state", ->
-			it.skip "has 2 options for option 1", -> expect(product.required_fields[0].observableValues).to.have.length(2)
-			it "has 0 options for option 2", -> expect(product.required_fields[1].observableValues).to.have.length(0)
-			it "has 0 options for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(0)
+			it "has 2 observableValues for option 1", -> expect(product.required_fields[0].observableValues).to.have.length(2)
+			it "has 0 observableValues for option 2", -> expect(product.required_fields[1].observableValues).to.have.length(0)
+			it "has 0 observableValues for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(0)
 			
+		describe "clickOption", ->
+			it "service should have property 'clickOption'", -> expect(service).to.have.property('clickOption')
+			it "should be a function", -> expect(service.clickOption).to.be.a('function')
+			it "throws an error if parameter is not SelectOneModelOption", -> expect(-> service.clickOption({})).to.throw(/not a SelectOneModelOption/)
+
 		describe "clicking on option 1 - Girls", ->
-			it.skip "option 1 has selected property", -> expect(false).to.be.true
+			beforeEach -> service.clickOption(field.observableValues[1])
+			it "option 1 has selected property", -> expect(field).to.have.property('selected')
+			it "selected is a SelectOneModelOption", -> expect(field.selected).to.be.instanceOf(Twotapjs.Models.SelectOneModelOption)
 			it.skip "option 1 is Style: Girls Tee", -> expect(false).to.be.true
 			it.skip "option 2 has 5 options", -> expect(false).to.be.true
 			it.skip "option 3 has 0 options", -> expect(false).to.be.true

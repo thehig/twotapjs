@@ -12,6 +12,7 @@
   "devDependencies": {
     "casper-chai": "^0.3.0",
     "chai": "^3.5.0",
+    "circular-json": "^0.3.0",
     "coffee-script": "^1.10.0",
     "deepcopy": "^0.6.1",
     "del": "^2.2.0",
