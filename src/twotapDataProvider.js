@@ -122,8 +122,45 @@ if (typeof module != 'undefined' && module.exports) {
 						throw new Error("ClickOption: Parameter not a SelectOneModelOption");
 					}
 
-					var parent = option.parentModel;
-					parent.selected = option;
+					// Set this option as selected on its parent
+					var parentSelectOneModel = option.parentModel;
+					parentSelectOneModel.selected = option;
+
+					// Grab the product
+					var product = parentSelectOneModel._product;
+
+					// Iterate through each dependant
+					for(var i = 0; i < option.dep.length; i++){
+						var dependant = option.dep[i];
+						var source = undefined;
+
+						// Look up the dependant in the toplevel
+						for(var j = 0; j < product.required_fields.length; j++){
+							var topLevelField = product.required_fields[j];
+
+							if(topLevelField.name === dependant.name){
+								source = topLevelField;
+								break;
+							}
+						}
+
+						if(source == undefined) continue;
+
+						// Clear the list for this dependant
+						while(source.observableValues.length > 0) {
+							source.observableValues.pop();
+						}
+
+						for(var k = 0; k < source.values.length; k++){
+							var value = source.values[k];
+							if(value.parentOption === option){
+								source.observableValues.push(value);
+							}
+						}
+
+					}
+
+
 				}
 			}
 		)
