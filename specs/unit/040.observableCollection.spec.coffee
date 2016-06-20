@@ -7,7 +7,7 @@ expect = require('chai').expect
 
 
 
-describe.only "040. Observable Collection", ->
+describe "040. Observable Collection", ->
 	service = new dp.CallBackCatcherDataProvider()
 
 	# Set up a fake server to respond on the given URL with the given object
@@ -54,24 +54,30 @@ describe.only "040. Observable Collection", ->
 			it "throws an error if parameter is not SelectOneModelOption", -> expect(-> service.clickOption({})).to.throw(/not a SelectOneModelOption/)
 
 		describe "clicking on option 1 - Girls", ->
-			beforeEach -> service.clickOption(field.observableValues[1])
+			beforeEach -> service.clickOption(product.required_fields[0].observableValues[1])
 			it "option 1 has selected property", -> expect(field).to.have.property('selected')
 			it "selected is a SelectOneModelOption", -> expect(field.selected).to.be.instanceOf(Twotapjs.Models.SelectOneModelOption)
 			it "option 1 has selected.text 'Style: Girls Tee'", -> expect(field.selected).to.have.property('text', 'Style: Girls Tee')
 			it "has 5 observableValues for option 2", -> expect(product.required_fields[1].observableValues).to.have.length(5)
 			it "has 0 observableValues for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(0)
 			
-		describe "clicking on option 2 - Sky Blue", ->
-			it.skip "option 1 has selected property", -> expect(false).to.be.true
-			it.skip "option 1 is Style: Girls Tee", -> expect(false).to.be.true
-			it.skip "option 2 has selected property", -> expect(false).to.be.true
-			it.skip "option 2 is Color: Sky Blue", -> expect(false).to.be.true
-			it.skip "option 3 has 4 options", -> expect(false).to.be.true
+		describe.only "clicking on option 2 - Sky Blue", ->
+			beforeEach -> 
+				service.clickOption(product.required_fields[0].observableValues[1])
+				service.clickOption(product.required_fields[1].observableValues[1])			
+
+			it "option 1 has selected property", -> expect(product.required_fields[0]).to.have.property('selected')
+			it "option 1 has selected.text 'Style: Girls Tee'", -> expect(product.required_fields[0].selected).to.have.property('text', 'Style: Girls Tee')
+
+			it "option 2 has selected property", -> expect(product.required_fields[1]).to.have.property('selected')
+			it "option 2 has selected.text 'Color: Sky Blue'", -> expect(product.required_fields[1].selected).to.have.property('text', 'Color: Sky Blue')
+
+			it "has 4 observableValues for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(4)
 			
-		describe "clicking on option 3 - Medium", ->
-			it.skip "option 1 has selected property", -> expect(false).to.be.true
-			it.skip "option 1 is Style: Girls Tee", -> expect(false).to.be.true
-			it.skip "option 2 has selected property", -> expect(false).to.be.true
-			it.skip "option 2 is Color: Sky Blue", -> expect(false).to.be.true
-			it.skip "option 3 has selected property", -> expect(false).to.be.true
-			it.skip "option 3 is Size: Medium", -> expect(false).to.be.true
+		# describe "clicking on option 3 - Medium", ->
+		# 	it.skip "option 1 has selected property", -> expect(false).to.be.true
+		# 	it.skip "option 1 is Style: Girls Tee", -> expect(false).to.be.true
+		# 	it.skip "option 2 has selected property", -> expect(false).to.be.true
+		# 	it.skip "option 2 is Color: Sky Blue", -> expect(false).to.be.true
+		# 	it.skip "option 3 has selected property", -> expect(false).to.be.true
+		# 	it.skip "option 3 is Size: Medium", -> expect(false).to.be.true

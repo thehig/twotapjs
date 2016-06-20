@@ -124,10 +124,14 @@ if (typeof module != 'undefined' && module.exports) {
 
 					// Set this option as selected on its parent
 					var parentSelectOneModel = option.parentModel;
+					if(!parentSelectOneModel.hasOwnProperty('observableValues')){
+						console.log("Here we are");
+					}
 					parentSelectOneModel.selected = option;
 
 					// Grab the product
 					var product = parentSelectOneModel._product;
+					if(!product) return;
 
 					// Iterate through each dependant
 					for(var i = 0; i < option.dep.length; i++){
@@ -154,13 +158,10 @@ if (typeof module != 'undefined' && module.exports) {
 						for(var k = 0; k < source.values.length; k++){
 							var value = source.values[k];
 							if(value.parentOption === option){
-								source.observableValues.push(value);
+								source.observableValues.push(option);
 							}
 						}
-
 					}
-
-
 				}
 			}
 		)
