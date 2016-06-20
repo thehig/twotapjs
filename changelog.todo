@@ -1,12 +1,12 @@
 
-030 Dropdown Lists
- ☐ Add reference in select one model to product model
- ☐ Add empty binding lists to product
+040 Observable Collection
  ☐ Add function to product for selecting opton and updating binding lists
  ☐ Bind function to click events
  ☐ Consider "selected" behaviours (ie retaining previous selected options)
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Add reference in select one model to product model @done (16-06-17 12:27)
+ ✔ Add empty binding lists to product @done (16-06-17 12:27)
  ✔ Get a ProductDataModel with at least 2 options @done (16-05-23 14:03)
  ✔ Get the required_field_names and create new binding lists with the same names @done (16-05-23 16:09)
  ✔ Bind the option 1 list into the option 1 binding list @done (16-05-23 16:09)
