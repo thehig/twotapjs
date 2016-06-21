@@ -123,16 +123,17 @@ if (typeof module != 'undefined' && module.exports) {
 					}
 
 					// Set this option as selected on its parent
-					var parentSelectOneModel = option.parentModel;
-					if(!parentSelectOneModel.hasOwnProperty('observableValues')){
-						console.log("Here we are");
-					}
+					var parentSelectOneModel = option._parentModel ? option._parentModel : option.parentModel;
 					parentSelectOneModel.selected = option;
 
 					// Grab the product
 					var product = parentSelectOneModel._product;
 					if(!product) return;
 
+					if(!option.dep || option.dep.length == 0){
+						return;
+					}
+					
 					// Iterate through each dependant
 					for(var i = 0; i < option.dep.length; i++){
 						var dependant = option.dep[i];
@@ -158,7 +159,7 @@ if (typeof module != 'undefined' && module.exports) {
 						for(var k = 0; k < source.values.length; k++){
 							var value = source.values[k];
 							if(value.parentOption === option){
-								source.observableValues.push(option);
+								source.observableValues.push(value);
 							}
 						}
 					}
@@ -322,6 +323,15 @@ if (typeof module != 'undefined' && module.exports) {
 					currentModel._product = paramGroup.product;
 					currentModel._site = paramGroup.site;
 					currentModel._cart = paramGroup.cart;
+
+					// TextModels, i.e. quantity, don't have values
+					if(!currentModel.values) continue;
+
+					// Ensure that the parentModel has been bound to the topLevel version of the currentModel
+					for(var j = 0; j < currentModel.values.length; j++){
+						var currentOption = currentModel.values[j];
+						currentOption._parentModel = currentModel;
+					}
 				}
 				c(paramGroup);
 			});

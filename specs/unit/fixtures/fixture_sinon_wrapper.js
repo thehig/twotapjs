@@ -8,7 +8,7 @@ module.exports = function(url, payload, outputLevel){
 	fakeServer = sinon.fakeServer.create();
 	
 	fakeServer.autoRespond = true;
-	if(outputLevel === 'none'){
+	if(outputLevel === 'once'){
 		console.log("=== SINON WRAPPER INTERCEPT FOR \n\t"+ url);
 		console.log("=== Further output is disabled");
 	}
@@ -17,7 +17,7 @@ module.exports = function(url, payload, outputLevel){
 			case 'short':
 				console.log("SinonIntercept for " + url);
 				break;
-			case 'none':
+			case 'once':
 				break;
 			default:
 				console.log("=== SINON WRAPPER INTERCEPT FOR "+ url +" ===");

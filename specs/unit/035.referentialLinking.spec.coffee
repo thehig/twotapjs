@@ -4,9 +4,6 @@ p = (item) -> l(j(item, null, 4))
 
 dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
-deepcopy = require('deepcopy')
-
-
 
 describe "035. Referential Linking", ->
 	source = undefined
@@ -16,7 +13,7 @@ describe "035. Referential Linking", ->
 	#  Note: Only calls to the provided URL will succeed. Everything else will 404
 	fakeServer = undefined
 	before -> 
-		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'))
+		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'), 'once')
 	after ->
 		# Restore the HTTP service afterward so other tests dont break
 		fakeServer.restore()
@@ -26,20 +23,18 @@ describe "035. Referential Linking", ->
 		site = undefined
 		product = undefined
 		
-		before (done)->
+		beforeEach (done)->
 			service.GetCart("573defe0a5af06fc49ddd0b8")
-				.then (cart)->
+				.then (source)->
 					# console.log(JSON.stringify(cart))
-					source = cart
+					cart = source
+					site = cart.sites[14]
+					product = site.add_to_cart[0]
+
 				.then(
 					() -> done()
 					(err)-> done(err)
 				)
-
-		beforeEach -> 
-			cart = deepcopy(source)
-			site = cart.sites[14]
-			product = site.add_to_cart[0]
 
 		describe "site", ->
 			it "has property _cart", -> expect(site).to.have.property('_cart')

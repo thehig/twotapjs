@@ -4,7 +4,6 @@ p = (item) -> l(j(item, null, 4))
 
 dp = require('../../src/twotapDataProvider.js')
 expect = require('chai').expect
-deepcopy = require('deepcopy')
 
 
 describe "027. Promise Chaining", ->
@@ -12,7 +11,7 @@ describe "027. Promise Chaining", ->
 	#  Note: Only calls to the provided URL will succeed. Everything else will 404
 	fakeServer = undefined
 	before -> 
-		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'))
+		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'), 'once')
 	after ->
 		# Restore the HTTP service afterward so other tests dont break
 		fakeServer.restore()
@@ -25,12 +24,9 @@ describe "027. Promise Chaining", ->
 			rawNewCart = undefined
 			newCart = undefined
 
-			before (done) -> service.GetCart('573defe0a5af06fc49ddd0b8').then (chainedCart) -> 
-				rawNewCart = chainedCart
+			beforeEach (done) -> service.GetCart('573defe0a5af06fc49ddd0b8').then (chainedCart) -> 
+				newCart = chainedCart
 				done()
-
-			beforeEach ->
-				newCart = deepcopy(rawNewCart)
 
 			it "a promise", -> expect(service.GetCart()).to.have.property('then')
 			it "a CartDataModel object", -> expect(newCart).to.be.instanceOf(Twotapjs.Models.CartModel)
@@ -39,13 +35,10 @@ describe "027. Promise Chaining", ->
 				rawOldCart = undefined
 				oldCart = undefined
 
-				before (done) ->
+				beforeEach (done) ->
 					service.Cart.getCart('573defe0a5af06fc49ddd0b8').then (simpleCart) -> 
-						rawOldCart = simpleCart[0]
+						oldCart = simpleCart[0]
 						done()
-
-				beforeEach ->
-					oldCart = deepcopy(rawOldCart)
 
 				it "instance of CartModel", ->
 					expect(oldCart).to.be.instanceOf(Twotapjs.Models.CartModel)

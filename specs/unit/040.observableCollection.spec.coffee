@@ -14,7 +14,7 @@ describe "040. Observable Collection", ->
 	#  Note: Only calls to the provided URL will succeed. Everything else will 404
 	fakeServer = undefined
 	before -> 
-		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'), 'none')
+		fakeServer = require('./fixtures/fixture_sinon_wrapper')("http://callbackcatcher.meteorapp.com/search/body.cart_id=573defe0a5af06fc49ddd0b8", require('./fixtures/573defe0a5af06fc49ddd0b8.json'), 'once')
 	after ->
 		# Restore the HTTP service afterward so other tests dont break
 		fakeServer.restore()
@@ -61,7 +61,7 @@ describe "040. Observable Collection", ->
 			it "has 5 observableValues for option 2", -> expect(product.required_fields[1].observableValues).to.have.length(5)
 			it "has 0 observableValues for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(0)
 			
-		describe.only "clicking on option 2 - Sky Blue", ->
+		describe "clicking on option 2 - Sky Blue", ->
 			beforeEach -> 
 				service.clickOption(product.required_fields[0].observableValues[1])
 				service.clickOption(product.required_fields[1].observableValues[1])			
@@ -74,10 +74,17 @@ describe "040. Observable Collection", ->
 
 			it "has 4 observableValues for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(4)
 			
-		# describe "clicking on option 3 - Medium", ->
-		# 	it.skip "option 1 has selected property", -> expect(false).to.be.true
-		# 	it.skip "option 1 is Style: Girls Tee", -> expect(false).to.be.true
-		# 	it.skip "option 2 has selected property", -> expect(false).to.be.true
-		# 	it.skip "option 2 is Color: Sky Blue", -> expect(false).to.be.true
-		# 	it.skip "option 3 has selected property", -> expect(false).to.be.true
-		# 	it.skip "option 3 is Size: Medium", -> expect(false).to.be.true
+		describe "clicking on option 3 - Medium", ->
+			beforeEach -> 
+				service.clickOption(product.required_fields[0].observableValues[1])
+				service.clickOption(product.required_fields[1].observableValues[1])			
+				service.clickOption(product.required_fields[2].observableValues[1])			
+
+			it "option 1 has selected property", -> expect(product.required_fields[0]).to.have.property('selected')
+			it "option 1 has selected.text 'Style: Girls Tee'", -> expect(product.required_fields[0].selected).to.have.property('text', 'Style: Girls Tee')
+
+			it "option 2 has selected property", -> expect(product.required_fields[1]).to.have.property('selected')
+			it "option 2 has selected.text 'Color: Sky Blue'", -> expect(product.required_fields[1].selected).to.have.property('text', 'Color: Sky Blue')
+
+			it "option 3 has selected property", -> expect(product.required_fields[2]).to.have.property('selected')
+			it "option 3 has selected.text 'Size: Medium'", -> expect(product.required_fields[2].selected).to.have.property('text', 'Size: Medium')
