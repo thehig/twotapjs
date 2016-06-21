@@ -77,9 +77,11 @@ if (typeof module != 'undefined' && module.exports) {
 					}
 				},
 				GetCart: function(cartId){
+					var self = this;
 					return this.Cart.getCart(cartId).then(function(cartArray){
 						// Take the processed cart out of the array
 						var cart = cartArray[0];
+						var promises = [];
 
 						// Iterate through the sites
 						for(var i = 0; i < cart.sites.length; i++){
@@ -90,14 +92,77 @@ if (typeof module != 'undefined' && module.exports) {
 							// Iterate through the products and process them one by one
 							for(var j = 0; j < site.add_to_cart.length; j++){
 								var product = site.add_to_cart[j];
-								Twotapjs.Utilities.processRequiredFields(product);
-								Twotapjs.Utilities.createRelationships(cart, site, product);
+
+								var paramGroup = {
+									product: product,
+									site: site,
+									cart: cart,
+									serviceInstance: self
+								};
+
+								var processPromise = WinJS.Promise.wrap(paramGroup)
+									.then(Twotapjs.Utilities.processRequiredFieldsAsync)
+									.then(Twotapjs.Utilities.createRelationshipsAsync)
+									.then(Twotapjs.Utilities.createObservableCollectionsAsync);
+								promises.push(processPromise);
 							}
 						}
 
 						// Return the singular, processed cart object
-						return cart;
+						return WinJS.Promise.join(promises).then(function(){
+							return cart;
+						});
 					});
+				},
+				observableListType: function(){
+					return [];
+				},
+				clickOption: function(option){
+					if(!option || !(option instanceof Twotapjs.Models.SelectOneModelOption)){
+						throw new Error("ClickOption: Parameter not a SelectOneModelOption");
+					}
+
+					// Set this option as selected on its parent
+					var parentSelectOneModel = option._parentModel ? option._parentModel : option.parentModel;
+					parentSelectOneModel.selected = option;
+
+					// Grab the product
+					var product = parentSelectOneModel._product;
+					if(!product) return;
+
+					if(!option.dep || option.dep.length == 0){
+						return;
+					}
+					
+					// Iterate through each dependant
+					for(var i = 0; i < option.dep.length; i++){
+						var dependant = option.dep[i];
+						var source = undefined;
+
+						// Look up the dependant in the toplevel
+						for(var j = 0; j < product.required_fields.length; j++){
+							var topLevelField = product.required_fields[j];
+
+							if(topLevelField.name === dependant.name){
+								source = topLevelField;
+								break;
+							}
+						}
+
+						if(source == undefined) continue;
+
+						// Clear the list for this dependant
+						while(source.observableValues.length > 0) {
+							source.observableValues.pop();
+						}
+
+						for(var k = 0; k < source.values.length; k++){
+							var value = source.values[k];
+							if(value.parentOption === option){
+								source.observableValues.push(value);
+							}
+						}
+					}
 				}
 			}
 		)
@@ -164,89 +229,133 @@ if (typeof module != 'undefined' && module.exports) {
 					return [parsedresponse.body];
 				});
 		},
-		processRequiredFields: function(product){
-			var verbose = false;
-			// Keep track of everything we've processed so far in the allList
-			// This will have an array for each dropdown with every possible value in [values]
-			var allList = [];
+		processRequiredFieldsAsync: function(paramGroup){
 
-			// Iterate through the current products required fields
-			for(var i = 0; i < product.required_fields.length; i++){
-				var selectOneModel = product.required_fields[i];
-				// If this required_field has values, push it into the all list and we're done
-				if(selectOneModel.values && selectOneModel.values.length > 0){
-					allList.push(selectOneModel);
-					continue;					
-				} else if (selectOneModel.name === 'quantity') {
-					// If this required_field has name 'quantity', we don't care about its values, so we push it into the all list and we're done
-					allList.push(selectOneModel);
-					continue;
-				}
+			var self = this;
+			return new WinJS.Promise(function(c, e, p){
+				var product = paramGroup.product;
 
-				// At this point, we know we do not have any values, and the name is not quantity
-				if(verbose) console.log("[-] No values found for SelectOneModel: '" + selectOneModel.name);
+				var verbose = false;
+				// Keep track of everything we've processed so far in the allList
+				// This will have an array for each dropdown with every possible value in [values]
+				var allList = [];
 
-				var allSelectOneModelInstances = [];
+				// Iterate through the current products required fields
+				for(var i = 0; i < product.required_fields.length; i++){
+					var selectOneModel = product.required_fields[i];
+					// If this required_field has values, push it into the all list and we're done
+					if(selectOneModel.values && selectOneModel.values.length > 0){
+						allList.push(selectOneModel);
+						continue;					
+					} else if (selectOneModel.name === 'quantity') {
+						// If this required_field has name 'quantity', we don't care about its values, so we push it into the all list and we're done
+						allList.push(selectOneModel);
+						continue;
+					}
 
-				// Go through all the previously processed items in the all list
-				for(var j = 0; j < allList.length; j++){
-					var parentSelectOneModel = allList[j];
-					if(verbose) console.log("[*]\tSearching SelectOneModel: '" + parentSelectOneModel.name + "'");
 
-					// Iterate through the values of the parent SelectOneModel
-					for(var k = 0; k < parentSelectOneModel.values.length; k++){
-						var selectOneModelOption = parentSelectOneModel.values[k];
-						if(verbose) console.log("[*]\t\tSearching SelectOneModelOption: '" + selectOneModelOption.text + "'");
+					// At this point, we know we do not have any values, and the name is not quantity
+					if(verbose) console.log("[-] No values found for SelectOneModel: '" + selectOneModel.name);
 
-						// If there are no deps, it's definitely not this one but we're not done searching so we want to continue the for loop
-						if(!selectOneModelOption.dep) continue;
+					var allSelectOneModelInstances = [];
 
-						// Iterate through the deps on the SelectOneModel
-						for(var m = 0; m < selectOneModelOption.dep.length; m++){
-							var childSelectOneModel = selectOneModelOption.dep[m];
-							// If this childSelectOneModel has the same name as the selectOneModel we were looking for, we have successfully found one instance
-							if(childSelectOneModel.name === selectOneModel.name){
-								// Add this instance to the growing collection of instances of this SelectOneModel with this name
-								if(verbose) console.log("[*]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "' with '" + childSelectOneModel.values.length + "' values");
+					// Go through all the previously processed items in the all list
+					for(var j = 0; j < allList.length; j++){
+						var parentSelectOneModel = allList[j];
+						if(verbose) console.log("[*]\tSearching SelectOneModel: '" + parentSelectOneModel.name + "'");
 
-								for(var n = 0; n < childSelectOneModel.values.length; n++){
-									childSelectOneModel.values[n].parentOption = selectOneModelOption;
+						// Iterate through the values of the parent SelectOneModel
+						for(var k = 0; k < parentSelectOneModel.values.length; k++){
+							var selectOneModelOption = parentSelectOneModel.values[k];
+							if(verbose) console.log("[*]\t\tSearching SelectOneModelOption: '" + selectOneModelOption.text + "'");
+
+							// If there are no deps, it's definitely not this one but we're not done searching so we want to continue the for loop
+							if(!selectOneModelOption.dep) continue;
+
+							// Iterate through the deps on the SelectOneModel
+							for(var m = 0; m < selectOneModelOption.dep.length; m++){
+								var childSelectOneModel = selectOneModelOption.dep[m];
+								// If this childSelectOneModel has the same name as the selectOneModel we were looking for, we have successfully found one instance
+								if(childSelectOneModel.name === selectOneModel.name){
+									// Add this instance to the growing collection of instances of this SelectOneModel with this name
+									if(verbose) console.log("[*]\t\t\tFound SelectOneModelOption: '" + selectOneModel.name + "' in '"+ selectOneModelOption.text + "' with '" + childSelectOneModel.values.length + "' values");
+
+									for(var n = 0; n < childSelectOneModel.values.length; n++){
+										childSelectOneModel.values[n].parentOption = selectOneModelOption;
+									}
+
+									allSelectOneModelInstances.push(childSelectOneModel);
 								}
+							}						
+						}
+					}
 
-								allSelectOneModelInstances.push(childSelectOneModel);
-							}
-						}						
+					// We have now iterated through all the previous binding lists and have pulled out all the instances of the selectOneModel
+					if(verbose) console.log("[+]\tSelectOneModel instances for : '" + selectOneModel.name + "' - '" + allSelectOneModelInstances.length + "'");
+
+					// These objects however, are the SelectOneModels and not the SelectOneModelOptions, so we join them all together
+					var allDeps = allSelectOneModelInstances.reduce(function(previous, current){
+						return previous.concat(current.values);
+					}, []);
+
+					if(verbose) console.log("[+]\tSelectOneModelOption instances for: '" + selectOneModel.name + "' - '" + allDeps.length + "'");
+
+					// Since the selectOneModel we're editing here is a reference to the SelectOneModel DataModel, and is passed by ref, inserting values here actually modifies the SelectOneModel in required_fields as well
+					selectOneModel.values = allDeps;
+
+					allList.push(selectOneModel);
+				}
+				c(paramGroup);	
+			}.bind(this));
+			
+		},
+		createRelationshipsAsync: function(paramGroup){
+			return new WinJS.Promise(function(c, e, p){
+
+				// Connect the product to the site and cart
+				paramGroup.product._site = paramGroup.site;
+				paramGroup.product._cart = paramGroup.cart;
+
+				for(var i = 0; i < paramGroup.product.required_fields.length; i++){
+					var currentModel = paramGroup.product.required_fields[i];
+
+					// Connect the currentModel to the product, site and cart
+					currentModel._product = paramGroup.product;
+					currentModel._site = paramGroup.site;
+					currentModel._cart = paramGroup.cart;
+
+					// TextModels, i.e. quantity, don't have values
+					if(!currentModel.values) continue;
+
+					// Ensure that the parentModel has been bound to the topLevel version of the currentModel
+					for(var j = 0; j < currentModel.values.length; j++){
+						var currentOption = currentModel.values[j];
+						currentOption._parentModel = currentModel;
 					}
 				}
-
-				// We have now iterated through all the previous binding lists and have pulled out all the instances of the selectOneModel
-				if(verbose) console.log("[+]\tSelectOneModel instances for : '" + selectOneModel.name + "' - '" + allSelectOneModelInstances.length + "'");
-
-				// These objects however, are the SelectOneModels and not the SelectOneModelOptions, so we join them all together
-				var allDeps = allSelectOneModelInstances.reduce(function(previous, current){
-					return previous.concat(current.values);
-				}, []);
-
-				if(verbose) console.log("[+]\tSelectOneModelOption instances for: '" + selectOneModel.name + "' - '" + allDeps.length + "'");
-
-				// Since the selectOneModel we're editing here is a reference to the SelectOneModel DataModel, and is passed by ref, inserting values here actually modifies the SelectOneModel in required_fields as well
-				selectOneModel.values = allDeps;
-				allList.push(selectOneModel);
-			}
+				c(paramGroup);
+			});
 		},
-		createRelationships: function(cart, site, product){
-			// Connect the product to the site and cart
-			product._site = site;
-			product._cart = cart;
+		createObservableCollectionsAsync: function(paramGroup){
+			return new WinJS.Promise(function(c, e, p){
+				for(var i = 0; i < paramGroup.product.required_fields.length; i++){
+					var selectOneModel = paramGroup.product.required_fields[i];
 
-			for(var i = 0; i < product.required_fields.length; i++){
-				var currentModel = product.required_fields[i];
+					// Create the placeholder observable collection
+					selectOneModel.observableValues = paramGroup.serviceInstance.observableListType();
+				}
 
-				// Connect the currentModel to the product, site and cart
-				currentModel._product = product;
-				currentModel._site = site;
-				currentModel._cart = cart;
-			}
+				// Insert all the options from the first option, into the observable collection
+				// 		thus setting up the initial state of the first dropdown
+				var primaryOption = paramGroup.product.required_fields[0];
+				if(primaryOption.values && primaryOption.values.length > 0){
+					for(var j = 0; j < primaryOption.values.length; j++){
+						primaryOption.observableValues.push(primaryOption.values[j]);
+					}					
+				}
+
+				c(paramGroup);	
+			});			
 		},
 		uniqueBy: function(arr, fn) {
 			// Create a map object to store the unique keys
