@@ -93,3 +93,8 @@ gulp.task('istanbul', ['unit-coffee', 'unit-copy-js','pre-istanbul'], function (
     // Enforce a coverage of at least 90%
     .pipe(istanbul.enforceThresholds({ thresholds: { global: 75 } }));
 });
+
+gulp.task('coverage', ['istanbul'], function(){
+	gulp.src('./coverage/lcov-report/index.html')
+	.pipe(require('gulp-open')({app: 'chrome'}));
+});
