@@ -65,3 +65,31 @@ gulp.task('unit-mocha-debug', ['unit-coffee', 'unit-copy-js', 'source'], functio
 			,debugBrk: true
 		}));
 });
+
+var istanbul = require('gulp-istanbul');
+
+gulp.task('pre-istanbul', ['source'], function () {
+	var basicSourceFiles = [
+		config.base.temp + '/src/*.js',
+		config.base.temp + '/src/models/*.js'
+	];
+
+	return gulp.src(basicSourceFiles)
+    // Covering files
+    .pipe(istanbul())
+    // Force `require` to return covered files
+    .pipe(istanbul.hookRequire());
+});
+
+gulp.task('istanbul', ['unit-coffee', 'unit-copy-js','pre-istanbul'], function () {
+	var unitTestFiles = [
+		config.base.temp + "/specs/unit/*.js"
+	];
+
+	return gulp.src(unitTestFiles)
+    .pipe(require('gulp-mocha')())
+    // Creating the reports after tests ran
+    .pipe(istanbul.writeReports())
+    // Enforce a coverage of at least 90%
+    .pipe(istanbul.enforceThresholds({ thresholds: { global: 75 } }));
+});
