@@ -1,16 +1,24 @@
 
-040 Observable Collection
- ☐ Add function to product for selecting opton and updating binding lists
- ☐ Bind function to click events
- ☐ Consider "selected" behaviours (ie retaining previous selected options)
+045 Advanced Click Behaviors
+ ☐ Multiple selections from single list
+ ☐ Proper clearing and repopulating of the observableValues collection
+ ☐ Implementation of a BindableObject wrapper function? (Similar to the newObservableList function)
+ 
+050 Quantity Special Click
+ ☐ Add quantity values in the library instead of the client (Click event will error without SelectOneModelOption)
+ ☐ Add click behavior for the quantity special case
+
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Consider "selected" behaviours (ie retaining previous selected options) @done (16-06-21 17:32)
+ ✔ Bind function to click events @done (16-06-21 17:32)
+ ✔ Add function to product for selecting opton and updating binding lists @done (16-06-21 17:32)
  ✔ Add reference in select one model to product model @done (16-06-17 12:27)
  ✔ Add empty binding lists to product @done (16-06-17 12:27)
- ✔ Get a ProductDataModel with at least 2 options @done (16-05-23 14:03)
+ ✔ Iterate through the items and create complete data lists @done (16-05-23 16:09)
  ✔ Get the required_field_names and create new binding lists with the same names @done (16-05-23 16:09)
  ✔ Bind the option 1 list into the option 1 binding list @done (16-05-23 16:09)
- ✔ Iterate through the items and create complete data lists @done (16-05-23 16:09)
+ ✔ Get a ProductDataModel with at least 2 options @done (16-05-23 14:03)
  ✔ Mapping the nested required fields @done (16-04-28 15:05)
  ✔ Add more product fixtures to check a wide variety of products @done (16-04-28 15:05)
  ✔ Add MORE products @done (16-04-28 15:05)
