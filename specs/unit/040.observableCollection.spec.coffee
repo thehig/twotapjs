@@ -58,9 +58,20 @@ describe "040. Observable Collection", ->
 			it "option 1 has selected property", -> expect(field).to.have.property('selected')
 			it "selected is a SelectOneModelOption", -> expect(field.selected).to.be.instanceOf(Twotapjs.Models.SelectOneModelOption)
 			it "option 1 has selected.text 'Style: Girls Tee'", -> expect(field.selected).to.have.property('text', 'Style: Girls Tee')
-			it "has 5 observableValues for option 2", -> expect(product.required_fields[1].observableValues).to.have.length(5)
+			# it "has 5 observableValues for option 2", -> expect(product.required_fields[1].observableValues).to.have.length(5)
 			it "has 0 observableValues for option 3", -> expect(product.required_fields[2].observableValues).to.have.length(0)
+
+			somoText = (text, i) -> it "[" + i + "] text '" + text + "'", -> expect(product.required_fields[1].observableValues[i]).to.have.property('text', text)
 			
+			describe "option 2", ->
+				it "has 5 observableValues", -> expect(product.required_fields[1].observableValues).to.have.length(5)
+				somoText(item, i) for item, i in ["Color: Snow", "Color: Sky Blue", "Color: Gray Granite", "Color: Soft Pink", "Color: Light Lemon"]
+
+			describe "clicking on option 1 - Guys", ->
+				beforeEach -> service.clickOption(product.required_fields[0].observableValues[0])
+				it "has 5 observableValues", -> expect(product.required_fields[1].observableValues).to.have.length(5)
+				somoText(item, i) for item, i in ["Color: White", "Color: Heather Gray", "Color: Light Blue", "Color: Charcoal", "Color: Sand"]
+
 		describe "clicking on option 2 - Sky Blue", ->
 			beforeEach -> 
 				service.clickOption(product.required_fields[0].observableValues[1])

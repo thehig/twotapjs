@@ -130,7 +130,7 @@ if (typeof module != 'undefined' && module.exports) {
 					var product = parentSelectOneModel._product;
 					if(!product) return;
 
-					if(!option.dep || option.dep.length == 0){
+					if(!option.dep || option.dep.length === 0){
 						return;
 					}
 					
@@ -149,7 +149,7 @@ if (typeof module != 'undefined' && module.exports) {
 							}
 						}
 
-						if(source == undefined) continue;
+						if(source === undefined) continue;
 
 						// Clear the list for this dependant
 						while(source.observableValues.length > 0) {
