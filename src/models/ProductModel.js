@@ -85,14 +85,37 @@ if (typeof module != 'undefined' && module.exports) {
 						results.push(inputmodel);
 					} else if (input.input_type && input.input_type === "text" &&
 						input.input_name && input.input_name === "INPUT") {
-						var textmodel = new Twotapjs.Models.TextModel();
-						textmodel.initialize({
-							"name": name,
-							"required_field_values": required_field_values
-						});
-						results.push(textmodel);
 
-						// console.log("[-] text/INPUT NOT YET SUPPORTED");
+						if(name === 'quantity'){
+							var inputmodel = new Twotapjs.Models.SelectOneModel();
+
+							var pseudoValues = [];
+							// Not sure if quantity should start at 0 so you can remove items from the cart without starting over
+							for(var i = 1; i <= 10; i++){
+								// This is a horrible way to create mock values that will pass the existence checks
+								pseudoValues.push({
+									price: "NA",
+									image: "NA",
+									value: i,
+									text: i,
+									extra_info: "NA"
+								});
+							}
+
+							inputmodel.initialize({
+								"name": name,
+								"required_field_values": pseudoValues
+							});
+							results.push(inputmodel);
+						} else {
+							var textmodel = new Twotapjs.Models.TextModel();
+							textmodel.initialize({
+								"name": name,
+								"required_field_values": required_field_values
+							});
+							results.push(textmodel);
+						}
+
 					} else {
 						throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
 					}

@@ -49,7 +49,7 @@ describe "010. Recurse Deps", ->
 			beforeEach -> field = data.required_fields[3]
 
 			it "defined", -> expect(field).to.not.be.undefined
-			it "instanceOf TextModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.TextModel)
+			it "instanceOf SelectOneModel", -> expect(field).to.be.instanceOf(Twotapjs.Models.SelectOneModel)
 			it "name 'quantity'", -> expect(field).to.have.property('name', 'quantity')
 
 	describe "Option 1: Style", ->
