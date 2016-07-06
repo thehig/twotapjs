@@ -38,11 +38,11 @@ if (typeof module != 'undefined' && module.exports) {
 		SelectOneModelOption: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			price: function(item) {
 				if (!item || !item.price) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'price'");
-				return item.price;
+				return item.price === 'NA' ? undefined : item.price;
 			},
 			image: function(item) {
 				if (!item || !item.image) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'image'");
-				return item.image;
+				return item.image === 'NA' ? undefined : item.image;
 			},
 			alt_images: function(item) {
 				return item.alt_images ? item.alt_images : [];
@@ -57,7 +57,7 @@ if (typeof module != 'undefined' && module.exports) {
 			},
 			extra_info: function(item) {
 				if (!item || item.extra_info === undefined) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'extra_info'");
-				return item.extra_info;
+				return item.extra_info === 'NA' ? undefined : item.extra_info;
 			},
 			dep: function(item) {
 				if (!item || !item.dep) return undefined;

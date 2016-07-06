@@ -130,7 +130,7 @@ if (typeof module != 'undefined' && module.exports) {
 					var product = parentSelectOneModel._product;
 					if(!product) return;
 
-					if(!option.dep || option.dep.length == 0){
+					if(!option.dep || option.dep.length === 0){
 						return;
 					}
 					
@@ -149,7 +149,7 @@ if (typeof module != 'undefined' && module.exports) {
 							}
 						}
 
-						if(source == undefined) continue;
+						if(source === undefined) continue;
 
 						// Clear the list for this dependant
 						while(source.observableValues.length > 0) {
@@ -247,12 +247,7 @@ if (typeof module != 'undefined' && module.exports) {
 					if(selectOneModel.values && selectOneModel.values.length > 0){
 						allList.push(selectOneModel);
 						continue;					
-					} else if (selectOneModel.name === 'quantity') {
-						// If this required_field has name 'quantity', we don't care about its values, so we push it into the all list and we're done
-						allList.push(selectOneModel);
-						continue;
 					}
-
 
 					// At this point, we know we do not have any values, and the name is not quantity
 					if(verbose) console.log("[-] No values found for SelectOneModel: '" + selectOneModel.name);
@@ -343,6 +338,13 @@ if (typeof module != 'undefined' && module.exports) {
 
 					// Create the placeholder observable collection
 					selectOneModel.observableValues = paramGroup.serviceInstance.observableListType();
+
+					if(selectOneModel.name === 'quantity'){
+						for(var m = 0; m < selectOneModel.values.length; m++){
+							selectOneModel.observableValues.push(selectOneModel.values[m]);
+						}
+					}
+
 				}
 
 				// Insert all the options from the first option, into the observable collection
