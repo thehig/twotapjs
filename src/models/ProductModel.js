@@ -87,26 +87,26 @@ if (typeof module != 'undefined' && module.exports) {
 						input.input_name && input.input_name === "INPUT") {
 
 						if(name === 'quantity'){
-							var inputmodel = new Twotapjs.Models.SelectOneModel();
+							var quantityModel = new Twotapjs.Models.SelectOneModel();
 
 							var pseudoValues = [];
 							// Not sure if quantity should start at 0 so you can remove items from the cart without starting over
-							for(var i = 1; i <= 10; i++){
+							for(var quantityCount = 1; quantityCount <= 10; quantityCount++){
 								// This is a horrible way to create mock values that will pass the existence checks
 								pseudoValues.push({
 									price: "NA",
 									image: "NA",
-									value: i,
-									text: i,
+									value: quantityCount,
+									text: quantityCount,
 									extra_info: "NA"
 								});
 							}
 
-							inputmodel.initialize({
+							quantityModel.initialize({
 								"name": name,
 								"required_field_values": pseudoValues
 							});
-							results.push(inputmodel);
+							results.push(quantityModel);
 						} else {
 							var textmodel = new Twotapjs.Models.TextModel();
 							textmodel.initialize({
