@@ -46,7 +46,7 @@ if (typeof module != 'undefined' && module.exports) {
 			},
 			unrecognised: function(item) {
 				return Twotapjs.Utilities.unrecognised(item, this, "CartModel: unrecognised keys in model: ", [
-					'stored_field_values'
+					'stored_field_values', 'notes'
 				]);
 			},
 			id: function(item) {
