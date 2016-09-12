@@ -53,5 +53,5 @@ describe "045. Quantity", ->
 				service.clickOption(field.observableValues[1])
 
 			it "has selected property", -> expect(field).to.have.property('selected')
-			it.only "has selected.text '2'", -> expect(field.selected).to.have.property('text', 2)
+			it "has selected.text '2'", -> expect(field.selected).to.have.property('text', 2)
 
