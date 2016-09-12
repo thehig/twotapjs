@@ -2,7 +2,7 @@ l = console.log
 j = JSON.stringify
 p = (item) -> l(j(item, null, 4))
 
-dp = require('../../src/twotapDataProvider.js')
+dp = require('../../src/twotapSampleDataProvider.js')
 expect = require('chai').expect
 fixtures = require('./fixtures/list.js');
 

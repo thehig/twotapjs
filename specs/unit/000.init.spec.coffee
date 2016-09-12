@@ -1,7 +1,7 @@
 l = console.log
 j = JSON.stringify
 
-dp = require('../../src/twotapDataProvider.js')
+dp = require('../../src/twotapSampleDataProvider.js')
 expect = require('chai').expect
 jf = require('jsonfile')
 fixture = undefined

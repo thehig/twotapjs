@@ -2,7 +2,7 @@ l = console.log
 j = require('circular-json').stringify
 p = (item) -> l(j(item, null, 4))
 
-dp = require('../../src/twotapDataProvider.js')
+dp = require('../../src/twotapJSONDataProvider.js')
 expect = require('chai').expect
 
 fixture = require('./fixtures/573defe0a5af06fc49ddd0b8.json').body
@@ -127,7 +127,7 @@ describe "JSONDataProvider", ->
 			beforeEach -> field = product.required_fields[3]
 			it "quantity is autofilled 1 - 10", -> expect(field.values).to.have.length(10)
 			describe "click", ->
-				before -> service.clickOption(field.observableValues[1])
+				beforeEach -> service.clickOption(field.observableValues[1])
 				it "has selected property", -> expect(field).to.have.property('selected')
 				it "has selected.text '2'", -> expect(field.selected).to.have.property('text', 2)
 

@@ -2,7 +2,7 @@ l = console.log
 j = JSON.stringify
 p = (item) -> l(j(item, null, 4))
 
-dp = require('../../src/twotapDataProvider.js')
+dp = require('../../src/twotapCBCDataProvider.js')
 expect = require('chai').expect
 
 describe "035. Referential Linking", ->
