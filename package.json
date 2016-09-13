@@ -1,5 +1,5 @@
 {
-  "name": "twotap-client",
+  "name": "Twotapjs",
   "version": "0.1.0",
   "description": "",
   "main": "./src/twotapJSONDataProvider.js",
