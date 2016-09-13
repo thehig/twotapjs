@@ -4,7 +4,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function cartModelInit() {
-	console.log('[+] Twotap Cart Model 0.0.0');
+	console.log('[+] Twotap Cart Model 0.1.0');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		CartModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {

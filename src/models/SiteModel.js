@@ -5,7 +5,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function siteModelInit() {
-	console.log('[+] Twotap Site Model 0.0.0');
+	console.log('[+] Twotap Site Model 0.1.0');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		SiteModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {

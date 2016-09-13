@@ -4,7 +4,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function selectOneModelInit() {
-	console.log('[+] Twotap SelectOne Model 0.0.0');
+	console.log('[+] Twotap SelectOne Model 0.1.0');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		SelectOneModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
