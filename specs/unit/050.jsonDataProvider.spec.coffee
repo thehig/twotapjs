@@ -26,7 +26,7 @@ checkProductDataModels = (product) ->
 	options = 0
 	checkIsSelectOneModel(field) for field in product.required_fields
 
-describe "JSONDataProvider", ->
+describe "050.JSONDataProvider", ->
 
 	service = new dp.JSONDataProvider()
 	cart = undefined

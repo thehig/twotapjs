@@ -1,6 +1,6 @@
 {
   "name": "twotap-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "./src/twotapJSONDataProvider.js",
   "scripts": {
@@ -13,6 +13,7 @@
   "devDependencies": {
     "casper-chai": "^0.3.0",
     "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
     "circular-json": "^0.3.0",
     "coffee-script": "^1.10.0",
     "del": "^2.2.0",

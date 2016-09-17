@@ -8,7 +8,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.0');
+	console.log('[+] Twotap JSON Data Provider 0.1.1');
 
 	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -114,6 +114,15 @@ if (typeof module != 'undefined' && module.exports) {
 							}
 						}
 					}
+				},
+				Purchase: function(cart){
+					var self = this;
+					return new WinJS.Promise(function(ccb, ecb){
+						if(!cart) return ecb(new Error("Purchase: Missing cart parameter"));
+                        if(!(cart instanceof Twotapjs.Models.CartModel)) return ecb(new Error("Purchase: Invalid cart parameter"));
+
+						ccb();
+					});
 				}
 			}
 		),
