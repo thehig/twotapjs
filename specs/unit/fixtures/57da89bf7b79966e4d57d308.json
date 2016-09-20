@@ -1,0 +1,155 @@
+{
+    "message":"done",
+    "cart_id":"57da89bf7b79966e4d57d308",
+    "updated_at":"2016-09-15 11:39:05",
+    "response":{
+        "sites": {
+            "52d3d515ce04fa310b00000c": {
+                "info": {
+                    "logo": "https://core.twotap.com/system/sites/logos/52d3/d515/ce04/fa31/0b00/000c/small/52d3d515ce04fa310b00000c.png?1473677112711",
+                    "name": "Hot Topic",
+                    "url": "hottopic.com"
+                },
+                "currency_format": "$AMOUNT",
+                "coupon_support": false,
+                "gift_card_support": false,
+                "checkout_support": [
+                    "noauthCheckout"
+                ],
+                "shipping_countries_support": [
+                    "United States of America",
+                    "Japan"
+                ],
+                "billing_countries_support": [
+                    "United States of America",
+                    "Japan"
+                ],
+                "shipping_options": {
+                    "fastest": "1-2 business days",
+                    "cheapest": "5-7 business days"
+                },
+                "returns": "THISWASTOOLONGFORJSON",
+                "add_to_cart": {
+                    "fa13caea5f91f124a0088ffda58d8b4a": {
+                        "title": "RWBY Beacon Academy T-Shirt",
+                        "price": "$15.67",
+                        "original_price": "$20.90",
+                        "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                        "alt_images": [
+                            "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_standard$"
+                        ],
+                        "description": "The future-fantasy world of Remnant is filled with ravenous monsters, treacherous terrain, and more villains than you can shake a sniper-scythe at. Fortunately, Beacon Academy is training Huntsmen and Huntresses to battle the evils of the world, and Ruby, Weiss, Blake, and Yang are ready for their first day of class. This burgundy T-shirt from Rooster Teeth&apos;s anime-influenced animated web series RWBY features Vale kingdom&apos;s Beacon Academy crossed-ax logo design on front. 100% cotton Wash cold; dry low Imported Listed in men&apos;s sizes",
+                        "categories": [
+                            "Home>",
+                            "tees>",
+                            "anime tees>"
+                        ],
+                        "required_field_names": [
+                            "size",
+                            "quantity"
+                        ],
+                        "required_field_values": {
+                            "size": [
+                                {
+                                    "dep": {},
+                                    "extra_info": "",
+                                    "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                                    "price": "$15.67",
+                                    "text": "XS",
+                                    "value": "XS",
+                                    "weight": ""
+                                },
+                                {
+                                    "dep": {},
+                                    "extra_info": "",
+                                    "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                                    "price": "$15.67",
+                                    "text": "SM",
+                                    "value": "SM",
+                                    "weight": ""
+                                },
+                                {
+                                    "dep": {},
+                                    "extra_info": "",
+                                    "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                                    "price": "$15.67",
+                                    "text": "MD",
+                                    "value": "MD",
+                                    "weight": ""
+                                },
+                                {
+                                    "dep": {},
+                                    "extra_info": "",
+                                    "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                                    "price": "$15.67",
+                                    "text": "LG",
+                                    "value": "LG",
+                                    "weight": ""
+                                },
+                                {
+                                    "dep": {},
+                                    "extra_info": "",
+                                    "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                                    "price": "$15.67",
+                                    "text": "XL",
+                                    "value": "XL",
+                                    "weight": ""
+                                },
+                                {
+                                    "dep": {},
+                                    "extra_info": "",
+                                    "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                                    "price": "$17.17",
+                                    "text": "2X",
+                                    "value": "2X",
+                                    "weight": ""
+                                },
+                                {
+                                    "dep": {},
+                                    "extra_info": "",
+                                    "image": "http://hottopic.scene7.com/is/image/HotTopic/10619252_hi?$pdp_hero_zoom$",
+                                    "price": "$18.67",
+                                    "text": "3X",
+                                    "value": "3X",
+                                    "weight": ""
+                                }
+                            ]
+                        },
+                        "url": "http://www.hottopic.com/product/rwby-beacon-academy-t-shirt/10619252.html#start=9",
+                        "pickup_support": false,
+                        "required_fields": {
+                            "size": {
+                                "data": [
+                                    {
+                                        "input_name": "SELECT",
+                                        "input_type": "select-one"
+                                    }
+                                ]
+                            },
+                            "quantity": {
+                                "data": [
+                                    {
+                                        "input_name": "INPUT",
+                                        "input_type": "text"
+                                    }
+                                ]
+                            }
+                        },
+                        "status": "done",
+                        "weight": "100",
+                        "clean_url": "http://www.hottopic.com/product/rwby-beacon-academy-t-shirt/10619252.html#start=9",
+                        "original_url": "http://www.hottopic.com/product/rwby-beacon-academy-t-shirt/10619252.html#start=9"
+                    }
+                }
+            }
+        },
+        "user_id": "57c0543d7299979e06622cb7",
+        "unknown_urls": [],
+        "cart_id": "57d68738178b18cb0b3fe50a",
+        "notes": null,
+        "country": "us",
+        "stored_field_values": {},
+        "message": "done",
+        "description": "AddToCart has been completed."
+    }
+}

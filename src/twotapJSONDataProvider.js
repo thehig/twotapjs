@@ -4,11 +4,12 @@ if (typeof module != 'undefined' && module.exports) {
 	require('./models/SelectOneModel.js');
 	require('./models/SiteModel.js');
 	require('./models/CartModel.js');
+	require('./models/PurchaseModel.js');
 	require('./twotapDataProviderUtils.js');
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.1');
+	console.log('[+] Twotap JSON Data Provider 0.1.2');
 
 	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -115,13 +116,18 @@ if (typeof module != 'undefined' && module.exports) {
 						}
 					}
 				},
-				Purchase: function(cart){
+				Purchase: function(cart, userDetails){
 					var self = this;
 					return new WinJS.Promise(function(ccb, ecb){
 						if(!cart) return ecb(new Error("Purchase: Missing cart parameter"));
                         if(!(cart instanceof Twotapjs.Models.CartModel)) return ecb(new Error("Purchase: Invalid cart parameter"));
 
-						ccb();
+                        // After validation:
+                        var purchaseModel = new Twotapjs.Models.PurchaseModel();
+						ccb(purchaseModel.initialize({
+							cart: cart,
+							userDetails: userDetails
+						}));
 					});
 				}
 			}
