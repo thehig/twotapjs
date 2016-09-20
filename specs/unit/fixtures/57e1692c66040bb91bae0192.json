@@ -1,0 +1,471 @@
+{
+  "sites": {
+    "52d3d515ce04fa310b00000c": {
+      "info": {
+        "logo": "https://core.twotap.com/system/sites/logos/52d3/d515/ce04/fa31/0b00/000c/small/52d3d515ce04fa310b00000c.png?1474390316621",
+        "name": "Hot Topic",
+        "url": "hottopic.com"
+      },
+      "currency_format": "$AMOUNT",
+      "coupon_support": false,
+      "gift_card_support": false,
+      "checkout_support": [
+        "noauthCheckout"
+      ],
+      "shipping_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "billing_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "shipping_options": {
+        "fastest": "1-2 business days",
+        "cheapest": "5-7 business days"
+      },
+      "returns": "<p>EXCHANGES/RETURNS</p>\r\n\r\n<p><strong>Q: What&rsquo;s your exchange/return policy?</strong><br />\r\n<br />\r\nA: We hope you love what you&rsquo;ve ordered, but if there&rsquo;s an issue or you&rsquo;re not 100% satisfied, return your item(s) to the nearest Hot Topic store, or by mail using our&nbsp;self-serve return form. [http://img.hottopic.com/is/content/HotTopic/HT_SelfServeReturnFormpdf]</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n\t<li>Please save the invoice you received with your package. It&rsquo;s your receipt in case you need to exchange/return your item(s)!</li>\r\n\t<li>All clearance items purchased on Hottopic.com are final sales and cannot be exchanged or returned.</li>\r\n\t<li>Merchandise cannot be returned if washed or worn.</li>\r\n\t<li>Exchanges/returns must be initiated within 30 days of the purchase date listed on the front of your receipt. Hot Topic items sell quickly, so contact us as soon as possible to make exchanges.</li>\r\n\t<li>Allow 2-4 weeks for processing exchanges/returns.</li>\r\n\t<li>You&rsquo;re responsible for selecting your preferred shipping carrier and method. We recommend using one that can be insured and tracked. Hot Topic is not responsible for lost or damaged packages.</li>\r\n\t<li>Merchandise purchased with a credit card or gift card can be exchanged or returned at your local Hot Topic if you have the receipt.</li>\r\n\t<li>If you purchased through a third party such as Paypal, your exchange or return can only be made by mail. Please contact Customer Service at&nbsp;1.800.892.8674 or +1.626.603.3182 for international customersfor further instructions. Sorry, we&rsquo;re unable to process third-party returns within our stores.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Q: How do I exchange something?</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>A: If you&rsquo;re unable to exchange your item(s) at a Hot Topic store, you can easily exchange with us. Here&rsquo;s what you need to know:</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n\t<li>Contact Hottopic.com Customer Service at&nbsp;1.800.892.8674 or +1.626.603.3182 for international customers&nbsp;to process your exchange.</li>\r\n\t<li>Return your item(s) by filling out the fields in the return form that&rsquo;s printed on the back of your order invoice.</li>\r\n\t<li>Pack your return securely, in the original package if possible, and include your completed return form. Do not tear off the bottom of the invoice. We need the entire form to identify the order.</li>\r\n\t<li>You&rsquo;re responsible for selecting your preferred shipping carrier and method. We recommend using one that can be insured and tracked. Hot Topic is not responsible for lost or damaged packages.</li>\r\n\t<li>You will not be reimbursed for your original or return postage.</li>\r\n\t<li>You will not receive a refund for your return until we receive your returned item.</li>\r\n\t<li>You will not be charged a shipping fee for your exchange, unless you request upgraded shipping.</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Q: How do I return something?</strong><br />\r\n<br />\r\nA: If you&rsquo;re unable to return your item(s) at a Hot Topic store, you can easily use our self-serve return process. Here&rsquo;s what you need to know:</p>\r\n\r\n<ul><br />\r\n\t<li>Return your item(s) by filling out the fields in the return form that&rsquo;s printed on the back of your order invoice.</li>\r\n\t<li>Pack your return securely, in the original package if possible, and include your completed return form. Do not tear off the bottom of the invoice. We need the entire form to identify the order.</li>\r\n\t<li>You&rsquo;re responsible for selecting your preferred shipping carrier and method. We recommend using one that can be insured and tracked. Hot Topic is not responsible for lost or damaged packages.</li>\r\n\t<li>You will not be reimbursed for your return or original postage.</li>\r\n\t<li>You will not receive a refund for your return until we receive your returned item. Allow 2-4 weeks for processing and 1 to 7 business days to receive your credit.</li>\r\n\t<li>Still have questions? Email us at&nbsp;returnexchange@hottopic.com. Or, give us a call at 1.800.892.8674 (+1.626.603.3182 for international customers).&nbsp;&nbsp;</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>Q: Will I be able to return my order at a Hot Topic store if I paid online through</strong><strong>a third party</strong><strong>?</strong><br />\r\n&nbsp;<br />\r\nA: Sorry, but our stores are unable to accept your return if you paid online through a third party. Just give Hottopic.com Customer Service a call at 1.800.892.8674 (+1.626.603.3182 for international customers) and we&rsquo;ll help you out! &nbsp;</p>\r\n\r\n<p><br />\r\n<strong>Q: If I return merchandise, how long will it take to receive my credit?</strong><br />\r\n<br />\r\nA: We&#39;ll process your credit as soon as we receive your returned merchandise in our warehouse. Typically, the purchase amount will be restored to your credit card in 1 to 7 business days, depending on your financial institution&rsquo;s policy regarding credits. If you paid for your purchase with a Hot Topic gift card, a new gift card will be sent to you in the amount of the merchandise returned. You will not be reimbursed for your original or return postage.</p>\r\n",
+      "add_to_cart": {
+        "8e2027cfd423bd8be79ba7e48d967fb8": {
+          "original_url": "http://www.hottopic.com/product/of-mice-men-triangle-logo-tie-dye-t-shirt/10614803.html#start=4",
+          "clean_url": "http://www.hottopic.com/product/of-mice-men-triangle-logo-tie-dye-t-shirt/10614803.html#start=4",
+          "status": "done",
+          "required_fields": {
+            "quantity": {
+              "data": [
+                {
+                  "input_type": "text",
+                  "input_name": "INPUT"
+                }
+              ]
+            },
+            "size": {
+              "data": [
+                {
+                  "input_type": "select-one",
+                  "input_name": "SELECT"
+                }
+              ]
+            }
+          },
+          "source": "cache",
+          "required_field_names": [
+            "size",
+            "quantity"
+          ],
+          "required_field_values": {
+            "size": [
+              {
+                "weight": "",
+                "value": "XS",
+                "text": "XS",
+                "price": "$19.92",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10614803_hi?$pdp_hero_zoom$",
+                "extra_info": "",
+                "dep": {}
+              },
+              {
+                "weight": "",
+                "value": "MD",
+                "text": "MD",
+                "price": "$19.92",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10614803_hi?$pdp_hero_zoom$",
+                "extra_info": "",
+                "dep": {}
+              },
+              {
+                "weight": "",
+                "value": "LG",
+                "text": "LG",
+                "price": "$19.92",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10614803_hi?$pdp_hero_zoom$",
+                "extra_info": "",
+                "dep": {}
+              },
+              {
+                "weight": "",
+                "value": "XL",
+                "text": "XL",
+                "price": "$19.92",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10614803_hi?$pdp_hero_zoom$",
+                "extra_info": "",
+                "dep": {}
+              },
+              {
+                "weight": "",
+                "value": "2X",
+                "text": "2X",
+                "price": "$21.52",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10614803_hi?$pdp_hero_zoom$",
+                "extra_info": "",
+                "dep": {}
+              }
+            ]
+          },
+          "weight": "100",
+          "categories": [
+            "Home>",
+            "tees>",
+            "music tees>",
+            "screamo tees>"
+          ],
+          "alt_images": [
+            "http://hottopic.scene7.com/is/image/HotTopic/10614803_hi?$pdp_hero_standard$",
+            "http://hottopic.scene7.com/is/image/HotTopic/10614803_av1?$pdp_hero_zoom$",
+            "http://hottopic.scene7.com/is/image/HotTopic/10614803_av2?$pdp_hero_zoom$"
+          ],
+          "image": "http://hottopic.scene7.com/is/image/HotTopic/10614803_hi?$pdp_hero_zoom$",
+          "description": "Rust color tie dye T-shirt from Orange County, California&apos;s Of Mice &amp; Men with a large triangle logo design on front. 100% cotton Wash cold; dry low Imported Listed in men&apos;s sizes",
+          "original_price": "$24.90",
+          "price": "$19.92",
+          "title": "Of Mice & Men Triangle Logo Tie Dye T-Shirt",
+          "url": "http://www.hottopic.com/product/of-mice-men-triangle-logo-tie-dye-t-shirt/10614803.html#start=4"
+        },
+        "476d4043658f7e78211582b8cd134769": {
+          "url": "http://www.hottopic.com/product/rwby-beacon-academy-girls-raglan/10628103.html#start=1",
+          "title": "RWBY Beacon Academy Girls Raglan",
+          "price": "$19.92",
+          "original_price": "$24.90",
+          "description": "The future-fantasy world of Remnant is filled with ravenous monsters, treacherous terrain, and more villains than you can shake a sniper-scythe at. Fortunately, Beacon Academy is training Huntsmen and Huntresses to battle the evils of the world, and Ruby, Weiss, Blake, and Yang are ready for their first day of class. This black &amp; white raglan style top from Rooster Teeth&apos;s anime-influenced animated web series RWBY features Vale kingdom&apos;s Beacon Academy crossed-ax logo design on front. 50% polyester; 50% rayon Wash cold; dry low Imported Listed in junior sizes",
+          "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+          "alt_images": [
+            "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_standard$",
+            "http://hottopic.scene7.com/is/image/HotTopic/10628103_av1?$pdp_hero_zoom$",
+            "http://hottopic.scene7.com/is/image/HotTopic/10628103_av2?$pdp_hero_zoom$"
+          ],
+          "categories": [
+            "Home>",
+            "tees>",
+            "anime tees>"
+          ],
+          "weight": "100",
+          "required_field_values": {
+            "size": [
+              {
+                "dep": {},
+                "extra_info": "",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+                "price": "$19.92",
+                "text": "XS",
+                "value": "XS",
+                "weight": ""
+              },
+              {
+                "dep": {},
+                "extra_info": "",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+                "price": "$19.92",
+                "text": "SM",
+                "value": "SM",
+                "weight": ""
+              },
+              {
+                "dep": {},
+                "extra_info": "",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+                "price": "$19.92",
+                "text": "MD",
+                "value": "MD",
+                "weight": ""
+              },
+              {
+                "dep": {},
+                "extra_info": "",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+                "price": "$19.92",
+                "text": "LG",
+                "value": "LG",
+                "weight": ""
+              },
+              {
+                "dep": {},
+                "extra_info": "",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+                "price": "$19.92",
+                "text": "XL",
+                "value": "XL",
+                "weight": ""
+              },
+              {
+                "dep": {},
+                "extra_info": "",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+                "price": "$21.52",
+                "text": "2X",
+                "value": "2X",
+                "weight": ""
+              },
+              {
+                "dep": {},
+                "extra_info": "",
+                "image": "http://hottopic.scene7.com/is/image/HotTopic/10628103_hi?$pdp_hero_zoom$",
+                "price": "$23.12",
+                "text": "3X",
+                "value": "3X",
+                "weight": ""
+              }
+            ]
+          },
+          "required_field_names": [
+            "size",
+            "quantity"
+          ],
+          "source": "cache",
+          "required_fields": {
+            "size": {
+              "data": [
+                {
+                  "input_name": "SELECT",
+                  "input_type": "select-one"
+                }
+              ]
+            },
+            "quantity": {
+              "data": [
+                {
+                  "input_name": "INPUT",
+                  "input_type": "text"
+                }
+              ]
+            }
+          },
+          "status": "done",
+          "clean_url": "http://www.hottopic.com/product/rwby-beacon-academy-girls-raglan/10628103.html#start=1",
+          "original_url": "http://www.hottopic.com/product/rwby-beacon-academy-girls-raglan/10628103.html#start=1"
+        }
+      }
+    },
+    "53e35c8dce04fa89f1000050": {
+      "info": {
+        "logo": "https://core.twotap.com/system/sites/logos/53e3/5c8d/ce04/fa89/f100/0050/small/53e35c8dce04fa89f1000050.png?1474390316609",
+        "name": "ThinkGeek",
+        "url": "thinkgeek.com"
+      },
+      "currency_format": "$AMOUNT",
+      "coupon_support": false,
+      "gift_card_support": false,
+      "checkout_support": [
+        "noauthCheckout"
+      ],
+      "shipping_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "billing_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "shipping_options": {
+        "fastest": "2-4 business days",
+        "cheapest": "4-8 business days"
+      },
+      "returns": "<p><strong><span style=\"font-size:18px\">Think Geek - RETURNS POLICY</span></strong></p>\r\n\r\n<p>We accept returns within 90 days for any reason (unless otherwise noted on the product page).</p>\r\n\r\n<p>We require an RMA.</p>\r\n\r\n<p>Returned items must be in original condition, including tags, booklets, and labels.</p>\r\n\r\n<p>REFUNDS</p>\r\n\r\n<p>Refund will be issued to original payment method.</p>\r\n\r\n<p>15% restocking fee will apply to some returns.</p>\r\n\r\n<p>You will be responsible for return shipping costs of non-defective merchandise if you use one of our pre-printed return shipping labels.</p>\r\n\r\n<p>NON-RETURNABLE ITEMS</p>\r\n\r\n<p>Food products, undergarments, blind box items, products withdownloadable content, and the Random Shirt of Awesomeness, and other items as noted on the product page cannot bereturned for refund or store credit.</p>\r\n\r\n<p>APPAREL EXCHANGES</p>\r\n\r\n<p>If you need a different size of an apparel item you ordered, please place an order for the new size and complete the&nbsp;RMA process&nbsp;for the old size. Just pay shipping to return the old item, then email&nbsp;exchanges@thinkgeek.com&nbsp;with your new order number, and we will refund the shipping &amp; any promotional price difference. Note that we can&#39;t do apparel exchanges for orders shipped outside the U.S.</p>\r\n\r\n<p>In the email, please include:</p>\r\n\r\n<p>Your name</p>\r\n\r\n<p>Original order #</p>\r\n\r\n<p>New order #</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>If the size you desire is out of stock or you have questions, please contact Customer Service at 1-888-GEEKSTUFF (1-888-433-5788) or 703-293-6299.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-size:18px\"><strong>FAQ</strong></span></p>\r\n\r\n<p>How can I make a return?</p>\r\n\r\n<p>To return an item, you must have a Return Merchandise Authorization number (RMA).</p>\r\n\r\n<p><em><strong>How can I request an RMA?</strong></em></p>\r\n\r\n<p><strong>Go to</strong>&nbsp;the&nbsp;Order Management&nbsp;section under your Account. Orders that contain items eligible for return, 90 days old or less, will have a Return link to the right.</p>\r\n\r\n<p><strong>Enter the quantities</strong>&nbsp;you would like to return along with the reason, and follow any additional instructions.</p>\r\n\r\n<p><strong>After you get your RMA number</strong>, you will have the opportunity to have a return shipping label generated for you. If you choose not to use a label provided by us, ship your package back to us at the following address:</p>\r\n\r\n<p><strong>ThinkGeek Returns</strong><br />\r\nRMA:&nbsp;<strong>[ include your RMA# here ]</strong><br />\r\n2120 Creekside Pkwy<br />\r\nDock Door 82<br />\r\nLockbourne, OH 43137<br />\r\n(703) 293-6299</p>\r\n\r\n<p>Please place the barcode so it&#39;s highly visible on the return packaging. Do not slap a shipping label on the manufacturer&#39;s packaging. Securely package the returned product within an outer box.</p>\r\n\r\n<p>If that&#39;s all too confusing, you can contact us. Please contact Customer Service at 1-888-GEEKSTUFF (1-888-433-5788) or 703-293-6299</p>\r\n",
+      "add_to_cart": {
+        "f1bec620a2d14a1a0712f8084afa4621": {
+          "original_url": "http://www.thinkgeek.com/product/irgh/",
+          "clean_url": "http://www.thinkgeek.com/product/irgh/",
+          "status": "done",
+          "required_fields": {
+            "quantity": {
+              "data": [
+                {
+                  "input_type": "text",
+                  "input_name": "INPUT"
+                }
+              ]
+            }
+          },
+          "discounted_price": null,
+          "original_price": null,
+          "pickup_support": false,
+          "url": "http://www.thinkgeek.com/product/irgh/",
+          "required_field_values": {},
+          "required_field_names": [
+            "quantity"
+          ],
+          "weight": "2267.985122017599",
+          "categories": [
+            "Home",
+            "Geek Toys",
+            "Plush"
+          ],
+          "description": "Life Size BB-8 Plush\nOfficially-licensed <i>Star Wars: The Force Awakens</i> merchandise\nA ThinkGeek exclusive\nHead does not turn\nMaterials: Polyester fibers &amp; plastic pellets\nCare Instructions: Machine wash cold\n(Good luck finding a machine it&apos;ll fit in)\nImported Dimensions: 2&apos; tall x 18&quot; diameter\nWeight: 5 1/2 lbs.\n<b>Ages 3+</b>",
+          "alt_images": [
+            "http://www.thinkgeek.com/images/products/frontsquare/irgh_life_size_bb-8_plush.jpg",
+            "http://www.thinkgeek.com/images/products/additional/carousel/irgh_life_size_bb-8_plush_cuddle.jpg",
+            "http://www.thinkgeek.com/images/products/additional/carousel/irgh_life_size_bb-8_plush_det.jpg"
+          ],
+          "image": "http://www.thinkgeek.com/images/products/frontsquare/irgh_life_size_bb-8_plush.jpg",
+          "price": "$49.99",
+          "title": "Life Size BB-8 Plush - Exclusive"
+        }
+      }
+    },
+    "53ba9e00ce04fa371a000012": {
+      "info": {
+        "logo": "https://core.twotap.com/system/sites/logos/53ba/9e00/ce04/fa37/1a00/0012/small/53ba9e00ce04fa371a000012.png?1474390316602",
+        "name": "NFL Shop",
+        "url": "nflshop.com"
+      },
+      "currency_format": "$AMOUNT",
+      "coupon_support": true,
+      "gift_card_support": false,
+      "checkout_support": [
+        "noauthCheckout"
+      ],
+      "shipping_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "billing_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "shipping_options": {
+        "fastest": "1-2 business days",
+        "cheapest": "3-7 business days"
+      },
+      "returns": "<p>Our Return Process is simple and hassle free.&nbsp;You can return your merchandise to our warehouse up to <strong>60 days from the purchase date.</strong><br />\r\nReturns must be in original condition, unworn/unused with original tags and labels.<br />\r\nYour return item(s) will be inspected upon arrival before your refund is processed. Once we receive the returned merchandise, we will credit your account within 10 business days. You will receive a confirmation email once this is completed. Original shipping charges are not included in the refunded price. Based on your financial institution, it can take up to 2 to 10 business days to reflect on your account statement once your refund is processed.<br />\r\nFor more information regarding our return process, please review our&nbsp;Return Instructions.<br />\r\n<br />\r\n<strong>Please Note:</strong><br />\r\n- We are no longer processing exchanges and apologize for any inconvenience this has caused.<br />\r\n- Please return your merchandise for a refund and place a new order to receive an alternate item.<br />\r\n- Customized items are final sale and cannot be returned.<br />\r\n- Please review our other return instructions for&nbsp;Damaged&nbsp;or&nbsp;Incorrect&nbsp;items.<br />\r\n- If you are looking to return a gift you received, please review our&nbsp;Gift Return&nbsp;answer for more information.<br />\r\nRead more: [https://nfl.custhelp.com/app/answers/detail/a_id/17]</p>\r\n",
+      "add_to_cart": {
+        "ce87a487ae950fbc8e94e6c073c74ce6": {
+          "url": "http://www.nflshop.com/Baltimore_Ravens_Jerseys/Mens_Baltimore_Ravens_Ray_Lewis_Nike_Purple_Game_Jersey",
+          "title": "Mens Baltimore Ravens Ray Lewis Nike Purple Game Jersey",
+          "price": "$99.99",
+          "description": "<ul> <li>Material: 100% Polyester</li><li>Mesh side panels for breathability</li><li>NFL shield at collar</li><li>Fit: Men&apos;s Nike Game Jerseys fit true to size. We recommend ordering one size larger than you normally wear for a looser fit or up two sizes if you plan on layering underneath the jersey.</li><li>Satin twill woven jock tag</li><li>Screen print name, numbers and logos</li><li>Tagless collar</li><li>Tailored fit designed for movement</li><li>Machine wash</li><li>Officially licensed</li><li>Imported</li><li>Brand: Nike</li>\n</ul> <p>Prove you are the #1 Baltimore Ravens fan with this Nike Game Football jersey! You can boast your team spirit while wearing this Baltimore Ravens jersey. It features printed Baltimore Ravens and Ray Lewis graphics, showing the world who you cheer for. NFL Shop is your source for officially licensed Baltimore Ravens gear.</p>",
+          "image": "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages%2f_825000%2fff_825478_xl.jpg&w=400",
+          "alt_images": [
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT1_full.jpg&w=400",
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT2_full.jpg&w=400",
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT3_full.jpg&w=400",
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT4_full.jpg&w=400",
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT5_full.jpg&w=400",
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT6_full.jpg&w=400",
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT7_full.jpg&w=400",
+            "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_825000/altimages/FF_825478ALT8_full.jpg&w=400"
+          ],
+          "categories": [
+            "HOME",
+            "Baltimore Ravens Gear",
+            "Baltimore Ravens Jerseys"
+          ],
+          "weight": "400",
+          "required_field_values": {
+            "color": [
+              {
+                "alt_images": [
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT1_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT2_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT3_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT4_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT5_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT6_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT7_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT8_full.jpg&w=400"
+                ],
+                "dep": {
+                  "size": [
+                    {
+                      "dep": {},
+                      "extra_info": "",
+                      "image": "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages/_968000/ff_968686_xl.jpg&w=400",
+                      "price": "$99.99",
+                      "text": "S",
+                      "value": "S",
+                      "weight": ""
+                    }
+                  ]
+                },
+                "extra_info": "",
+                "image": "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages/_968000/ff_968686_xl.jpg&w=400",
+                "price": "$99.99",
+                "text": "Black",
+                "value": "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages/_968000/ff_968686_xl.jpg&w=400",
+                "weight": ""
+              },
+              {
+                "alt_images": [
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT1_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT2_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT3_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT4_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT5_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT6_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT7_full.jpg&w=400",
+                  "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productimages/_968000/altimages/FF_968686ALT8_full.jpg&w=400"
+                ],
+                "dep": {
+                  "size": [
+                    {
+                      "dep": {},
+                      "extra_info": "",
+                      "image": "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages/_968000/ff_968686_xl.jpg&w=400",
+                      "price": "$99.99",
+                      "text": "S",
+                      "value": "S",
+                      "weight": ""
+                    }
+                  ]
+                },
+                "extra_info": "",
+                "image": "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages/_968000/ff_968686_xl.jpg&w=400",
+                "price": "$99.99",
+                "text": "Purple",
+                "value": "http://nflshop.frgimages.com/FFImage/thumb.aspx?i=/productImages/_825000/ff_825478_xl.jpg&w=400",
+                "weight": ""
+              }
+            ]
+          },
+          "required_field_names": [
+            "color",
+            "size",
+            "quantity"
+          ],
+          "source": "cache",
+          "required_fields": {
+            "color": {
+              "data": [
+                {
+                  "input_name": "SELECT",
+                  "input_type": "select-one"
+                }
+              ]
+            },
+            "size": {
+              "data": [
+                {
+                  "input_name": "SELECT",
+                  "input_type": "select-one"
+                }
+              ]
+            },
+            "quantity": {
+              "data": [
+                {
+                  "input_name": "INPUT",
+                  "input_type": "text"
+                }
+              ]
+            }
+          },
+          "status": "done",
+          "clean_url": "http://www.nflshop.com/Baltimore_Ravens_Jerseys/Mens_Baltimore_Ravens_Ray_Lewis_Nike_Purple_Game_Jersey",
+          "original_url": "http://www.nflshop.com/Baltimore_Ravens_Jerseys/Mens_Baltimore_Ravens_Ray_Lewis_Nike_Purple_Game_Jersey"
+        }
+      }
+    }
+  },
+  "user_id": null,
+  "unknown_urls": [],
+  "cart_id": "57e1692c66040bb91bae0192",
+  "notes": null,
+  "country": "us",
+  "stored_field_values": {},
+  "message": "done",
+  "description": "AddToCart has been completed."
+}

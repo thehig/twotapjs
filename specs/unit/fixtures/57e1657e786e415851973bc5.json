@@ -1,0 +1,1392 @@
+{
+  "sites": {
+    "53e35c8dce04fa89f1000050": {
+      "info": {
+        "logo": "https://core.twotap.com/system/sites/logos/53e3/5c8d/ce04/fa89/f100/0050/small/53e35c8dce04fa89f1000050.png?1474389374277",
+        "name": "ThinkGeek",
+        "url": "thinkgeek.com"
+      },
+      "currency_format": "$AMOUNT",
+      "coupon_support": false,
+      "gift_card_support": false,
+      "checkout_support": [
+        "noauthCheckout"
+      ],
+      "shipping_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "billing_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "shipping_options": {
+        "fastest": "2-4 business days",
+        "cheapest": "4-8 business days"
+      },
+      "returns": "<p><strong><span style=\"font-size:18px\">Think Geek - RETURNS POLICY</span></strong></p>\r\n\r\n<p>We accept returns within 90 days for any reason (unless otherwise noted on the product page).</p>\r\n\r\n<p>We require an RMA.</p>\r\n\r\n<p>Returned items must be in original condition, including tags, booklets, and labels.</p>\r\n\r\n<p>REFUNDS</p>\r\n\r\n<p>Refund will be issued to original payment method.</p>\r\n\r\n<p>15% restocking fee will apply to some returns.</p>\r\n\r\n<p>You will be responsible for return shipping costs of non-defective merchandise if you use one of our pre-printed return shipping labels.</p>\r\n\r\n<p>NON-RETURNABLE ITEMS</p>\r\n\r\n<p>Food products, undergarments, blind box items, products withdownloadable content, and the Random Shirt of Awesomeness, and other items as noted on the product page cannot bereturned for refund or store credit.</p>\r\n\r\n<p>APPAREL EXCHANGES</p>\r\n\r\n<p>If you need a different size of an apparel item you ordered, please place an order for the new size and complete the&nbsp;RMA process&nbsp;for the old size. Just pay shipping to return the old item, then email&nbsp;exchanges@thinkgeek.com&nbsp;with your new order number, and we will refund the shipping &amp; any promotional price difference. Note that we can&#39;t do apparel exchanges for orders shipped outside the U.S.</p>\r\n\r\n<p>In the email, please include:</p>\r\n\r\n<p>Your name</p>\r\n\r\n<p>Original order #</p>\r\n\r\n<p>New order #</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>If the size you desire is out of stock or you have questions, please contact Customer Service at 1-888-GEEKSTUFF (1-888-433-5788) or 703-293-6299.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-size:18px\"><strong>FAQ</strong></span></p>\r\n\r\n<p>How can I make a return?</p>\r\n\r\n<p>To return an item, you must have a Return Merchandise Authorization number (RMA).</p>\r\n\r\n<p><em><strong>How can I request an RMA?</strong></em></p>\r\n\r\n<p><strong>Go to</strong>&nbsp;the&nbsp;Order Management&nbsp;section under your Account. Orders that contain items eligible for return, 90 days old or less, will have a Return link to the right.</p>\r\n\r\n<p><strong>Enter the quantities</strong>&nbsp;you would like to return along with the reason, and follow any additional instructions.</p>\r\n\r\n<p><strong>After you get your RMA number</strong>, you will have the opportunity to have a return shipping label generated for you. If you choose not to use a label provided by us, ship your package back to us at the following address:</p>\r\n\r\n<p><strong>ThinkGeek Returns</strong><br />\r\nRMA:&nbsp;<strong>[ include your RMA# here ]</strong><br />\r\n2120 Creekside Pkwy<br />\r\nDock Door 82<br />\r\nLockbourne, OH 43137<br />\r\n(703) 293-6299</p>\r\n\r\n<p>Please place the barcode so it&#39;s highly visible on the return packaging. Do not slap a shipping label on the manufacturer&#39;s packaging. Securely package the returned product within an outer box.</p>\r\n\r\n<p>If that&#39;s all too confusing, you can contact us. Please contact Customer Service at 1-888-GEEKSTUFF (1-888-433-5788) or 703-293-6299</p>\r\n",
+      "add_to_cart": {
+        "d179f68eb5a1ee75e250b96b0d5967d7": {
+          "original_url": "http://www.thinkgeek.com/product/irvl/?pfm=HP_TopCMD_irvl",
+          "clean_url": "http://www.thinkgeek.com/product/irvl/",
+          "status": "done",
+          "required_fields": {
+            "quantity": {
+              "data": [
+                {
+                  "input_type": "text",
+                  "input_name": "INPUT"
+                }
+              ]
+            }
+          },
+          "source": "cache",
+          "required_field_names": [
+            "quantity"
+          ],
+          "required_field_values": {},
+          "weight": "6803.955366052798",
+          "categories": [
+            "Home",
+            "Home & Office",
+            "Lighting & Clocks"
+          ],
+          "alt_images": [
+            "http://www.thinkgeek.com/images/products/frontsquare/irvl_bb8_life_size_floor_lamp-rev.gif",
+            "http://www.thinkgeek.com/images/products/additional/carousel/irvl_bb8_life_size_floor_lamp_inuse-rev.jpg",
+            "http://www.thinkgeek.com/images/products/additional/carousel/irvl_bb8_life_size_floor_lamp_modes.jpg"
+          ],
+          "image": "http://www.thinkgeek.com/images/products/frontsquare/irvl_bb8_life_size_floor_lamp-rev.gif",
+          "description": "BB-8 Life-Size LED Floor Lamp\nOfficially-licensed <i>Star Wars: The Force Awakens</i> merchandise\nA ThinkGeek exclusive Comes with stand so it doesn&apos;t go off adventuring\nThree different lighting modes: cold white, amber, and warm white\nTap BB-8&apos;s head to switch lighting modes (or turn off)\nMaterials: Metal with decals &amp; LEDs\nDimensions: 28 1/2&quot; tall x 20&quot; diameter\nWeight: 15 lbs.\nIncludes lamp and switching power supply (6 ft. white cable)\nPower supply input: 110-240V ~ 50-60Hz .8A Power supply output: DC 12v 2.5A",
+          "original_price": "$349.99",
+          "price": "$244.99",
+          "title": "BB-8 Life-Size LED Floor Lamp",
+          "url": "http://www.thinkgeek.com/product/irvl/?pfm=HP_TopCMD_irvl"
+        },
+        "f1bec620a2d14a1a0712f8084afa4621": {
+          "url": "http://www.thinkgeek.com/product/irgh/",
+          "title": "Life Size BB-8 Plush - Exclusive",
+          "price": "$49.99",
+          "description": "Life Size BB-8 Plush\nOfficially-licensed <i>Star Wars: The Force Awakens</i> merchandise\nA ThinkGeek exclusive\nHead does not turn\nMaterials: Polyester fibers &amp; plastic pellets\nCare Instructions: Machine wash cold\n(Good luck finding a machine it&apos;ll fit in)\nImported Dimensions: 2&apos; tall x 18&quot; diameter\nWeight: 5 1/2 lbs.\n<b>Ages 3+</b>",
+          "image": "http://www.thinkgeek.com/images/products/frontsquare/irgh_life_size_bb-8_plush.jpg",
+          "alt_images": [
+            "http://www.thinkgeek.com/images/products/frontsquare/irgh_life_size_bb-8_plush.jpg",
+            "http://www.thinkgeek.com/images/products/additional/carousel/irgh_life_size_bb-8_plush_cuddle.jpg",
+            "http://www.thinkgeek.com/images/products/additional/carousel/irgh_life_size_bb-8_plush_det.jpg"
+          ],
+          "categories": [
+            "Home",
+            "Geek Toys",
+            "Plush"
+          ],
+          "weight": "2267.985122017599",
+          "required_field_values": {},
+          "required_field_names": [
+            "quantity"
+          ],
+          "source": "cache",
+          "required_fields": {
+            "quantity": {
+              "data": [
+                {
+                  "input_name": "INPUT",
+                  "input_type": "text"
+                }
+              ]
+            }
+          },
+          "status": "done",
+          "clean_url": "http://www.thinkgeek.com/product/irgh/",
+          "original_url": "http://www.thinkgeek.com/product/irgh/"
+        }
+      }
+    },
+    "56bdc04e30bb1f62df001141": {
+      "info": {
+        "logo": "https://core.twotap.com/system/sites/logos/56bd/c04e/30bb/1f62/df00/1141/small/56bdc04e30bb1f62df001141.png?1474389374273",
+        "name": "6 Dollar Shirts",
+        "url": "6dollarshirts.com"
+      },
+      "currency_format": "$AMOUNT",
+      "coupon_support": false,
+      "gift_card_support": false,
+      "checkout_support": [
+        "noauthCheckout"
+      ],
+      "shipping_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "billing_countries_support": [
+        "United States of America",
+        "Japan",
+        "Singapore"
+      ],
+      "shipping_options": {
+        "fastest": "1-2 business days",
+        "cheapest": "3-5 business days"
+      },
+      "returns": "<p>We stand behind all the products we sell. In the event that you are unsatisfied with your order, you may return it within 30 days of the delivery date.&nbsp;</p>\r\n\r\n<p>We accept returns of items that have been unworn and unwashed. We do not accept returns of items that have been used or washed.&nbsp;</p>\r\n\r\n<p>Refunds will be given in the form of store credit minus the original shipping amount. Because every one of our shirts are made-to-order, we are no longer able to issue cash or credit card refunds.&nbsp;</p>\r\n\r\n<p>Please CONTACT US for the necessary return form. [&nbsp;http://6dollarshirts.com/help.php?section=contactus&amp;mode=update&nbsp;]</p>\r\n",
+      "add_to_cart": {
+        "58eac9ffe7a7916f3a7bad1c9d6ab15c": {
+          "original_url": "http://6dollarshirts.com/t-shirts/Tis-But-A-Scratch-p-11398.html",
+          "clean_url": "http://6dollarshirts.com/t-shirts/Tis-But-A-Scratch-p-11398.html",
+          "status": "done",
+          "required_fields": {
+            "quantity": {
+              "data": [
+                {
+                  "input_type": "text",
+                  "input_name": "INPUT"
+                }
+              ]
+            },
+            "size": {
+              "data": [
+                {
+                  "input_type": "select-one",
+                  "input_name": "SELECT"
+                }
+              ]
+            },
+            "color": {
+              "data": [
+                {
+                  "input_type": "select-one",
+                  "input_name": "SELECT"
+                }
+              ]
+            },
+            "style": {
+              "data": [
+                {
+                  "input_type": "select-one",
+                  "input_name": "SELECT"
+                }
+              ]
+            }
+          },
+          "source": "cache",
+          "required_field_names": [
+            "style",
+            "color",
+            "size",
+            "quantity"
+          ],
+          "required_field_values": {
+            "style": [
+              {
+                "weight": "",
+                "value": "http://6dollarshirts.com/image/cache/catalog/Icons/mens_shirt_icon-cr-50x50-50x50.png",
+                "text": "Guys Tee",
+                "price": "$6.00",
+                "image": "http://6dollarshirts.com/image/cache//data/designs/001top100/tisbutascratch/tisbutascratch-t-shirt-white-750x750.jpg",
+                "extra_info": "",
+                "dep": {
+                  "color": [
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/heatherroyalblue_miniswatch-50x50.jpg",
+                      "text": "Royal Heather",
+                      "price": "$6.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache/data/swatches/deepash_w_swatch-50x50.png",
+                      "text": "Charcoal",
+                      "price": "$9.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-charcoal-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/heathergray_miniswatch-50x50.jpg",
+                      "text": "Gray Heather",
+                      "price": "$9.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heathergray-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache/data/swatches/lightblue_m_swatch-50x50.png",
+                      "text": "Light Blue",
+                      "price": "$9.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightblue-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/white-snow-mini-swatch-50x50.jpg",
+                      "text": "White",
+                      "price": "$9.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/sand-mini-swatch-50x50.jpg",
+                      "text": "Sand",
+                      "price": "$9.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-sand-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/luckygreen_w_swatch-50x50.png",
+                      "text": "Kelly Green",
+                      "price": "$9.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/heatherred_miniswatch-50x50.jpg",
+                      "text": "Red Heather",
+                      "price": "$9.00",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$8.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3X-Large",
+                            "text": "3X-Large",
+                            "price": "$9.00",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherred-swatch-750x750.jpg"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "weight": "",
+                "value": "http://6dollarshirts.com/image/cache/catalog/Icons/woman_icon-cr-50x50-50x50.png",
+                "text": "Girls Tee",
+                "price": "$9.00",
+                "image": "http://6dollarshirts.com/image/cache//data/designs/001top100/tisbutascratch/tisbutascratch-t-shirt-snow-750x750.jpg",
+                "extra_info": "",
+                "dep": {
+                  "color": [
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/heatherroyalblue_miniswatch-50x50.jpg",
+                      "text": "Royal Heather",
+                      "price": "$6.50",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-heatherroyalblue-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/white-snow-mini-swatch-50x50.jpg",
+                      "text": "Snow",
+                      "price": "$6.50",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-tn-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache/data/swatches/luckygreen_w_swatch-50x50.png",
+                      "text": "Lucky Green",
+                      "price": "$6.50",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kellygreen-luckygreen-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache/data/swatches/softpink_w_swatch-50x50.png",
+                      "text": "Soft Pink",
+                      "price": "$6.50",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-softpink-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-softpink-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-softpink-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-softpink-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-softpink-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-softpink-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache/data/swatches/skyblue_w_swatch_1-50x50.png",
+                      "text": "Sky Blue",
+                      "price": "$6.50",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-skyblue-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-skyblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-skyblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-skyblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-skyblue-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-skyblue-swatch-750x750.jpg"
+                      ]
+                    },
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache/data/swatches/light-lemon_w_swatch-50x50.png",
+                      "text": "Light Lemon",
+                      "price": "$6.50",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightlemon-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightlemon-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightlemon-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightlemon-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$6.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightlemon-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-lightlemon-swatch-750x750.jpg"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "weight": "",
+                "value": "http://6dollarshirts.com/image/cache/catalog/Icons/tank_icon%20(2)-50x50.png",
+                "text": "Guys Tank",
+                "price": "$11.95",
+                "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-white-750x750.jpg",
+                "extra_info": "",
+                "dep": {
+                  "color": [
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache/data/swatches/graygranite_w_swatch_1-50x50.png",
+                      "text": "Gray Granite",
+                      "price": "$11.95",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-graygranite-swatch-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-graygranite-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-graygranite-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-graygranite-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-graygranite-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2X-Large",
+                            "text": "2X-Large",
+                            "price": "$14.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-graygranite-swatch-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-graygranite-swatch-750x750.jpg"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "weight": "",
+                "value": "http://6dollarshirts.com/image/cache//icons/girls-tank-50x50.png",
+                "text": "Girls Tank",
+                "price": "$14.95",
+                "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-snow-750x750.jpg",
+                "extra_info": "",
+                "dep": {
+                  "color": [
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/white-snow-mini-swatch-50x50.jpg",
+                      "text": "White",
+                      "price": "$14.95",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-white-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-white-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-white-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-white-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$11.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-white-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-tanktop-white-750x750.jpg"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "weight": "",
+                "value": "http://6dollarshirts.com/image/cache/catalog/Icons/hoodie_icon-50x50.png",
+                "text": "Hoodie",
+                "price": "$11.95",
+                "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                "extra_info": "",
+                "dep": {
+                  "color": [
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/heathergray_miniswatch-50x50.jpg",
+                      "text": "Gray Heather",
+                      "price": "$18.95",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$18.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$18.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$18.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "X-Large",
+                            "text": "X-Large",
+                            "price": "$18.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Hoodie 2X",
+                            "text": "Hoodie 2X",
+                            "price": "$19.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Hoodie 3X",
+                            "text": "Hoodie 3X",
+                            "price": "$20.95",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "weight": "",
+                "value": "http://6dollarshirts.com/image/cache/catalog/Icons/kids_icon-50x50.png",
+                "text": "Kids Tee",
+                "price": "$20.95",
+                "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch-t-shirt-kids-white-750x750.jpg",
+                "extra_info": "",
+                "dep": {
+                  "color": [
+                    {
+                      "weight": "",
+                      "value": "http://6dollarshirts.com/image/cache//swatches/heathergray_miniswatch-50x50.jpg",
+                      "text": "Gray Heather",
+                      "price": "$9.50",
+                      "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                      "extra_info": "",
+                      "dep": {
+                        "size": [
+                          {
+                            "weight": "",
+                            "value": "Small",
+                            "text": "Small",
+                            "price": "$9.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Medium",
+                            "text": "Medium",
+                            "price": "$9.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "Large",
+                            "text": "Large",
+                            "price": "$9.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "2",
+                            "text": "2",
+                            "price": "$9.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "3",
+                            "text": "3",
+                            "price": "$9.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "4",
+                            "text": "4",
+                            "price": "$9.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          },
+                          {
+                            "weight": "",
+                            "value": "5/6",
+                            "text": "5/6",
+                            "price": "$9.50",
+                            "image": "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg",
+                            "extra_info": "",
+                            "dep": {}
+                          }
+                        ]
+                      },
+                      "alt_images": [
+                        "http://6dollarshirts.com/image/cache//data/designs/tis_but_a_scratch/tisbutascratch_h-750x750.jpg"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "weight": "1000",
+          "alt_images": [
+            "http://6dollarshirts.com/image/cache//data/designs/001top100/tisbutascratch/tisbutascratch-t-shirt-white-750x750.jpg"
+          ],
+          "image": "http://6dollarshirts.com/image/cache//data/designs/001top100/tisbutascratch/tisbutascratch-t-shirt-white-750x750.jpg",
+          "description": "<li>Professionally printed silkscreen</li> <li>Ships within 2 business days</li> <li>Designed and printed in the USA</li>",
+          "price": "$6.00",
+          "title": "Tis But A Scratch!",
+          "url": "http://6dollarshirts.com/t-shirts/Tis-But-A-Scratch-p-11398.html"
+        }
+      }
+    }
+  },
+  "user_id": null,
+  "unknown_urls": [],
+  "cart_id": "57e1657e786e415851973bc5",
+  "notes": null,
+  "country": "us",
+  "stored_field_values": {},
+  "message": "done",
+  "description": "AddToCart has been completed."
+}

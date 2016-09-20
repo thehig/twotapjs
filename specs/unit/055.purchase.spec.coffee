@@ -47,7 +47,7 @@ expect = chai.expect
 chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
 
-describe.only "055.Purchase", ->
+describe "055.Purchase", ->
 
 	service = undefined
 	cart = undefined
@@ -194,11 +194,11 @@ describe.only "055.Purchase", ->
 		describe "Purchase Selections", ->
 			it "has a fields_input object", -> expect(purchaseBody).to.have.property('fields_input')
 			it "has the siteId as object key", -> expect(purchaseBody.fields_input).to.have.property(SITEID)
-			it "has an addToCheckout object", -> expect(purchaseBody.fields_input[SITEID]).to.have.property('addToCheckout')
-			it "has the productId as an object key", -> expect(purchaseBody.fields_input[SITEID].addToCheckout).to.have.property(PRODUCTID)
-			it "has 2 keys", -> expect(Object.keys(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID])).to.have.length(2)
-			it "has size 'SM'", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('size', 'SM')
-			it "has quantity 2", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('quantity', 2)
+			it "has an addToCart object", -> expect(purchaseBody.fields_input[SITEID]).to.have.property('addToCart')
+			it "has the productId as an object key", -> expect(purchaseBody.fields_input[SITEID].addToCart).to.have.property(PRODUCTID)
+			it "has 2 keys", -> expect(Object.keys(purchaseBody.fields_input[SITEID].addToCart[PRODUCTID])).to.have.length(2)
+			it "has size 'SM'", -> expect(purchaseBody.fields_input[SITEID].addToCart[PRODUCTID]).to.have.property('size', 'SM')
+			it "has quantity 2", -> expect(purchaseBody.fields_input[SITEID].addToCart[PRODUCTID]).to.have.property('quantity', 2)
 
 		describe "User Options", ->
 			hasProperty = (item, i) -> 

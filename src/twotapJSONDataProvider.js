@@ -9,7 +9,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.4');
+	console.log('[+] Twotap JSON Data Provider 0.1.5');
 
 	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -129,16 +129,16 @@ if (typeof module != 'undefined' && module.exports) {
                     	// Ensure all mandatory config keys are provided
                         var mandatoryConfigKeys = ["method", "http_confirm_url", "http_finished_url"]; 
 
-                        for(var i = 0; i < mandatoryConfigKeys.length; i++){
-                        	var configKey = mandatoryConfigKeys[i];
+                        for(var configKeyIndex = 0; configKeyIndex < mandatoryConfigKeys.length; configKeyIndex++){
+                        	var configKey = mandatoryConfigKeys[configKeyIndex];
                         	if(!confirmConfig[configKey]) return ecb(new Error("Purchase: Missing Confirm Config parameter: " + configKey));
                         }
 
                         // Ensure all mandatory user keys are provided
                         var mandatoryUserKeys = ["email", "shipping_first_name", "shipping_last_name", "shipping_address", "shipping_city", "shipping_state", "shipping_country", "shipping_zip", "shipping_telephone", "billing_first_name", "billing_last_name", "billing_address", "billing_city", "billing_state", "billing_country", "billing_zip", "billing_telephone", "card_type", "card_number", "card_name", "expiry_date_year", "expiry_date_month", "cvv"]; 
 
-                        for(var i = 0; i < mandatoryUserKeys.length; i++){
-                        	var key = mandatoryUserKeys[i];
+                        for(var userKeyIndex = 0; userKeyIndex < mandatoryUserKeys.length; userKeyIndex++){
+                        	var key = mandatoryUserKeys[userKeyIndex];
                         	if(!userDetails[key]) return ecb(new Error("Purchase: Missing User Details parameter: " + key));
                         }
 
@@ -156,23 +156,23 @@ if (typeof module != 'undefined' && module.exports) {
                         };
 
                         // For each site
-                        for(var j = 0; j < cart.sites.length; j++)
+                        for(var siteIndex = 0; siteIndex < cart.sites.length; siteIndex++)
                         {
-                        	var site = cart.sites[j];
+                        	var site = cart.sites[siteIndex];
 
                         	var sitefields = {
                         		noauthCheckout: {},
-                        		addToCheckout: {}
-                        	}
+                        		addToCart: {}
+                        	};
 
                         	// For each product
-                        	for(var k = 0; k < site.add_to_cart.length; k++){
-                        		var product = site.add_to_cart[k];
+                        	for(var productIndex = 0; productIndex < site.add_to_cart.length; productIndex++){
+                        		var product = site.add_to_cart[productIndex];
                         		var productSelections = {};
 
                         		// For each option
-                        		for(var m = 0; m < product.required_fields.length; m++){
-                        			var option = product.required_fields[m];
+                        		for(var fieldIndex = 0; fieldIndex < product.required_fields.length; fieldIndex++){
+                        			var option = product.required_fields[fieldIndex];
 									if(!option.selected) return ecb(new Error("Purchase: Option not selected - " + product.title + " - " + option.name));
 									// Attach the option to the product
                         			productSelections[option.name] = option.selected.text;
@@ -182,13 +182,13 @@ if (typeof module != 'undefined' && module.exports) {
                         		purchaseBody.products.push(product.url);
 
                         		// Attach the product to the site
-                        		sitefields.addToCheckout[product.id] = productSelections;
+                        		sitefields.addToCart[product.id] = productSelections;
                         	}
 
-                        	// Attach the users Keys
-                        	for(var i = 0; i < mandatoryUserKeys.length; i++){
-	                        	var key = mandatoryUserKeys[i];
-	                        	sitefields.noauthCheckout[key] = userDetails[key];
+                        	// Attach the users Keys to each site
+                        	for(var siteUserKeyIndex = 0; siteUserKeyIndex < mandatoryUserKeys.length; siteUserKeyIndex++){
+	                        	var userKey = mandatoryUserKeys[siteUserKeyIndex];
+	                        	sitefields.noauthCheckout[userKey] = userDetails[userKey];
 	                        }
 
                         	// Attach the site to the purchase
