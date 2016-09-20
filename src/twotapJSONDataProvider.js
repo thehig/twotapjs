@@ -9,7 +9,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.3');
+	console.log('[+] Twotap JSON Data Provider 0.1.4');
 
 	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -116,14 +116,25 @@ if (typeof module != 'undefined' && module.exports) {
 						}
 					}
 				},
-				Purchase: function(cart, userDetails){
+				Purchase: function(cart, userDetails, confirmConfig){
 					var self = this;
 					return new WinJS.Promise(function(ccb, ecb){
 						if(!cart) return ecb(new Error("Purchase: Missing cart parameter"));
                         if(!(cart instanceof Twotapjs.Models.CartModel)) return ecb(new Error("Purchase: Invalid cart parameter"));
 
                     	if(!userDetails) return ecb(new Error("Purchase: Missing User Details parameter"));
+                    	if(!confirmConfig) return ecb(new Error("Purchase: Missing Confirm Config parameter"));
 
+
+                    	// Ensure all mandatory config keys are provided
+                        var mandatoryConfigKeys = ["method", "http_confirm_url", "http_finished_url"]; 
+
+                        for(var i = 0; i < mandatoryConfigKeys.length; i++){
+                        	var configKey = mandatoryConfigKeys[i];
+                        	if(!confirmConfig[configKey]) return ecb(new Error("Purchase: Missing Confirm Config parameter: " + configKey));
+                        }
+
+                        // Ensure all mandatory user keys are provided
                         var mandatoryUserKeys = ["email", "shipping_first_name", "shipping_last_name", "shipping_address", "shipping_city", "shipping_state", "shipping_country", "shipping_zip", "shipping_telephone", "billing_first_name", "billing_last_name", "billing_address", "billing_city", "billing_state", "billing_country", "billing_zip", "billing_telephone", "card_type", "card_number", "card_name", "expiry_date_year", "expiry_date_month", "cvv"]; 
 
                         for(var i = 0; i < mandatoryUserKeys.length; i++){
@@ -134,7 +145,14 @@ if (typeof module != 'undefined' && module.exports) {
                         // Create the top level body of the purchase object
                         var purchaseBody = {
                         	cart_id: cart.cart_id,
-                        	fields_input: {}
+                        	fields_input: {},
+                        	products: [],
+                        	confirm: {
+                        		"method": confirmConfig.method,
+                        		"http_confirm_url": confirmConfig.http_confirm_url,
+                        		"http_finished_url": confirmConfig.http_finished_url
+                        	},
+                        	test_mode: 'fake_confirm'
                         };
 
                         // For each site
@@ -143,6 +161,7 @@ if (typeof module != 'undefined' && module.exports) {
                         	var site = cart.sites[j];
 
                         	var sitefields = {
+                        		noauthCheckout: {},
                         		addToCheckout: {}
                         	}
 
@@ -159,9 +178,18 @@ if (typeof module != 'undefined' && module.exports) {
                         			productSelections[option.name] = option.selected.text;
                         		}
 
+                        		// Add the product URL to the products collection
+                        		purchaseBody.products.push(product.url);
+
                         		// Attach the product to the site
                         		sitefields.addToCheckout[product.id] = productSelections;
                         	}
+
+                        	// Attach the users Keys
+                        	for(var i = 0; i < mandatoryUserKeys.length; i++){
+	                        	var key = mandatoryUserKeys[i];
+	                        	sitefields.noauthCheckout[key] = userDetails[key];
+	                        }
 
                         	// Attach the site to the purchase
                         	purchaseBody.fields_input[site.id] = sitefields;

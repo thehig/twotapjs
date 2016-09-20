@@ -28,6 +28,12 @@ userDetails = {
 	"cvv":"232"
 }
 
+confirmConfig = { 
+	"method": "http", 
+	"http_confirm_url": "http://dev.54.93.185.230.xip.io/twotap/cart/purchaseCallback/",
+	"http_finished_url": "http://dev.54.93.185.230.xip.io/twotap/cart/purchaseCallback/"
+}
+
 # Implement some useful shorthand utils for testing
 console.log('[*] Adding testing shorthand functions')
 l = console.log
@@ -110,20 +116,27 @@ describe.only "055.Purchase", ->
 				# it "Unselected options"
 				testCart = undefined
 				testUser = undefined
+				testConfig = undefined
 				beforeEach -> 
 					testCart = deepcopy(cart)
 					testUser = deepcopy(userDetails)
+					testConfig = deepcopy(confirmConfig)
+
 
 				expectError = (item, i) ->
 					it item.description, ->
 						item.prepareTest()
-						expect(service.Purchase(testCart, testUser)).to.be.rejectedWith(item.rejectsWith)
+						expect(service.Purchase(testCart, testUser, testConfig)).to.be.rejectedWith(item.rejectsWith)
 
 
 				expectError(item, i) for item, i in [
 					{"description": "cart is undefined", "rejectsWith" : "Missing cart parameter", "prepareTest": ()-> testCart = undefined}
 					{"description": "cart is invalid", "rejectsWith" : "Invalid cart parameter", "prepareTest": ()-> testCart = {}}
 					{"description": "userDetails is undefined", "rejectsWith" : "Missing User Details parameter", "prepareTest": ()-> testUser = undefined}
+					{"description": "confirmConfig is undefined", "rejectsWith" : "Missing Confirm Config parameter", "prepareTest": ()-> testConfig = undefined}
+					{"description": "confirmConfig.method is undefined", "rejectsWith" : "Missing Confirm Config parameter: method", "prepareTest": ()-> testConfig.method = undefined}
+					{"description": "confirmConfig.http_confirm_url is undefined", "rejectsWith" : "Missing Confirm Config parameter: http_confirm_url", "prepareTest": ()-> testConfig.http_confirm_url = undefined}
+					{"description": "confirmConfig.http_finished_url is undefined", "rejectsWith" : "Missing Confirm Config parameter: http_finished_url", "prepareTest": ()-> testConfig.http_finished_url = undefined}
 				]
 
 				describe "userDetails does not contain", ->
@@ -159,7 +172,7 @@ describe.only "055.Purchase", ->
 				it "returns an object", -> 
 					service.clickOption(cart.sites[0].add_to_cart[0].required_fields[0].observableValues[1])
 					service.clickOption(cart.sites[0].add_to_cart[0].required_fields[1].observableValues[1])
-					expect(service.Purchase(cart, userDetails)).to.eventually.be.an('object')
+					expect(service.Purchase(cart, userDetails, confirmConfig)).to.eventually.be.an('object')
 
 	describe "Purchase Body", ->
 		purchaseBody = undefined
@@ -170,14 +183,59 @@ describe.only "055.Purchase", ->
 		beforeEach -> 
 			service.clickOption(cart.sites[0].add_to_cart[0].required_fields[0].observableValues[1])
 			service.clickOption(cart.sites[0].add_to_cart[0].required_fields[1].observableValues[1])
-			service.Purchase(cart, userDetails).then((pb)-> purchaseBody = pb)
+			service.Purchase(cart, userDetails, confirmConfig).then((pb)-> purchaseBody = pb)
 
 		it "has the cart_id", -> expect(purchaseBody).to.have.property('cart_id', CARTID)
-		it "has a fields_input object", -> expect(purchaseBody).to.have.property('fields_input')
-		it "has the siteId as object key", -> expect(purchaseBody.fields_input).to.have.property(SITEID)
-		it "has an addToCheckout object", -> expect(purchaseBody.fields_input[SITEID]).to.have.property('addToCheckout')
-		it "has the productId as an object key", -> expect(purchaseBody.fields_input[SITEID].addToCheckout).to.have.property(PRODUCTID)
-		it "has 2 keys: size and quantity", -> expect(Object.keys(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID])).to.have.length(2)
-		it "has size 'SM'", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('size', 'SM')
-		it "has quantity 2", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('quantity', 2)
+		it "has a products property", -> expect(purchaseBody).to.have.property('products')
+		it "length 1", -> expect(purchaseBody.products).to.have.length(1)
+		it "has test_mode 'fake_confirm'", -> expect(purchaseBody).to.have.property('test_mode', 'fake_confirm')
 
+
+		describe "Purchase Selections", ->
+			it "has a fields_input object", -> expect(purchaseBody).to.have.property('fields_input')
+			it "has the siteId as object key", -> expect(purchaseBody.fields_input).to.have.property(SITEID)
+			it "has an addToCheckout object", -> expect(purchaseBody.fields_input[SITEID]).to.have.property('addToCheckout')
+			it "has the productId as an object key", -> expect(purchaseBody.fields_input[SITEID].addToCheckout).to.have.property(PRODUCTID)
+			it "has 2 keys", -> expect(Object.keys(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID])).to.have.length(2)
+			it "has size 'SM'", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('size', 'SM')
+			it "has quantity 2", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('quantity', 2)
+
+		describe "User Options", ->
+			hasProperty = (item, i) -> 
+				it "has " + item.name + " '" + item.value + "'", -> expect(purchaseBody.fields_input[SITEID].noauthCheckout).to.have.property(item.name, item.value)
+
+			hasProperty(item, i) for item, i in [
+				{"name": "email", "value": "test@gmail.com"}
+				{"name": "shipping_first_name", "value": "Bonnie"}
+				{"name": "shipping_last_name", "value": "Wiseman"}
+				{"name": "shipping_address", "value": "3900 Simpson Avenue"}
+				{"name": "shipping_city", "value": "Millersville"}
+				{"name": "shipping_state", "value": "Pennsylvania"}
+				{"name": "shipping_country", "value": "United States of America"}
+				{"name": "shipping_zip", "value": "17551"}
+				{"name": "shipping_telephone", "value": "717-872-1812"}
+				{"name": "billing_first_name", "value": "Bonnie"}
+				{"name": "billing_last_name", "value": "Wiseman"}
+				{"name": "billing_address", "value": "3900 Simpson Avenue"}
+				{"name": "billing_city", "value": "Millersville"}
+				{"name": "billing_state", "value": "Pennsylvania"}
+				{"name": "billing_country", "value": "United States of America"}
+				{"name": "billing_zip", "value": "17551"}
+				{"name": "billing_telephone", "value": "717-872-1812"}
+				{"name": "card_type", "value": "Visa"}
+				{"name": "card_number", "value": "5358831008047065",}
+				{"name": "card_name", "value": "Bonnie Wiseman"}
+				{"name": "expiry_date_year", "value": "2019", }
+				{"name": "expiry_date_month", "value": "12"}
+				{"name": "cvv", "value": "232"}
+			]
+
+		describe "Confirm Config", ->
+			hasProperty = (item, i) -> 
+				it "has " + item.name + " '" + item.value + "'", -> expect(purchaseBody.confirm).to.have.property(item.name, item.value)
+
+			hasProperty(item, i) for item, i in [
+				{"name": "method", "value": "http"}
+				{"name": "http_confirm_url", "value": "http://dev.54.93.185.230.xip.io/twotap/cart/purchaseCallback/"}
+				{"name": "http_finished_url", "value": "http://dev.54.93.185.230.xip.io/twotap/cart/purchaseCallback/"}
+			]
