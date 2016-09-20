@@ -1,5 +1,6 @@
 dp = require('../../src/twotapJSONDataProvider.js')
 fixture = require('./fixtures/57da89bf7b79966e4d57d308.json').response
+deepcopy = require('deepcopy')
 
 userDetails = {
 	"email":"test@gmail.com",
@@ -103,19 +104,80 @@ describe.only "055.Purchase", ->
 				it "has product id 'fa13caea5f91f124a0088ffda58d8b4a'", -> expect(product).to.have.property('id', 'fa13caea5f91f124a0088ffda58d8b4a')
 		
 		describe "calls", ->
-			# describe "throws an error if", ->
+			describe "throws an error if", ->
 				# it "No cart"
 				# it "Invalid cart"
 				# it "Unselected options"
+				testCart = undefined
+				testUser = undefined
+				beforeEach -> 
+					testCart = deepcopy(cart)
+					testUser = deepcopy(userDetails)
+
+				expectError = (item, i) ->
+					it item.description, ->
+						item.prepareTest()
+						expect(service.Purchase(testCart, testUser)).to.be.rejectedWith(item.rejectsWith)
+
+
+				expectError(item, i) for item, i in [
+					{"description": "cart is undefined", "rejectsWith" : "Missing cart parameter", "prepareTest": ()-> testCart = undefined}
+					{"description": "cart is invalid", "rejectsWith" : "Invalid cart parameter", "prepareTest": ()-> testCart = {}}
+					{"description": "userDetails is undefined", "rejectsWith" : "Missing User Details parameter", "prepareTest": ()-> testUser = undefined}
+				]
+
+				describe "userDetails does not contain", ->
+
+					expectError(item, i) for item, i in [
+						{"description": "email", "rejectsWith" : "Missing User Details parameter: email", "prepareTest": ()-> testUser.email = undefined}
+						{"description": "shipping_first_name", "rejectsWith" : "Missing User Details parameter: shipping_first_name", "prepareTest": ()-> testUser.shipping_first_name = undefined}
+						{"description": "shipping_last_name", "rejectsWith" : "Missing User Details parameter: shipping_last_name", "prepareTest": ()-> testUser.shipping_last_name = undefined}
+						{"description": "shipping_address", "rejectsWith" : "Missing User Details parameter: shipping_address", "prepareTest": ()-> testUser.shipping_address = undefined}
+						{"description": "shipping_city", "rejectsWith" : "Missing User Details parameter: shipping_city", "prepareTest": ()-> testUser.shipping_city = undefined}
+						{"description": "shipping_state", "rejectsWith" : "Missing User Details parameter: shipping_state", "prepareTest": ()-> testUser.shipping_state = undefined}
+						{"description": "shipping_country", "rejectsWith" : "Missing User Details parameter: shipping_country", "prepareTest": ()-> testUser.shipping_country = undefined}
+						{"description": "shipping_zip", "rejectsWith" : "Missing User Details parameter: shipping_zip", "prepareTest": ()-> testUser.shipping_zip = undefined}
+						{"description": "shipping_telephone", "rejectsWith" : "Missing User Details parameter: shipping_telephone", "prepareTest": ()-> testUser.shipping_telephone = ""}
+						{"description": "billing_first_name", "rejectsWith" : "Missing User Details parameter: billing_first_name", "prepareTest": ()-> testUser.billing_first_name = undefined}
+						{"description": "billing_last_name", "rejectsWith" : "Missing User Details parameter: billing_last_name", "prepareTest": ()-> testUser.billing_last_name = undefined}
+						{"description": "billing_address", "rejectsWith" : "Missing User Details parameter: billing_address", "prepareTest": ()-> testUser.billing_address = undefined}
+						{"description": "billing_city", "rejectsWith" : "Missing User Details parameter: billing_city", "prepareTest": ()-> testUser.billing_city = undefined}
+						{"description": "billing_state", "rejectsWith" : "Missing User Details parameter: billing_state", "prepareTest": ()-> testUser.billing_state = undefined}
+						{"description": "billing_country", "rejectsWith" : "Missing User Details parameter: billing_country", "prepareTest": ()-> testUser.billing_country = ""}
+						{"description": "billing_zip", "rejectsWith" : "Missing User Details parameter: billing_zip", "prepareTest": ()-> testUser.billing_zip = undefined}
+						{"description": "billing_telephone", "rejectsWith" : "Missing User Details parameter: billing_telephone", "prepareTest": ()-> testUser.billing_telephone = ""}
+						{"description": "card_type", "rejectsWith" : "Missing User Details parameter: card_type", "prepareTest": ()-> testUser.card_type = undefined}
+						{"description": "card_number", "rejectsWith" : "Missing User Details parameter: card_number", "prepareTest": ()-> testUser.card_number = undefined}
+						{"description": "card_name", "rejectsWith" : "Missing User Details parameter: card_name", "prepareTest": ()-> testUser.card_name = undefined}
+						{"description": "expiry_date_year", "rejectsWith" : "Missing User Details parameter: expiry_date_year", "prepareTest": ()-> testUser.expiry_date_year = undefined}
+						{"description": "expiry_date_month", "rejectsWith" : "Missing User Details parameter: expiry_date_month", "prepareTest": ()-> testUser.expiry_date_month = undefined}
+						{"description": "cvv", "rejectsWith" : "Missing User Details parameter: cvv", "prepareTest": ()-> testUser.cvv = undefined}
+					]
+
 
 			describe "with valid address and billing fixtures", ->
-				it "returns a PurchaseModel", -> expect(service.Purchase(cart, userDetails)).to.eventually.be.instanceOf(Twotapjs.Models.PurchaseModel)
+				it "returns an object", -> 
+					service.clickOption(cart.sites[0].add_to_cart[0].required_fields[0].observableValues[1])
+					service.clickOption(cart.sites[0].add_to_cart[0].required_fields[1].observableValues[1])
+					expect(service.Purchase(cart, userDetails)).to.eventually.be.an('object')
 
-	describe "PurchaseModel", ->
-		# it "has the siteId as object key", -> expect(purchase).to.have.property('SITEID')
-		# it "has an addToCart object", -> expect(purchase[SITEID]).to.have.property('addToCart')
-		# it "has the productId as an object key", -> expect(purchase[SITEID].addToCart).to.have.property('PRODUCTID')
-		# it "has 2 keys: size and quantity", -> expect(Object.keys(purchase[SITEID].addToCart[PRODUCTID])).to.have.length(2)
-		# it "has size 'SM'", -> expect(purchase[SITEID].addToCart[PRODUCTID]).to.have.property('size', 'SM')
-		# it "has quantity 2", -> expect(purchase[SITEID].addToCart[PRODUCTID]).to.have.property('quantity', 2)
+	describe "Purchase Body", ->
+		purchaseBody = undefined
+		CARTID = "57d68738178b18cb0b3fe50a"
+		SITEID = "52d3d515ce04fa310b00000c"
+		PRODUCTID = "fa13caea5f91f124a0088ffda58d8b4a"
+
+		beforeEach -> 
+			service.clickOption(cart.sites[0].add_to_cart[0].required_fields[0].observableValues[1])
+			service.clickOption(cart.sites[0].add_to_cart[0].required_fields[1].observableValues[1])
+			service.Purchase(cart, userDetails).then((pb)-> purchaseBody = pb)
+
+		it "has the cart_id", -> expect(purchaseBody).to.have.property('cart_id', CARTID)
+		it "has a fields_input object", -> expect(purchaseBody).to.have.property('fields_input')
+		it "has the siteId as object key", -> expect(purchaseBody.fields_input).to.have.property(SITEID)
+		it "has an addToCheckout object", -> expect(purchaseBody.fields_input[SITEID]).to.have.property('addToCheckout')
+		it "has the productId as an object key", -> expect(purchaseBody.fields_input[SITEID].addToCheckout).to.have.property(PRODUCTID)
+		it "has 2 keys: size and quantity", -> expect(Object.keys(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID])).to.have.length(2)
+		it "has size 'SM'", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('size', 'SM')
+		it "has quantity 2", -> expect(purchaseBody.fields_input[SITEID].addToCheckout[PRODUCTID]).to.have.property('quantity', 2)
 

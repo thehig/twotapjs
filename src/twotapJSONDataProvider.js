@@ -9,7 +9,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.2');
+	console.log('[+] Twotap JSON Data Provider 0.1.3');
 
 	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -122,12 +122,52 @@ if (typeof module != 'undefined' && module.exports) {
 						if(!cart) return ecb(new Error("Purchase: Missing cart parameter"));
                         if(!(cart instanceof Twotapjs.Models.CartModel)) return ecb(new Error("Purchase: Invalid cart parameter"));
 
-                        // After validation:
-                        var purchaseModel = new Twotapjs.Models.PurchaseModel();
-						ccb(purchaseModel.initialize({
-							cart: cart,
-							userDetails: userDetails
-						}));
+                    	if(!userDetails) return ecb(new Error("Purchase: Missing User Details parameter"));
+
+                        var mandatoryUserKeys = ["email", "shipping_first_name", "shipping_last_name", "shipping_address", "shipping_city", "shipping_state", "shipping_country", "shipping_zip", "shipping_telephone", "billing_first_name", "billing_last_name", "billing_address", "billing_city", "billing_state", "billing_country", "billing_zip", "billing_telephone", "card_type", "card_number", "card_name", "expiry_date_year", "expiry_date_month", "cvv"]; 
+
+                        for(var i = 0; i < mandatoryUserKeys.length; i++){
+                        	var key = mandatoryUserKeys[i];
+                        	if(!userDetails[key]) return ecb(new Error("Purchase: Missing User Details parameter: " + key));
+                        }
+
+                        // Create the top level body of the purchase object
+                        var purchaseBody = {
+                        	cart_id: cart.cart_id,
+                        	fields_input: {}
+                        };
+
+                        // For each site
+                        for(var j = 0; j < cart.sites.length; j++)
+                        {
+                        	var site = cart.sites[j];
+
+                        	var sitefields = {
+                        		addToCheckout: {}
+                        	}
+
+                        	// For each product
+                        	for(var k = 0; k < site.add_to_cart.length; k++){
+                        		var product = site.add_to_cart[k];
+                        		var productSelections = {};
+
+                        		// For each option
+                        		for(var m = 0; m < product.required_fields.length; m++){
+                        			var option = product.required_fields[m];
+									if(!option.selected) return ecb(new Error("Purchase: Option not selected - " + product.title + " - " + option.name));
+									// Attach the option to the product
+                        			productSelections[option.name] = option.selected.text;
+                        		}
+
+                        		// Attach the product to the site
+                        		sitefields.addToCheckout[product.id] = productSelections;
+                        	}
+
+                        	// Attach the site to the purchase
+                        	purchaseBody.fields_input[site.id] = sitefields;
+                        }
+
+                        ccb(purchaseBody);
 					});
 				}
 			}
