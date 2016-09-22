@@ -7,7 +7,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap Data Provider Utilities 0.1.0');
+	console.log('[+] Twotap Data Provider Utilities 0.1.1');
 
 	WinJS.Namespace.define('Twotapjs.Utilities', {
 		_defaultTimeout: 30000,
@@ -81,7 +81,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 				// Iterate through the current products required fields
 				for(var i = 0; i < product.required_fields.length; i++){
-					var selectOneModel = product.required_fields[i];
+					var selectOneModel = paramGroup.serviceInstance.observableObjectType ? paramGroup.serviceInstance.observableObjectType(product.required_fields[i]) : product.required_fields[i];
 					// If this required_field has values, push it into the all list and we're done
 					if(selectOneModel.values && selectOneModel.values.length > 0){
 						allList.push(selectOneModel);
@@ -100,7 +100,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 						// Iterate through the values of the parent SelectOneModel
 						for(var k = 0; k < parentSelectOneModel.values.length; k++){
-							var selectOneModelOption = parentSelectOneModel.values[k];
+							var selectOneModelOption = paramGroup.serviceInstance.observableObjectType ? paramGroup.serviceInstance.observableObjectType(parentSelectOneModel.values[k]) : parentSelectOneModel.values[k];
 							if(verbose) console.log("[*]\t\tSearching SelectOneModelOption: '" + selectOneModelOption.text + "'");
 
 							// If there are no deps, it's definitely not this one but we're not done searching so we want to continue the for loop
@@ -108,7 +108,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 							// Iterate through the deps on the SelectOneModel
 							for(var m = 0; m < selectOneModelOption.dep.length; m++){
-								var childSelectOneModel = selectOneModelOption.dep[m];
+								var childSelectOneModel = paramGroup.serviceInstance.observableObjectType ? paramGroup.serviceInstance.observableObjectType(selectOneModelOption.dep[m]) : selectOneModelOption.dep[m];
 								// If this childSelectOneModel has the same name as the selectOneModel we were looking for, we have successfully found one instance
 								if(childSelectOneModel.name === selectOneModel.name){
 									// Add this instance to the growing collection of instances of this SelectOneModel with this name
