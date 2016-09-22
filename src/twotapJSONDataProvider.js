@@ -37,13 +37,13 @@ if (typeof module != 'undefined' && module.exports) {
 
 						// Iterate through the sites
 						for(var i = 0; i < cart.sites.length; i++){
-							var site = cart.sites[i];
+							var site = self.observableObjectType(cart.sites[i]);
 							site._cart = cart;
 							if(!site.add_to_cart || site.add_to_cart.length === 0) continue;
 
 							// Iterate through the products and process them one by one
 							for(var j = 0; j < site.add_to_cart.length; j++){
-								var product = site.add_to_cart[j];
+								var product = self.observableObjectType(site.add_to_cart[j]);
 
 								var paramGroup = {
 									product: product,
@@ -68,6 +68,9 @@ if (typeof module != 'undefined' && module.exports) {
 				},
 				observableListType: function(){
 					return [];
+				},
+				observableObjectType: function(item){
+					return item;
 				},
 				clickOption: function(option){
 					if(!option || !(option instanceof Twotapjs.Models.SelectOneModelOption)){
