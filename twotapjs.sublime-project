@@ -15,7 +15,7 @@
 
 		{
 			"path": "scripts",
-			"file_include_patterns": ["*.js", "*.coffee"],
+			"file_include_patterns": ["*.js", "*.coffee", "*fixture*"],
 		},
 
 		// {
