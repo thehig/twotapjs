@@ -9,7 +9,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.5');
+	console.log('[+] Twotap JSON Data Provider 0.1.6');
 
 	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -118,6 +118,29 @@ if (typeof module != 'undefined' && module.exports) {
 							}
 						}
 					}
+				},
+				Verify: function(cart){						
+					var self = this;
+						return new WinJS.Promise(function(ccb, ecb){				
+						// For each site
+						for(var siteIndex = 0; siteIndex < cart.sites.length; siteIndex++)
+						{
+							var site = cart.sites[siteIndex];
+							// For each product
+							for(var productIndex = 0; productIndex < site.add_to_cart.length; productIndex++){
+								var product = site.add_to_cart[productIndex];
+								var productSelections = {};
+
+								// For each option
+								for(var fieldIndex = 0; fieldIndex < product.required_fields.length; fieldIndex++){
+									var option = product.required_fields[fieldIndex];
+									if(!option.selected) return ecb(new Error("Verify: Option not selected - " + product.title + " - " + option.name));
+								}
+					        }
+						}
+
+						ccb(true);
+					});
 				},
 				Purchase: function(cart, userDetails, confirmConfig){
 					var self = this;
