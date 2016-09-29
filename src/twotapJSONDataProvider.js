@@ -4,11 +4,12 @@ if (typeof module != 'undefined' && module.exports) {
 	require('./models/SelectOneModel.js');
 	require('./models/SiteModel.js');
 	require('./models/CartModel.js');
+	require('./models/PurchaseModel.js');
 	require('./twotapDataProviderUtils.js');
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.0');
+	console.log('[+] Twotap JSON Data Provider 0.1.5');
 
 	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
 
@@ -36,13 +37,13 @@ if (typeof module != 'undefined' && module.exports) {
 
 						// Iterate through the sites
 						for(var i = 0; i < cart.sites.length; i++){
-							var site = cart.sites[i];
+							var site = self.observableObjectType(cart.sites[i]);
 							site._cart = cart;
 							if(!site.add_to_cart || site.add_to_cart.length === 0) continue;
 
 							// Iterate through the products and process them one by one
 							for(var j = 0; j < site.add_to_cart.length; j++){
-								var product = site.add_to_cart[j];
+								var product = self.observableObjectType(site.add_to_cart[j]);
 
 								var paramGroup = {
 									product: product,
@@ -67,6 +68,9 @@ if (typeof module != 'undefined' && module.exports) {
 				},
 				observableListType: function(){
 					return [];
+				},
+				observableObjectType: function(item){
+					return item;
 				},
 				clickOption: function(option){
 					if(!option || !(option instanceof Twotapjs.Models.SelectOneModelOption)){
@@ -114,6 +118,88 @@ if (typeof module != 'undefined' && module.exports) {
 							}
 						}
 					}
+				},
+				Purchase: function(cart, userDetails, confirmConfig){
+					var self = this;
+					return new WinJS.Promise(function(ccb, ecb){
+						if(!cart) return ecb(new Error("Purchase: Missing cart parameter"));
+                        if(!(cart instanceof Twotapjs.Models.CartModel)) return ecb(new Error("Purchase: Invalid cart parameter"));
+
+                    	if(!userDetails) return ecb(new Error("Purchase: Missing User Details parameter"));
+                    	if(!confirmConfig) return ecb(new Error("Purchase: Missing Confirm Config parameter"));
+
+
+                    	// Ensure all mandatory config keys are provided
+                        var mandatoryConfigKeys = ["method", "http_confirm_url", "http_finished_url"]; 
+
+                        for(var configKeyIndex = 0; configKeyIndex < mandatoryConfigKeys.length; configKeyIndex++){
+                        	var configKey = mandatoryConfigKeys[configKeyIndex];
+                        	if(!confirmConfig[configKey]) return ecb(new Error("Purchase: Missing Confirm Config parameter: " + configKey));
+                        }
+
+                        // Ensure all mandatory user keys are provided
+                        var mandatoryUserKeys = ["email", "shipping_first_name", "shipping_last_name", "shipping_address", "shipping_city", "shipping_state", "shipping_country", "shipping_zip", "shipping_telephone", "billing_first_name", "billing_last_name", "billing_address", "billing_city", "billing_state", "billing_country", "billing_zip", "billing_telephone", "card_type", "card_number", "card_name", "expiry_date_year", "expiry_date_month", "cvv"]; 
+
+                        for(var userKeyIndex = 0; userKeyIndex < mandatoryUserKeys.length; userKeyIndex++){
+                        	var key = mandatoryUserKeys[userKeyIndex];
+                        	if(!userDetails[key]) return ecb(new Error("Purchase: Missing User Details parameter: " + key));
+                        }
+
+                        // Create the top level body of the purchase object
+                        var purchaseBody = {
+                        	cart_id: cart.cart_id,
+                        	fields_input: {},
+                        	products: [],
+                        	confirm: {
+                        		"method": confirmConfig.method,
+                        		"http_confirm_url": confirmConfig.http_confirm_url,
+                        		"http_finished_url": confirmConfig.http_finished_url
+                        	},
+                        	test_mode: 'fake_confirm'
+                        };
+
+                        // For each site
+                        for(var siteIndex = 0; siteIndex < cart.sites.length; siteIndex++)
+                        {
+                        	var site = cart.sites[siteIndex];
+
+                        	var sitefields = {
+                        		noauthCheckout: {},
+                        		addToCart: {}
+                        	};
+
+                        	// For each product
+                        	for(var productIndex = 0; productIndex < site.add_to_cart.length; productIndex++){
+                        		var product = site.add_to_cart[productIndex];
+                        		var productSelections = {};
+
+                        		// For each option
+                        		for(var fieldIndex = 0; fieldIndex < product.required_fields.length; fieldIndex++){
+                        			var option = product.required_fields[fieldIndex];
+									if(!option.selected) return ecb(new Error("Purchase: Option not selected - " + product.title + " - " + option.name));
+									// Attach the option to the product
+                        			productSelections[option.name] = option.selected.text;
+                        		}
+
+                        		// Add the product URL to the products collection
+                        		purchaseBody.products.push(product.url);
+
+                        		// Attach the product to the site
+                        		sitefields.addToCart[product.id] = productSelections;
+                        	}
+
+                        	// Attach the users Keys to each site
+                        	for(var siteUserKeyIndex = 0; siteUserKeyIndex < mandatoryUserKeys.length; siteUserKeyIndex++){
+	                        	var userKey = mandatoryUserKeys[siteUserKeyIndex];
+	                        	sitefields.noauthCheckout[userKey] = userDetails[userKey];
+	                        }
+
+                        	// Attach the site to the purchase
+                        	purchaseBody.fields_input[site.id] = sitefields;
+                        }
+
+                        ccb(purchaseBody);
+					});
 				}
 			}
 		),
