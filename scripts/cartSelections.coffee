@@ -26,11 +26,12 @@ parseOpts = ->
 			['-i', '--input INPUTFILE', '*Required* Input file to be processed'],
 			['-u', '--user USERDETAILS', '*Required* User details to be attached'],
 			['-c', '--callback CALLBACKCONFIG', '*Required* Callback Config to be attached'],
+			['-o', '--output OUTPUTFILE', '*Optional* Output file to write to if provided, or write to screen'],
 			['-h', '--help', 'Display this help document']
 		]
 
 		parser = new (optparse.OptionParser)(switches)
-		parser.banner = 'Usage:\tcoffee scripts/cartSelections.coffee [OPTIONS]\n\teg:\ttwotapjs>coffee scripts/cartSelections.coffee -i cart.fixture.json -u userDetails.fixture.json -c callbackConfig.fixture.json'
+		parser.banner = 'Usage:\tcoffee scripts/cartSelections.coffee [OPTIONS]\n\teg:\tcoffee scripts/cartSelections.coffee -i scripts/fixtures/cart.fixture.json -u scripts/fixtures/userDetails.fixture.json -c scripts/fixtures/callbackConfig.fixture.json'
 		parser.options_title = 'Twotap Cart Selections Options:\n'
 
 		showUsage = (code, ecb) ->
@@ -44,6 +45,9 @@ parseOpts = ->
 
 		parser.on 'input', (k, v) ->
 			config.source = v
+
+		parser.on 'output', (k, v) ->
+			config.sink = v			
 
 		parser.on 'user', (k, v) ->
 			config.userDetails = v
@@ -74,8 +78,8 @@ parseOpts = ->
 processedOpts = {}
 processOpts = ->
 	new Promise((ccb, ecb)->
-		console.log("Loading cart file");
-		jf.readFile(path.resolve(__dirname, config.source), (err, obj)->
+		console.log(chalk.cyan("Loading cart file"));
+		jf.readFile(path.resolve(process.cwd(), config.source), (err, obj)->
 			if(err) 
 				return ecb(err)
 			ccb(obj)
@@ -83,8 +87,8 @@ processOpts = ->
 	).then((sourceObj)->
 		new Promise((ccb, ecb)->
 			processedOpts.sourceObj = sourceObj
-			console.log("Loading user details file");
-			jf.readFile(path.resolve(__dirname, config.userDetails), (err, obj)->
+			console.log(chalk.cyan("Loading user details file"));
+			jf.readFile(path.resolve(process.cwd(), config.userDetails), (err, obj)->
 				if(err) 
 					return ecb(err)
 				ccb(obj)
@@ -93,9 +97,9 @@ processOpts = ->
 	).then((userDetails)->
 		new Promise((ccb, ecb)->
 			processedOpts.userDetails = userDetails
-			console.log("Loading callback config file");
+			console.log(chalk.cyan("Loading callback config file"));
 
-			jf.readFile(path.resolve(__dirname, config.callbackConfig), (err, obj)->
+			jf.readFile(path.resolve(process.cwd(), config.callbackConfig), (err, obj)->
 				if(err) 
 					return ecb(err)
 				ccb(obj)
@@ -121,29 +125,45 @@ parseOpts()
 .then(processOpts)
 .then(afterOpts)
 .then((cartObj)->
-	console.log("\n\nGenerating Selections")
+	console.log(chalk.cyan("\n\nGenerating Selections\n"))
 
 	_.forEach(cartObj.sites, (site)->
-		console.log("Site: " + site.name)
+		console.log("Site: " + chalk.magenta(site.name))
 
 		_.forEach(site.add_to_cart, (product)->
-			console.log("\tProduct: " + product.title)
+			console.log("\tProduct: " + chalk.bgBlue(product.title))
 
 			_.forEach(product.required_fields, (required_field)->
 				fieldId = 0
-				console.log("\t\tField: " + required_field.name + "[0] -- (" + required_field.observableValues[fieldId].text + ")")
+				console.log("\t\tField: " + chalk.yellow(required_field.name) + "[0] -- (" + chalk.green(required_field.observableValues[fieldId].text) + ")")
 				service.clickOption(required_field.observableValues[fieldId])
 			)
 		)
 	)
 
-	console.log(chalk.green("\n\n\n====GENERATING PURCHASE OBJECT====\n\n\n"))
+	console.log(chalk.cyan("\n\nGENERATING PURCHASE OBJECT\n"))
 	return service.Purchase(cartObj, processedOpts.userDetails, processedOpts.callbackConfig)
 )
 .then((purchaseObject) ->
-	console.log(JSON.stringify(purchaseObject, null, 4))
+	new Promise((ccb, ecb)->
+		if(!config.sink) 
+			console.log(JSON.stringify(purchaseObject, null, 4))
+			return ccb()
+
+		outputPath = path.resolve(process.cwd(), config.sink)
+
+		jf.writeFile(outputPath, purchaseObject, {"flag":"wx"}, (err)->
+			if(err) 
+				return ecb(err)
+			console.log("\nPurchase object written to " + chalk.yellow(outputPath))
+			ccb()
+		)
+	)
+)
+.then(()->
+	console.log(chalk.green("\nDone"))
 )
 .then(null, (err)->
-	console.log("Exiting with error " + err.message);
+	console.log(chalk.red("\nExiting with error \n\t") + err.message);
 	process.exit -1
 )
