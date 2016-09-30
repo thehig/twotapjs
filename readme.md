@@ -2,11 +2,14 @@
 
 # Scripts
 
-### npm run convertTarget
+### npm run convertMCart
+
+> To simplify the cleanup process, you can run `npm run cleanMCart` which will delete the `processedCart.json.temp` and `purchaseObject.json` files
+
 * Delete any existing `*.json.temp` files
 * Delete any existing `/purchaseObject.json` from previous runs
 * Place intended magento cart into `/target.json`
-* Run `npm run convertTarget`
+* Run `npm run convertMCart`
 * Your ready-to-go purchase object is in `/purchaseObject.json`
 * This uses userDetails and callbackConfig from the `/scripts/fixtures/` folder
 
