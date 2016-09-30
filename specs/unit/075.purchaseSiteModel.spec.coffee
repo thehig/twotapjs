@@ -137,7 +137,7 @@ chalk.enabled = true
 }
 ###
 
-describe "075. Purchase Site Models", ->
+describe.only "075. Purchase Site Models", ->
 
 	fixture = undefined
 	service = undefined
@@ -174,76 +174,62 @@ describe "075. Purchase Site Models", ->
 	it "purchase is a PrePurchaseModel", -> expect(purchase).to.be.instanceOf(Twotapjs.Models.PrePurchaseModel)
 	it "purchaseObject is a PurchaseModel", -> expect(purchaseObject).to.be.instanceOf(Twotapjs.Models.PurchaseModel)
 
-	# it "service has PrePurchaseResponse", -> expect(service).to.have.property('PrePurchaseResponse')
-	# it "PrePurchaseResponse has getPrePurchaseResponse", -> expect(service.PrePurchaseResponse).to.have.property('getPrePurchaseResponse')
+	describe "PurchaseSiteModel", ->
+		site = undefined
+		beforeEach -> site = purchaseObject.sites[0]
 
-	# describe "PrePurchaseResponse.getPrePurchaseResponse", ->
-	# 	beforeEach ->
-	# 		service.PrePurchaseResponse.getPrePurchaseResponse(fixture).then(
-	# 			(arr)-> purchase = arr[0]
-	# 		)
+		it "site is a PurchaseSiteModel", -> expect(site).to.be.instanceOf(Twotapjs.Models.PurchaseSiteModel)
+		it "has order_id 'null'", -> expect(site).to.have.property("order_id", null)
+		it "has status 'done'", -> expect(site).to.have.property("status", "done")
+		it "has id '529327e055a0f957d5000002'", -> expect(site).to.have.property('id', '529327e055a0f957d5000002')
 
-	# 	it "is a PrePurchaseModel", -> expect(purchase).to.be.instanceOf(Twotapjs.Models.PrePurchaseModel)
-	# 	it "has purchase_id - '57ee7a4f5e7e9a403cde5e02'", -> expect(purchase).to.have.property('purchase_id', '57ee7a4f5e7e9a403cde5e02')
-	# 	it "has message", -> expect(purchase).to.have.property('message')
-	# 	it "has updated_at", -> expect(purchase).to.have.property('updated_at')
+		describe "prices", ->
+			it "has property", -> expect(site).to.have.property('prices')
+			it "has sales_tax '$41.40'", -> expect(site.prices).to.have.property("sales_tax", "$41.40")
+			it "has shipping_price 'Free'", -> expect(site.prices).to.have.property("shipping_price", "Free")
+			it "has final_price '$731.36'", -> expect(site.prices).to.have.property("final_price", "$731.36")
 
-	# 	describe "updated_at", ->
-	# 		# "updated_at": "2016-09-30 14:50:14"
-	# 		it "is a DateTime", -> 
-	# 			expect(purchase.updated_at).to.be.instanceOf(Date)
-	# 			# console.log(chalk.yellow("Updated At: " + purchase.updated_at.toUTCString()) + chalk.red(" Moda is 1 hour behind GMT"))
-	# 		it "has year '2016'", -> expect(purchase.updated_at.getFullYear()).to.equal(2016)
-	# 		it "has month '8' ** One Low **", -> expect(purchase.updated_at.getMonth()).to.equal(8) # Start at 0
-	# 		it "has date '30'", -> expect(purchase.updated_at.getDate()).to.equal(30)
-	# 		it "has hour '14'", -> expect(purchase.updated_at.getHours()).to.equal(14)
-	# 		it "has minute '50'", -> expect(purchase.updated_at.getMinutes()).to.equal(50)
-	# 		it "has second '14'", -> expect(purchase.updated_at.getSeconds()).to.equal(14)
+		describe "info", ->
+			it "has property", -> expect(site).to.have.property('info')
+			it "has url 'bestbuy.com'", -> expect(site.info).to.have.property("url", "bestbuy.com")
+			it "has name 'BestBuy'", -> expect(site.info).to.have.property("name", "BestBuy")
+			it "has logo", -> expect(site.info).to.have.property("logo")
 
-	# 	describe "PurchaseResponse.getPurchaseResponse", ->
-	# 		it "service has PurchaseResponse", -> expect(service).to.have.property('PurchaseResponse')
-	# 		it "PurchaseResponse has getPurchaseResponse", -> expect(service.PurchaseResponse).to.have.property('getPurchaseResponse')
-	# 		describe "calls", ->
-	# 			purchaseObject = undefined
-	# 			beforeEach ->
-	# 				service.PurchaseResponse.getPurchaseResponse(purchase).then(
-	# 					(arr)-> purchaseObject = arr[0]
-	# 				)
+		describe "details", ->
+			it "has property", -> expect(site).to.have.property('details')
 
-	# 			afterEach ->
-	# 				purchaseObject = undefined
+	describe "PurchaseProductModel", ->
+		product = undefined
+		site = undefined
+		beforeEach -> 
+			site = purchaseObject.sites[0]
+			product = site.products[0]
 
-	# 			it "is a PurchaseModel", -> expect(purchaseObject).to.be.instanceOf(Twotapjs.Models.PurchaseModel)
-	# 			it "has purchase_id - '57ee7a4f5e7e9a403cde5e02'", -> expect(purchaseObject).to.have.property('purchase_id', '57ee7a4f5e7e9a403cde5e02')
+		it "site has 4 products", -> expect(site.products).to.have.length(4)
+		it "has id '0224eaf5a38a10db8b48090ad645a098'", -> expect(product).to.have.property("id", "0224eaf5a38a10db8b48090ad645a098")
+		
 
-	# 			it "has destination 'domestic'", -> expect(purchaseObject).to.have.property('destination', 'domestic')
-	# 			it "has message 'done'", -> expect(purchaseObject).to.have.property("message", "done")
-	# 			it "has confirm_with_user 'false'", -> expect(purchaseObject).to.have.property("confirm_with_user", false)
-	# 			it "has test_mode 'fake_confirm'", -> expect(purchaseObject).to.have.property("test_mode", "fake_confirm")
-	# 			it "has notes 'undefined'", -> expect(purchaseObject).to.have.property("notes", undefined)
-	# 			it "has used_profiles 'undefined'", -> expect(purchaseObject).to.have.property("used_profiles", undefined)
-	# 			it "has session_finishes_at '1475247587858'", -> 
-	# 				expect(purchaseObject.session_finishes_at.getTime()).to.equal(1475247587858)
-	# 				# console.log(chalk.yellow("Session Finishes At: " + purchaseObject.session_finishes_at.toUTCString()))
-	# 			it "has pending_confirm 'true'", -> expect(purchaseObject).to.have.property("pending_confirm", true)
+		it "has title 'BIC America - 10\" 350-Watt Powered Subwoofer - Black'", -> expect(product).to.have.property("title", "BIC America - 10\" 350-Watt Powered Subwoofer - Black")
+		it "has price '$169.99'", -> expect(product).to.have.property("price", "$169.99")
+		it "has weight '17322.870361970425'", -> expect(product).to.have.property("weight", "17322.870361970425")
+		it "has pickup_support 'true'", -> expect(product).to.have.property("pickup_support", true)
+		it "has original_price 'null'", -> expect(product).to.have.property("original_price", null)
+		it "has discounted_price 'null'", -> expect(product).to.have.property("discounted_price", null)
+		it "has status 'done'", -> expect(product).to.have.property("status", "done")
+		
+		it "has image", -> expect(product).to.have.property("image")
+		it "has clean_url", -> expect(product).to.have.property("clean_url")
+		it "has original_url", -> expect(product).to.have.property("original_url")
+		it "has url", -> expect(product).to.have.property("url")
+		it "has description", -> expect(product).to.have.property("description")
+		
+		it "has required_field_names", -> expect(product).to.have.property("required_field_names")
+		it "required_field_names length 0", -> expect(product.required_field_names).to.have.length(0)
+		it "has alt_images", -> expect(product).to.have.property("alt_images")
+		it "alt_images length 4", -> expect(product.alt_images).to.have.length(4)
+		it "has categories", -> expect(product).to.have.property("categories")
+		it "categories length 5", -> expect(product.categories).to.have.length(5)
 
-	# 			it "has total_prices", -> expect(purchaseObject).to.have.property("total_prices")
-	# 			describe "total_prices", ->
-	# 				it "has sales_tax '$41.40'", -> expect(purchaseObject.total_prices).to.have.property("sales_tax", '$41.40')
-	# 				it "has shipping_price '$0.00'", -> expect(purchaseObject.total_prices).to.have.property("shipping_price", '$0.00')
-	# 				it "has final_price '$731.36'", -> expect(purchaseObject.total_prices).to.have.property("final_price", '$731.36')
-
-	# 			describe "created_at", ->
-	# 				# "created_at": "2016-09-30T14:44:32.108Z",
-
-	# 				it "is a DateTime", -> 
-	# 					expect(purchaseObject.created_at).to.be.instanceOf(Date)
-	# 					# console.log(chalk.yellow("Session Created At: " + purchaseObject.created_at.toUTCString()))
-	# 				it "has year '2016'", -> expect(purchaseObject.created_at.getFullYear()).to.equal(2016)
-	# 				it "has month '8' ** One Low **", -> expect(purchaseObject.created_at.getMonth()).to.equal(8) # Start at 0
-	# 				it "has date '30'", -> expect(purchaseObject.created_at.getDate()).to.equal(30)
-	# 				it "has hour '15' ** One High **", -> expect(purchaseObject.created_at.getHours()).to.equal(15) # Off by one
-	# 				it "has minute '44'", -> expect(purchaseObject.created_at.getMinutes()).to.equal(44)
-	# 				it "has second '32'", -> expect(purchaseObject.created_at.getSeconds()).to.equal(32)		
-
-
+		describe "input_fields", ->
+			it "exists", -> expect(product).to.have.property("input_fields")
+			it "has quantity '1'", -> expect(product.input_fields, "1")

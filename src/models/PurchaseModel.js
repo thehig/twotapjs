@@ -79,6 +79,108 @@ if (typeof module != 'undefined' && module.exports) {
 			// 		'_id'
 			// 	]);
 			// }
-		})
+
+			sites: function(item) {
+				if (!item || !item.sites) throw new Error("PurchasseModel: All purchases must have 'sites'");
+				return Object.keys(item.sites).map(function(siteId) {
+					var site = item.sites[siteId];
+					if (!site) return;
+
+					site._id = siteId;
+					var model = new Twotapjs.Models.PurchaseSiteModel();
+					model.initialize(site);
+					return model;
+				});
+			},
+
+		}),
+		PurchaseSiteModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+			info: function(item){
+				return item.info;
+			},
+			prices: function(item){
+				return item.prices;
+			},
+			details: function(item){
+				return item.details;
+			},
+			status: function(item){
+				return item.status;
+			},
+			order_id: function(item){
+				return item.order_id;
+			},
+			products: function(item) {
+				if (!item || !item.products) return [];
+				return Object.keys(item.products).map(function(productID) {
+					var product = item.products[productID];
+					if (!product) return;
+
+					product._id = productID;
+					var model = new Twotapjs.Models.PurchaseProductModel();
+					model.initialize(product);
+					return model;
+				});
+			},
+			id: function(item){
+				return item._id;
+			},
+		}),
+		PurchaseProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+			title: function(item){
+				return item.title;
+			},
+			price: function(item){
+				return item.price;
+			},
+			image: function(item){
+				return item.image;
+			},
+			alt_images: function(item){
+				return item.alt_images;
+			},
+			description: function(item){
+				return item.description;
+			},
+			categories: function(item){
+				return item.categories;
+			},
+			weight: function(item){
+				return item.weight;
+			},
+			pickup_support: function(item){
+				return item.pickup_support;
+			},
+			required_field_names: function(item){
+				return item.required_field_names;
+			},
+			url: function(item){
+				return item.url;
+			},
+			original_price: function(item){
+				return item.original_price;
+			},
+			discounted_price: function(item){
+				return item.discounted_price;
+			},
+			status: function(item){
+				return item.status;
+			},
+			clean_url: function(item){
+				return item.clean_url;
+			},
+			original_url: function(item){
+				return item.original_url;
+			},
+			quantity: function(item){
+				return item.quantity;
+			},
+			input_fields: function(item){
+				return item.input_fields;
+			},
+			id: function(item){
+				return item._id;
+			},
+		}),
 	});
 })();
