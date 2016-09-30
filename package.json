@@ -1,6 +1,6 @@
 {
   "name": "Twotapjs",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "main": "./src/twotapJSONDataProvider.js",
   "scripts": {

@@ -1,5 +1,5 @@
 { 
 	"method": "http", 
-	"http_confirm_url": "http://dev.54.93.185.230.xip.io/twotap/cart/purchaseCallback/",
-	"http_finished_url": "http://dev.54.93.185.230.xip.io/twotap/cart/purchaseCallback/"
+	"http_confirm_url": "https://www.themallmarketplace.com/twotap/cart/purchaseCallback/",
+	"http_finished_url": "https://www.themallmarketplace.com/twotap/cart/purchaseCallback/"
 }
