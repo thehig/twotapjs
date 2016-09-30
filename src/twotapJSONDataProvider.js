@@ -9,9 +9,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.6');
-
-	var singleProductFixture, multipleProductFixtures, multipleSiteFixtures, singleCartFixture;
+	console.log('[+] Twotap JSON Data Provider 0.1.7');
 
 
 	WinJS.Namespace.define('Twotapjs', {
@@ -20,12 +18,29 @@ if (typeof module != 'undefined' && module.exports) {
 				// You must call the base class constructor to instantiate a DataProvider.
 				this._baseDataProviderConstructor();
 				this.Cart.getCart.items = null;
+				// this.Purchase.getPurchase.items = null;
 			}, {
 				Cart: {
 					DataModel: Twotapjs.Models.CartModel,
 
 					getCart: function(cartJson) {
 						return [cartJson];
+					}
+				},
+				PrePurchaseResponse: {
+					DataModel: Twotapjs.Models.PrePurchaseModel,
+
+					getPrePurchaseResponse: function(prePurchaseJson) {
+						return [prePurchaseJson];
+					}
+				},
+
+				PurchaseResponse: {
+					DataModel: Twotapjs.Models.PurchaseModel,
+
+					getPurchaseResponse: function(prePurchaseModel) {
+						if(!(prePurchaseModel instanceof Twotapjs.Models.PrePurchaseModel)) throw new Error("PurchaseResponse: Parameter must be a PrePurchaseModel");
+						return [JSON.parse(prePurchaseModel.message)];
 					}
 				},
 				GetCart: function(cartJson){
