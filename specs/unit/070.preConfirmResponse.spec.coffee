@@ -33,7 +33,7 @@ chalk.enabled = true
 * Then finally we are handed a purchaseRequest object
 ###
 
-describe.only "070. Pre-Confirm Response", ->
+describe "070. Pre-Confirm Response", ->
 
 	service = undefined
 	purchase = undefined
