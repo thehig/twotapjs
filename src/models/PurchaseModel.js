@@ -46,12 +46,15 @@ if (typeof module != 'undefined' && module.exports) {
 				if (!item || !item.message || !item.message) throw new Error("PurchaseModel: All Purchases must have 'message'");
 				return item.message;
 			},
+			final_message: function(item){
+				return item.final_message;
+			},
 			confirm_with_user: function(item){
-				if (!item || item.confirm_with_user == undefined) throw new Error("PurchaseModel: All Purchases must have 'confirm_with_user'");
+				// if (!item || item.confirm_with_user == undefined) throw new Error("PurchaseModel: All Purchases must have 'confirm_with_user'");
 				return item.confirm_with_user;
 			},
 			session_finishes_at: function(item){
-				if (!item || !item.session_finishes_at) throw new Error("PurchaseModel: All Purchases must have 'session_finishes_at'");
+				// if (!item || !item.session_finishes_at) throw new Error("PurchaseModel: All Purchases must have 'session_finishes_at'");
 				return new Date(item.session_finishes_at);
 			},
 			total_prices: function(item){
