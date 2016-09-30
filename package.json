@@ -1,12 +1,13 @@
 {
   "name": "Twotapjs",
-  "version": "0.1.9",
+  "version": "0.1.2",
   "description": "",
   "main": "./src/twotapJSONDataProvider.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --require coffee-script/register --compilers coffee:coffee-script/register specs/unit/*.coffee --bail --timeout 30000",
     "test-debug": "./node_modules/.bin/mocha --debug-brk --require coffee-script/register --compilers coffee:coffee-script/register specs/unit/*.coffee --bail --timeout 30000",
-    "test-json": "./node_modules/.bin/mocha --require coffee-script/register --compilers coffee:coffee-script/register specs/unit/050*.coffee --bail --timeout 30000"
+    "test-json": "./node_modules/.bin/mocha --require coffee-script/register --compilers coffee:coffee-script/register specs/unit/050*.coffee --bail --timeout 30000",
+    "convertTarget": "coffee scripts/extractTwotapCart.coffee -i target.json -o processedCart.json.temp && coffee scripts/cartSelections.coffee -i processedCart.json.temp -u scripts/fixtures/userDetails.fixture.json -c scripts/fixtures/callbackConfig.fixture.json -o purchaseObject.json"
   },
   "author": "",
   "license": "ISC",

@@ -1,4 +1,15 @@
 # TwoTap Client
+
+# Scripts
+
+### npm run convertTarget
+* Delete any existing `*.json.temp` files
+* Delete any existing `/purchaseObject.json` from previous runs
+* Place intended magento cart into `/target.json`
+* Run `npm run convertTarget`
+* Your ready-to-go purchase object is in `/purchaseObject.json`
+* This uses userDetails and callbackConfig from the `/scripts/fixtures/` folder
+
 # Summary
 
 This project takes in a twotap cart and processes the cart data into consumable datamodels for winJS.
