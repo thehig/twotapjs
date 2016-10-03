@@ -146,7 +146,8 @@ if (typeof module != 'undefined' && module.exports) {
 					'_id',
 					'source',
                     'weight',
-                    'categories'
+                    'categories',
+                    'site_categories'
 				]);
 			},
 			id: function(item) {
