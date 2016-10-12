@@ -84,13 +84,15 @@ parseOpts()
 )
 .then(processOpts)
 .then((cartObj)->
+	response = cartObj.success[0].data[0].response
+
 	if(!processedOpts.magentoCart) 
 		throw new Error("No source object provided")
 
-	if(!cartObj.response)
+	if(!response)
 		throw new Error("No response in cart")
 	
-	return JSON.parse(cartObj.response);
+	return JSON.parse(response);
 )
 .then((purchaseObject)->
 	new Promise((ccb, ecb)->
