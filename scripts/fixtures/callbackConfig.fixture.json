@@ -1,0 +1,5 @@
+{ 
+	"method": "http", 
+	"http_confirm_url": "https://www.themallmarketplace.com/twotap/cart/purchaseCallback/",
+	"http_finished_url": "https://www.themallmarketplace.com/twotap/cart/purchaseCallback/"
+}
