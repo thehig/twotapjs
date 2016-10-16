@@ -2,7 +2,7 @@
 
 if (typeof module != 'undefined' && module.exports){
 	WinJS = require("node-winjs");
-    XMLHttpRequest = require('w3c-xmlhttprequest').XMLHttpRequest;
+    XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 
     (function xhrInit(){

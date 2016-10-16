@@ -1,6 +1,6 @@
 {
   "name": "Twotapjs",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "",
   "main": "./src/twotapJSONDataProvider.js",
   "scripts": {
@@ -44,6 +44,6 @@
     "lodash": "^4.16.2",
     "node-winjs": "0.0.3",
     "optparse": "^1.0.5",
-    "w3c-xmlhttprequest": "^2.1.0"
+    "xmlhttprequest": "^1.8.0"
   }
 }
