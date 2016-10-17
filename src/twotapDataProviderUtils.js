@@ -7,12 +7,15 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap Data Provider Utilities 0.1.1');
+	console.log('[+] Twotap Data Provider Utilities 0.1.2x');
 
 	WinJS.Namespace.define('Twotapjs.Utilities', {
 		_defaultTimeout: 30000,
 
 		unrecognised: function(source, target, errormessage, whitelist) {
+			// Disable the unrecognised code entirely
+			return [];
+
 			whitelist = whitelist || [];
 
 			var originalKeys = Object.keys(source);
