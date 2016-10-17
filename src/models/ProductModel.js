@@ -117,7 +117,8 @@ if (typeof module != 'undefined' && module.exports) {
 						}
 
 					} else {
-						throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
+					    // Hack around some new Twotap type: "ProductModel: Unrecognised item type text / SELECT"
+						// throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
 					}
 				}
 
