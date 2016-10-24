@@ -5,7 +5,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function productModelInit() {
-	console.log('[+] Twotap Product Model 0.1.0');
+	console.log('[+] Twotap Product Model 0.1.1');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		ProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -74,8 +74,9 @@ if (typeof module != 'undefined' && module.exports) {
 					var input = required_field.data[0];
 					if (!input) break;
 
-					if (input.input_type && input.input_type === "select-one" &&
-						input.input_name && input.input_name === "SELECT") {
+					// Twotap now provide more than one type of 'SELECT' input:
+					// The input_type can be 'text/SELECT' or 'select-one/SELECT'
+					if (input.input_name && input.input_name === "SELECT") {
 						// Now we know we have a select-one data type, we know what type of model to create
 						var inputmodel = new Twotapjs.Models.SelectOneModel();
 						inputmodel.initialize({
@@ -117,8 +118,7 @@ if (typeof module != 'undefined' && module.exports) {
 						}
 
 					} else {
-					    // Hack around some new Twotap type: "ProductModel: Unrecognised item type text / SELECT"
-						// throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
+						throw new Error("ProductModel: Unrecognised item type " + input.input_type + " / " + input.input_name);
 					}
 				}
 
