@@ -1,0 +1,10 @@
+*.sublime-workspace
+node_modules
+tmp
+/coverage/
+*.csv
+*.json
+*.jsonl
+*.temp
+*.gz
+data/*
