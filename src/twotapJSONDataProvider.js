@@ -9,7 +9,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.7');
+	console.log('[+] Twotap JSON Data Provider 0.1.8');
 
 
 	WinJS.Namespace.define('Twotapjs', {
@@ -18,7 +18,8 @@ if (typeof module != 'undefined' && module.exports) {
 				// You must call the base class constructor to instantiate a DataProvider.
 				this._baseDataProviderConstructor();
 				this.Cart.getCart.items = null;
-				// this.Purchase.getPurchase.items = null;
+				this.PrePurchaseResponse.getPrePurchaseResponse.items = null;
+				this.PurchaseResponse.getPurchaseResponse.items = null;
 			}, {
 				Cart: {
 					DataModel: Twotapjs.Models.CartModel,
