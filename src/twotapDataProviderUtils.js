@@ -7,7 +7,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap Data Provider Utilities 0.1.2x');
+	console.log('[+] Twotap Data Provider Utilities (unrecognised-disabled) 0.1.3x');
 
 	WinJS.Namespace.define('Twotapjs.Utilities', {
 		_defaultTimeout: 30000,
@@ -192,7 +192,7 @@ if (typeof module != 'undefined' && module.exports) {
 				// Insert all the options from the first option, into the observable collection
 				// 		thus setting up the initial state of the first dropdown
 				var primaryOption = paramGroup.product.required_fields[0];
-				if(primaryOption.values && primaryOption.values.length > 0){
+				if(primaryOption && primaryOption.values && primaryOption.values.length > 0){
 					for(var j = 0; j < primaryOption.values.length; j++){
 						primaryOption.observableValues.push(primaryOption.values[j]);
 					}					

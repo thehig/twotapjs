@@ -5,41 +5,41 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function productModelInit() {
-	console.log('[+] Twotap Product Model 0.1.1');
+	console.log('[+] Twotap Product Model 0.1.2');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		ProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			title: function(item) {
-				if (!item || !item.title) throw new Error("ProductModel: All products must have 'title'");
-				return item.title;
+				// if (!item || !item.title) throw new Error("ProductModel: All products must have 'title'");
+				return item.title ? item.title : "";
 			},
 			image: function(item) {
-				if (!item || !item.image) throw new Error("ProductModel: All products must have 'image'");
-				return item.image;
+				// if (!item || !item.image) throw new Error("ProductModel: All products must have 'image'");
+				return item.image ? item.image : undefined;
 			},
 			price: function(item) {
-				if (!item || !item.price) throw new Error("ProductModel: All products must have 'price'");
-				return item.price;
+				// if (!item || !item.price) throw new Error("ProductModel: All products must have 'price'");
+				return item.price ? item.price : "";
 			},
 			alt_images: function(item) {
 				return item.alt_images ? item.alt_images : undefined;
 			},
 			url: function(item) {
-				if (!item || !item.url) throw new Error("ProductModel: All products must have 'url'");
-				return item.url;
+				// if (!item || !item.url) throw new Error("ProductModel: All products must have 'url'");
+				return item.url ? item.url : "";
 			},
 			original_url: function(item) {
 				if (!item || !item.original_url) throw new Error("ProductModel: All products must have 'original_url'");
 				return item.original_url;
 			},
 			clean_url: function(item) {
-				if (!item || !item.clean_url) throw new Error("ProductModel: All products must have 'clean_url'");
-				return item.clean_url;
+				// if (!item || !item.clean_url) throw new Error("ProductModel: All products must have 'clean_url'");
+				return item.clean_url ? item.clean_url : "";
 			},
 			status: function(item) {
-				if (!item || !item.status) throw new Error("ProductModel: All products must have 'status'");
-				if (item.status !== 'done') throw new Error("ProductModel: Product status is not 'done'");
-				return item.status;
+				// if (!item || !item.status) throw new Error("ProductModel: All products must have 'status'");
+				// if (item.status !== 'done') throw new Error("ProductModel: Product status is not 'done'");
+				return item.status ? item.status : "";
 			},
 			returns: function(item) {
 				return item.returns ? item.returns : undefined;
@@ -163,20 +163,20 @@ if (typeof module != 'undefined' && module.exports) {
 				return item.price ? item.price : undefined;
 			},
 			url: function(item) {
-				if (!item || !item.url) throw new Error("FailedProductModel: All failed products must have 'url'");
-				return item.url;
+				// if (!item || !item.url) throw new Error("FailedProductModel: All failed products must have 'url'");
+				return item.url ? item.url : "";
 			},
 			original_url: function(item) {
-				if (!item || !item.original_url) throw new Error("FailedProductModel: All failed products must have 'original_url'");
-				return item.original_url;
+				// if (!item || !item.original_url) throw new Error("FailedProductModel: All failed products must have 'original_url'");
+				return item.original_url ? item.original_url : "";
 			},
 			clean_url: function(item) {
-				if (!item || !item.clean_url) throw new Error("FailedProductModel: All failed products must have 'clean_url'");
-				return item.clean_url;
+				// if (!item || !item.clean_url) throw new Error("FailedProductModel: All failed products must have 'clean_url'");
+				return item.clean_url ? item.clean_url : "";
 			},
 			status: function(item) {
-				if (!item || !item.status) throw new Error("FailedProductModel: All failed products must have 'status'");
-				return item.status;
+				// if (!item || !item.status) throw new Error("FailedProductModel: All failed products must have 'status'");
+				return item.status ? item.status : "";
 			},
 			description: function(item) {
 				if (!item || !item.description) return "";

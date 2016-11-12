@@ -5,21 +5,21 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function siteModelInit() {
-	console.log('[+] Twotap Site Model 0.1.0');
+	console.log('[+] Twotap Site Model 0.1.2');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		SiteModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			name: function(item) {
-				if (!item || !item.info || !item.info.name) throw new Error("SiteModel: All sites must have 'info.name'");
-				return item.info.name;
+				// if (!item || !item.info || !item.info.name) throw new Error("SiteModel: All sites must have 'info.name'");
+				return item && item.info && item.info.name ? item.info.name : "";
 			},
 			logo: function(item) {
-				if (!item || !item.info || !item.info.logo) throw new Error("SiteModel: All sites must have 'info.logo'");
-				return item.info.logo;
+				// if (!item || !item.info || !item.info.logo) throw new Error("SiteModel: All sites must have 'info.logo'");
+				return item && item.info && item.info.logo ? item.info.logo : "";
 			},
 			url: function(item) {
-				if (!item || !item.info || !item.info.url) throw new Error("SiteModel: All sites must have 'info.url'");
-				return item.info.url;
+				// if (!item || !item.info || !item.info.url) throw new Error("SiteModel: All sites must have 'info.url'");
+				return item && item.info && item.info.url ? item.info.url : "";
 			},
 			shipping_options: function(item) {
 				if (!item || !item.shipping_options) throw new Error("SiteModel: All sites must have 'shipping_options'");
@@ -58,8 +58,8 @@ if (typeof module != 'undefined' && module.exports) {
 				});
 			},
 			currency_format: function(item) {
-				if (!item || !item.currency_format) throw new Error("SiteModel: All sites must have 'currency_format'");
-				return item.currency_format;
+				// if (!item || !item.currency_format) throw new Error("SiteModel: All sites must have 'currency_format'");
+				return item.currency_format ? item.currency_format : "";
 			},
 
 			coupon_support: function(item) {
@@ -71,20 +71,20 @@ if (typeof module != 'undefined' && module.exports) {
 				return item.gift_card_support ? item.gift_card_support : false;
 			},
 			checkout_support: function(item) {
-				if (!item || !item.checkout_support) throw new Error("SiteModel: All sites must have 'checkout_support'");
-				return item.checkout_support;
+				// if (!item || !item.checkout_support) throw new Error("SiteModel: All sites must have 'checkout_support'");
+				return item.checkout_support ? item.checkout_support : "";
 			},
 			shipping_countries_support: function(item) {
-				if (!item || !item.shipping_countries_support) throw new Error("SiteModel: All sites must have 'shipping_countries_support'");
-				return item.shipping_countries_support;
+				// if (!item || !item.shipping_countries_support) throw new Error("SiteModel: All sites must have 'shipping_countries_support'");
+				return item.shipping_countries_support ? item.shipping_countries_support : "";
 			},
 			billing_countries_support: function(item) {
-				if (!item || !item.billing_countries_support) throw new Error("SiteModel: All sites must have 'billing_countries_support'");
-				return item.billing_countries_support;
+				// if (!item || !item.billing_countries_support) throw new Error("SiteModel: All sites must have 'billing_countries_support'");
+				return item.billing_countries_support ? item.billing_countries_support : "";
 			},
 			returns: function(item) {
-				if (!item || !item.returns) throw new Error("SiteModel: All sites must have 'returns'");
-				return item.returns;
+				// if (!item || !item.returns) throw new Error("SiteModel: All sites must have 'returns'");
+				return item.returns ? item.returns : "";
 			},
 
 			id: function(item){
