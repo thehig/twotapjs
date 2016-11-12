@@ -4,7 +4,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function cartModelInit() {
-	console.log('[+] Twotap Cart Model 0.1.0');
+	console.log('[+] Twotap Cart Model 0.1.2');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		CartModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -17,23 +17,23 @@ if (typeof module != 'undefined' && module.exports) {
 				return item.cart_id;
 			},
 			country: function(item) {
-				if (!item || !item.country) throw new Error("CartModel: All carts must have 'country'");
-				return item.country;
+				// if (!item || !item.country) throw new Error("CartModel: All carts must have 'country'");
+				return item.country ? item.country : "";
 			},
 			message: function(item) {
 				if (!item || !item.message) throw new Error("CartModel: All carts must have 'message'");
 				return item.message;
 			},
 			description: function(item) {
-				if (!item || !item.description) throw new Error("CartModel: All carts must have 'description'");
-				return item.description;
+				// if (!item || !item.description) throw new Error("CartModel: All carts must have 'description'");
+				return item.description ? item.description : "";
 			},
 			unknown_urls: function(item) {
-				if (!item || !item.unknown_urls) throw new Error("CartModel: All carts must have 'unknown_urls'");
-				return item.unknown_urls;
+				// if (!item || !item.unknown_urls) throw new Error("CartModel: All carts must have 'unknown_urls'");
+				return item.unknown_urls ? item.unknown_urls : [];
 			},
 			sites: function(item) {
-				if (!item || !item.sites) throw new Error("CartModel: All carts must have 'sites'");
+				// if (!item || !item.sites) throw new Error("CartModel: All carts must have 'sites'");
 				return Object.keys(item.sites).map(function(siteId) {
 					var site = item.sites[siteId];
 					if (!site) return;
