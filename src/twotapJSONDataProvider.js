@@ -9,7 +9,7 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.8');
+	console.log('[+] Twotap JSON Data Provider 0.1.9');
 
 
 	WinJS.Namespace.define('Twotapjs', {
@@ -135,9 +135,9 @@ if (typeof module != 'undefined' && module.exports) {
 						}
 					}
 				},
-				Verify: function(cart){						
+				Verify: function(cart){
 					var self = this;
-						return new WinJS.Promise(function(ccb, ecb){				
+						return new WinJS.Promise(function(ccb, ecb){
 						// For each site
 						for(var siteIndex = 0; siteIndex < cart.sites.length; siteIndex++)
 						{
@@ -153,6 +153,12 @@ if (typeof module != 'undefined' && module.exports) {
 									if(!option.selected) return ecb(new Error("Verify: Option not selected - " + product.title + " - " + option.name));
 								}
 					        }
+
+					        // Check for the selected shipping option
+					        var hasSelectedShippingOption = site.hasOwnProperty('selected_shipping_option') && site.selected_shipping_option != undefined && site.selected_shipping_option.length > 0;
+	                        if (!hasSelectedShippingOption) {
+								return ecb(new Error("Verify: Option not selected - " + site.name + " - Shipping Option"));
+	                        }
 						}
 
 						ccb(true);
@@ -169,7 +175,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
                     	// Ensure all mandatory config keys are provided
-                        var mandatoryConfigKeys = ["method", "http_confirm_url", "http_finished_url"]; 
+                        var mandatoryConfigKeys = ["method", "http_confirm_url", "http_finished_url"];
 
                         for(var configKeyIndex = 0; configKeyIndex < mandatoryConfigKeys.length; configKeyIndex++){
                         	var configKey = mandatoryConfigKeys[configKeyIndex];
@@ -226,6 +232,9 @@ if (typeof module != 'undefined' && module.exports) {
                         		// Attach the product to the site
                         		sitefields.addToCart[product.id] = productSelections;
                         	}
+
+                        	// Attach shipping option or default (shouldnt happen because of Verify)
+                        	sitefields.shipping_option = site.selected_shipping_option ? site.selected_shipping_option : "cheapest";
 
                         	// Attach the users Keys to each site
                         	for(var siteUserKeyIndex = 0; siteUserKeyIndex < mandatoryUserKeys.length; siteUserKeyIndex++){
