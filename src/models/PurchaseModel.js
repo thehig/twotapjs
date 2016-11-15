@@ -5,7 +5,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function PurchaseModelInit() {
-	console.log('[+] Twotap Purchase Model 0.0.0');
+	console.log('[+] Twotap Purchase Model 0.0.1');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		PrePurchaseModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -58,11 +58,8 @@ if (typeof module != 'undefined' && module.exports) {
 				return new Date(item.session_finishes_at);
 			},
 			total_prices: function(item){
-				if (!item || item.total_prices == undefined) throw new Error("PurchaseModel: All Purchases must have 'total_prices'");
+				// if (!item || item.total_prices == undefined) throw new Error("PurchaseModel: All Purchases must have 'total_prices'");
 				return item.total_prices;
-			},
-			fake_confirm: function(item){
-				return item.fake_confirm;
 			},
 			pending_confirm: function(item){
 				return item.pending_confirm;
@@ -103,6 +100,9 @@ if (typeof module != 'undefined' && module.exports) {
 			},
 			prices: function(item){
 				return item.prices;
+			},
+			sales_tax: function(item){
+				return item.prices.sales_tax ? item.prices.sales_tax : "$0.00";
 			},
 			details: function(item){
 				return item.details;
