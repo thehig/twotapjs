@@ -20,6 +20,9 @@ if (typeof module != 'undefined' && module.exports) {
 				this.Cart.getCart.items = null;
 				this.PrePurchaseResponse.getPrePurchaseResponse.items = null;
 				this.PurchaseResponse.getPurchaseResponse.items = null;
+
+				this.PreConfirmResponse.getPreConfirmResponse.items = null;
+				this.ConfirmResponse.getConfirmResponse.items = null;
 			}, {
 				Cart: {
 					DataModel: Twotapjs.Models.CartModel,
@@ -44,6 +47,25 @@ if (typeof module != 'undefined' && module.exports) {
 						return [JSON.parse(prePurchaseModel.message)];
 					}
 				},
+
+
+				PreConfirmResponse: {
+					DataModel: Twotapjs.Models.PreConfirmModel,
+
+					getPreConfirmResponse: function(preConfirmJson) {
+						return [preConfirmJson];
+					}
+				},
+
+				ConfirmResponse: {
+					DataModel: Twotapjs.Models.ConfirmModel,
+
+					getConfirmResponse: function(preConfirmModel) {
+						if(!(preConfirmModel instanceof Twotapjs.Models.PreConfirmModel)) throw new Error("ConfirmResponse: Parameter must be a PreConfirmModel");
+						return [JSON.parse(preConfirmModel.message)];
+					}
+				},
+
 				GetCart: function(cartJson){
 					var self = this;
 					return this.Cart.getCart(cartJson).then(function(cartArray){

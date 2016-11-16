@@ -1,64 +1,64 @@
 if (typeof module != 'undefined' && module.exports) {
 	require('../lib/Utilities.js');
-	require('./PurchaseModel.js');
+	require('./ConfirmModel.js');
 }
 
 
-(function PurchaseModelInit() {
-	console.log('[+] Twotap Purchase Model 0.0.1');
+(function ConfirmModelInit() {
+	console.log('[+] Twotap Purchase/Confirm Model 0.0.0');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
-		PrePurchaseModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+		PreConfirmModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			message: function(item) {
-				// if (!item || !item.info || !item.info.name) throw new Error("PurchaseModel: All Purchases must have 'info.name'");
+				// if (!item || !item.info || !item.info.name) throw new Error("ConfirmModel: All Confirms must have 'info.name'");
 				// return item.info.name;
 				return item.message ? item.message : undefined;
 			},
-			purchase_id: function(item){
-				if (!item || !item.purchase_id || !item.purchase_id) throw new Error("PrePurchaseModel: All Purchases must have 'purchase_id'");
-				return item.purchase_id;
-			},
+			// purchase_id: function(item){
+			// 	if (!item || !item.purchase_id || !item.purchase_id) throw new Error("PreConfirmModel: All Confirms must have 'purchase_id'");
+			// 	return item.purchase_id;
+			// },
 			updated_at: function(item){
-				if (!item || !item.updated_at || !item.updated_at) throw new Error("PrePurchaseModel: All Purchases must have 'updated_at'");
+				if (!item || !item.updated_at || !item.updated_at) throw new Error("PreConfirmModel: All Confirms must have 'updated_at'");
 				return new Date(item.updated_at);
 			}
 			// unrecognised: function(item) {
-			// 	return Twotapjs.Utilities.unrecognised(item, this, "PurchaseModel: unrecognised keys in Purchase: ", [
+			// 	return Twotapjs.Utilities.unrecognised(item, this, "ConfirmModel: unrecognised keys in Purchase: ", [
 			// 		'info',
 			// 		'_id'
 			// 	]);
 			// }
 		}),
-		PurchaseModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
-			purchase_id: function(item){
-				if (!item || !item.purchase_id) throw new Error("PurchaseModel: All Purchases must have 'purchase_id'");
-				return item.purchase_id;
-			},
+		ConfirmModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+			// purchase_id: function(item){
+			// 	if (!item || !item.purchase_id) throw new Error("ConfirmModel: All Confirms must have 'purchase_id'");
+			// 	return item.purchase_id;
+			// },
 			created_at: function(item){
-				if (!item || !item.created_at) throw new Error("PurchaseModel: All Purchases must have 'created_at'");
+				if (!item || !item.created_at) throw new Error("ConfirmModel: All Confirms must have 'created_at'");
 				return new Date(item.created_at);
 			},
 			destination: function(item){
-				if (!item || !item.destination) throw new Error("PurchaseModel: All Purchases must have 'destination'");
+				if (!item || !item.destination) throw new Error("ConfirmModel: All Confirms must have 'destination'");
 				return item.destination;
 			},
 			message: function(item){
-				if (!item || !item.message || !item.message) throw new Error("PurchaseModel: All Purchases must have 'message'");
+				if (!item || !item.message || !item.message) throw new Error("ConfirmModel: All Confirms must have 'message'");
 				return item.message;
 			},
 			final_message: function(item){
 				return item.final_message;
 			},
 			confirm_with_user: function(item){
-				// if (!item || item.confirm_with_user == undefined) throw new Error("PurchaseModel: All Purchases must have 'confirm_with_user'");
+				// if (!item || item.confirm_with_user == undefined) throw new Error("ConfirmModel: All Confirms must have 'confirm_with_user'");
 				return item.confirm_with_user;
 			},
 			session_finishes_at: function(item){
-				// if (!item || !item.session_finishes_at) throw new Error("PurchaseModel: All Purchases must have 'session_finishes_at'");
+				// if (!item || !item.session_finishes_at) throw new Error("ConfirmModel: All Confirms must have 'session_finishes_at'");
 				return new Date(item.session_finishes_at);
 			},
 			total_prices: function(item){
-				// if (!item || item.total_prices == undefined) throw new Error("PurchaseModel: All Purchases must have 'total_prices'");
+				// if (!item || item.total_prices == undefined) throw new Error("ConfirmModel: All Confirms must have 'total_prices'");
 				return item.total_prices;
 			},
 			pending_confirm: function(item){
@@ -74,27 +74,27 @@ if (typeof module != 'undefined' && module.exports) {
 				return item.test_mode;
 			},
 			// unrecognised: function(item) {
-			// 	return Twotapjs.Utilities.unrecognised(item, this, "PurchaseModel: unrecognised keys in Purchase: ", [
+			// 	return Twotapjs.Utilities.unrecognised(item, this, "ConfirmModel: unrecognised keys in Purchase: ", [
 			// 		'info',
 			// 		'_id'
 			// 	]);
 			// }
 
 			sites: function(item) {
-				if (!item || !item.sites) throw new Error("PurchaseModel: All purchases must have 'sites'");
+				if (!item || !item.sites) throw new Error("ConfirmModel: All Confirms must have 'sites'");
 				return Object.keys(item.sites).map(function(siteId) {
 					var site = item.sites[siteId];
 					if (!site) return;
 
 					site._id = siteId;
-					var model = new Twotapjs.Models.PurchaseSiteModel();
+					var model = new Twotapjs.Models.ConfirmSiteModel();
 					model.initialize(site);
 					return model;
 				});
 			},
 
 		}),
-		PurchaseSiteModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+		ConfirmSiteModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			info: function(item){
 				return item.info;
 			},
@@ -120,7 +120,7 @@ if (typeof module != 'undefined' && module.exports) {
 					if (!product) return;
 
 					product._id = productID;
-					var model = new Twotapjs.Models.PurchaseProductModel();
+					var model = new Twotapjs.Models.ConfirmProductModel();
 					model.initialize(product);
 					return model;
 				});
@@ -129,7 +129,7 @@ if (typeof module != 'undefined' && module.exports) {
 				return item._id;
 			},
 		}),
-		PurchaseProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
+		ConfirmProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			title: function(item){
 				return item.title;
 			},
