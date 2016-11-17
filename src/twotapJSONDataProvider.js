@@ -14,7 +14,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 	WinJS.Namespace.define('Twotapjs', {
 		JSONDataProvider: WinJS.Class.derive(XboxJS.Data.DataProvider,
-			function dataprovider_ctor(baseUrl, test_mode) {
+			function dataprovider_ctor(test_mode) {
 				// You must call the base class constructor to instantiate a DataProvider.
 				this._baseDataProviderConstructor();
 				this.Cart.getCart.items = null;
