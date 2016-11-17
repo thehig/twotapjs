@@ -9,12 +9,12 @@ if (typeof module != 'undefined' && module.exports) {
 }
 
 (function twotapClientInit() {
-	console.log('[+] Twotap JSON Data Provider 0.1.9');
+	console.log('[+] Twotap JSON Data Provider 0.1.10');
 
 
 	WinJS.Namespace.define('Twotapjs', {
 		JSONDataProvider: WinJS.Class.derive(XboxJS.Data.DataProvider,
-			function dataprovider_ctor(baseUrl) {
+			function dataprovider_ctor(baseUrl, test_mode) {
 				// You must call the base class constructor to instantiate a DataProvider.
 				this._baseDataProviderConstructor();
 				this.Cart.getCart.items = null;
@@ -23,6 +23,8 @@ if (typeof module != 'undefined' && module.exports) {
 
 				this.PreConfirmResponse.getPreConfirmResponse.items = null;
 				this.ConfirmResponse.getConfirmResponse.items = null;
+
+				this._test_mode = test_mode === false ? false : true;
 			}, {
 				Cart: {
 					DataModel: Twotapjs.Models.CartModel,
@@ -221,9 +223,12 @@ if (typeof module != 'undefined' && module.exports) {
                         		"method": confirmConfig.method,
                         		"http_confirm_url": confirmConfig.http_confirm_url,
                         		"http_finished_url": confirmConfig.http_finished_url
-                        	},
-                        	test_mode: 'fake_confirm'
+                        	}
                         };
+
+                        if(self._test_mode === true){
+                        	purchaseBody["test_mode"] = 'fake_confirm';
+                        }
 
                         // For each site
                         for(var siteIndex = 0; siteIndex < cart.sites.length; siteIndex++)
