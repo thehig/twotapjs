@@ -5,7 +5,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function ConfirmModelInit() {
-	console.log('[+] Twotap Purchase/Confirm Model 0.0.1');
+	console.log('[+] Twotap Purchase/Confirm Model 0.0.2');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		PreConfirmModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -48,6 +48,9 @@ if (typeof module != 'undefined' && module.exports) {
 			},
 			final_message: function(item){
 				return item.final_message;
+			},
+			confirm_message: function (item) {
+			    return item.confirm_message ? item.confirm_message : "";
 			},
 			confirm_with_user: function(item){
 				// if (!item || item.confirm_with_user == undefined) throw new Error("ConfirmModel: All Confirms must have 'confirm_with_user'");

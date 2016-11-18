@@ -4,7 +4,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function selectOneModelInit() {
-	console.log('[+] Twotap SelectOne Model 0.1.0');
+	console.log('[+] Twotap SelectOne Model 0.1.1');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		SelectOneModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -41,7 +41,7 @@ if (typeof module != 'undefined' && module.exports) {
 				return item.price === 'NA' ? undefined : item.price;
 			},
 			image: function(item) {
-				if (!item || !item.image) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'image'");
+				// if (!item || !item.image) throw new Error("SelectOneModelOption: All SelectOneModelOptions must have 'image'");
 				return item.image === 'NA' ? undefined : item.image;
 			},
 			alt_images: function(item) {
