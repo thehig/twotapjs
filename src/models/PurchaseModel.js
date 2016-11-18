@@ -5,7 +5,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function PurchaseModelInit() {
-	console.log('[+] Twotap Purchase Model 0.0.1');
+	console.log('[+] Twotap Purchase Model 0.0.2');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		PrePurchaseModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -128,6 +128,12 @@ if (typeof module != 'undefined' && module.exports) {
 			id: function(item){
 				return item._id;
 			},
+			status_messages: function(item){
+				return item.status_messages ? item.status_messages: [];
+			},
+			status_reason: function(item){
+				return item.status_reason ? item.status_reason: "";
+			}
 		}),
 		PurchaseProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			title: function(item){
