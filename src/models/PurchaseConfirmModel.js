@@ -5,7 +5,7 @@ if (typeof module != 'undefined' && module.exports) {
 
 
 (function ConfirmModelInit() {
-	console.log('[+] Twotap Purchase/Confirm Model 0.0.0');
+	console.log('[+] Twotap Purchase/Confirm Model 0.0.1');
 
 	WinJS.Namespace.define("Twotapjs.Models", {
 		PreConfirmModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
@@ -128,6 +128,12 @@ if (typeof module != 'undefined' && module.exports) {
 			id: function(item){
 				return item._id;
 			},
+			status_messages: function(item){
+				return item.status_messages ? item.status_messages: [];
+			},
+			status_reason: function(item){
+				return item.status_reason ? item.status_reason: "";
+			}
 		}),
 		ConfirmProductModel: WinJS.Class.derive(XboxJS.Data.DataModel, null, {
 			title: function(item){
